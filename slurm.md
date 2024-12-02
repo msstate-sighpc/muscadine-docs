@@ -9,15 +9,24 @@ First we need to install prerequisite software. The following are must-haves, an
 - UCX
 - Libevent
 
+Specific to Muscadine:
+- numa (Epyc 9454P have a numa node per ccx (4))
+
 ### Installing HWLOC:
+
+- found here: [https://github.com/open-mpi/hwloc/releases/latest]
 
 `./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared && make && make install`
 
 ### Installing LibEvent:
 
+- found here: [https://github.com/libevent/libevent/releases/latest]
+
 `./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 && make && make check && make install`
 
 ### Installing UCX:
+
+- found here: [https://github.com/openucx/ucx/releases/latest/]
 
 `./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/ucx-1.7.0 --enable-shared --enable-static && make && make check && make install`
 
@@ -87,6 +96,8 @@ EOF`
 `systemctl enable munge`
 
 ### Installing PMIX:
+
+- found here: [https://openpmix.github.io/downloads.html]
 
 `./configure CC=gcc CXX=g++ FC=gfortran \
 --prefix=/apps/pmix-3.2.3 \
