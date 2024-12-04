@@ -21,6 +21,7 @@ Specific to Muscadine:
 `./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared`
 
 	- additional flags for muscadine: `--disable-cuda --disable-nvml`
+
 `make `
 
 `make install`
