@@ -17,10 +17,10 @@ Specific to Muscadine:
 - found here: [https://github.com/open-mpi/hwloc/releases/latest]
 
 ```./autogen.sh```
-`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared`
+```./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared```
 	- additional flags for muscadine: `--disable-cuda --disable-nvml`
-`make `
-`make install`
+```make ```
+```make install```
 
 ### Installing LibEvent:
 
