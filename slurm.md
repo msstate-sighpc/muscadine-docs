@@ -30,10 +30,12 @@ Specific to Muscadine:
 
 - found here: [https://github.com/libevent/libevent/releases/latest]
 
-```./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 
+```
+./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 
 make
 make check
-make install```
+make install
+```
 
 ### Installing UCX:
 
