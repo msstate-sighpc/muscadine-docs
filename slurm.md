@@ -17,13 +17,19 @@ Specific to Muscadine:
 - found here: [https://github.com/open-mpi/hwloc/releases/latest]
 
 `./autogen.sh`
-`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared && make && make install`
+`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared
+	- additional flags for muscadine: `--disable-cuda --disable-nvml`
+`make `
+`make install`
 
 ### Installing LibEvent:
 
 - found here: [https://github.com/libevent/libevent/releases/latest]
 
-`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 && make && make check && make install`
+`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 
+`make `
+`make check `
+`make install`
 
 ### Installing UCX:
 
