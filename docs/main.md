@@ -23,7 +23,7 @@ in order to meet the needs of a deployment cluster w/ only 1 management node. vi
 
 ## NFS
 the end goal is to have the PureStorage Flashblade host all NFS shares for the cluster. currently it's not operational. the remaining U.2 drives in the head node are used to create a zfs pool that is shared over NFS. 
-- first create the zpool by folloing this guide: [ZFS](docs/zfs.md)
+- first create the zpool by folloing this guide: [ZFS](./docs/zfs.md)
 
 ## WareWulf
 Warewulf is covered in its own section here: [WareWulf](warewulf.md)
