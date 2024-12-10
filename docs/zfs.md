@@ -21,6 +21,8 @@ dnf install -y zfs
 
 ## Configuring ZFS
 assuming you have 1 U.2 drive as the boot drive, and the rest for the ZFS pool:
+
+### Identifying disks
 - identify the disks you wish to use for zfs by using lsblk: e.g.
 ```
 root@muscadine # lsblk
@@ -46,4 +48,8 @@ nvme4n1     259:16   0 894.3G  0 disk
 ```
 - here we can see our boot drive is `/dev/nvme3n1`(easily identified by its mountpoints) and our BOSS.N-1 cards are `/dev/nvme1n1`(identified by the different size)
 - we'll use all other drives for our zpool(`/dev/nvme0n1 /dev/nvme2n1 /dev/nvme5n1 /dev/nvme4n1`).
+	- don't worry about the device names or UUIDs. while the kernel does change which device names a drive gets on boot, zfs checks each against its own identificaiton system, so the /dev/ path is only important when creating the pool
 **NOTE:** since we're not using the drives for anything other than zfs, such as booting, we don't need a partition table. we'll pass the entire drive to zfs
+
+### Creating the Zpool
+
