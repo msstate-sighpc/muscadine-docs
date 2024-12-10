@@ -52,4 +52,37 @@ nvme4n1     259:16   0 894.3G  0 disk
 **NOTE:** since we're not using the drives for anything other than zfs, such as booting, we don't need a partition table. we'll pass the entire drive to zfs
 
 ### Creating the Zpool
+```
+# this creates a raidz1 zpool on the zpool
+zpool create tank raidz -f \
+	-o ashift=12 \
+	-o autotrim=on \
+	-O mountpoint=/tank \
+	-O canmount=noauto \
+	-O compression=zstd-fast \
+	/dev/nvme0n1 /dev/nvme2n1 /dev/nvme5n1 /dev/nvme4n1
+```
 
+### Create the datasets
+- since we'll be using zfs for our home directory, let's move the current home where we can access it
+```
+rsync -vax /home/ /home.old/ # trailing slashes are important!
+```
+- we try to make a dataset for each chunk of the filesystem. these can be snapshotted and backed up easily. 
+```
+zfs create tank/home \
+	-O mountpoint=home \
+	-O canmount=on
+zfs create tank/apps \
+	-O mountpoint=home \
+	-O canmount=on
+zfs create tank/local \
+	-O mountpoint=/local \
+	-O canmount=on
+zfs create tank/local/patches
+zfs create tank/local/ww
+```
+- now let's move everything back
+```
+rsync -vax /home.old/ /home/
+```
