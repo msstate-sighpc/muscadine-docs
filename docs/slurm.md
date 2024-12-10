@@ -16,15 +16,16 @@ Specific to Muscadine:
 
 - found here: [https://github.com/open-mpi/hwloc/releases/latest]
 
-`./autogen.sh`
-
-`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared`
-
+```
+./autogen.sh #if necessary
+./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/hwloc-2.1.0 --enable-netloc --enable-static --enable-shared
+```
 - additional flags for muscadine: `--disable-cuda --disable-nvml`
-
-`make`
-
-`make install`
+```
+make
+make check
+make install
+```
 
 ### Installing LibEvent:
 
@@ -36,28 +37,41 @@ make
 make check
 make install
 ```
+- as of 12/4/24, openssl deprecated a dependent feature. using release-2.2.1-alpha instead of latest release solved this issue
 
 ### Installing UCX:
 
 - found here: [https://github.com/openucx/ucx/releases/latest/]
 
-`./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/ucx-1.7.0 --enable-shared --enable-static && make && make check && make install`
+```
+./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/ucx-1.7.0 --enable-shared --enable-static
+make
+make check
+make install
+```
 
 ### Installing Munge:
 
 - found here: [https://github.com/dun/munge/releases/latest]
 
-`./bootstrap`
-`/configure CC=gcc CXX=g++ FC=gfortran --prefix=/opt/munge-0.5.15 --enable-shared --enable-static --enable-arch=64 --enable-debug && make && make install`
+```
+./bootstrap
+./configure CC=gcc CXX=g++ FC=gfortran --prefix=/opt/munge-0.5.16 --enable-shared --enable-static --enable-arch=64 --enable-debug
+make
+make check
+make install
+```
 
 - **Create the munge key:**
 
-`/opt/munge-0.5.15/sbin/mungekey -cv`
+`/opt/munge-0.5.16/sbin/mungekey -cv`
 
-- **Link munge -> munge-0.5.15:**
+- **Link munge -> munge-0.5.16:**
 
-`cd /opt/`
-`ln -s munge-0.5.15 munge`
+```
+cd /opt/
+ln -s munge-0.5.16 munge
+```
 
 - **Create the socket dir:**
 
@@ -90,7 +104,7 @@ EOF`
 - **Edit the launch options:**
 
 `cat <<EOF>>/opt/munge/etc/sysconfig/munge
-OPTIONS="--key-file=/opt/munge-0.5.15/etc/munge/munge.key --num-threads=2 --log-file=/var/log/munge.log"
+OPTIONS="--key-file=/opt/munge-0.5.16/etc/munge/munge.key --num-threads=2 --log-file=/var/log/munge.log"
 EOF`
 
 - **Copy the service file to /opt/munge/etc so it can be distributed to each node:**
@@ -99,8 +113,8 @@ EOF`
 
 - **Change ownership & permissions:**
 
-`chown munge:munge -R /opt/munge-0.5.15`
-`chmod g+s,g-w -R /opt/munge-0.5.15`
+`chown munge:munge -R /opt/munge-0.5.16`
+`chmod g+s,g-w -R /opt/munge-0.5.16`
 
 - **Start the service:**
 
@@ -110,18 +124,22 @@ EOF`
 
 ### Installing PMIX:
 
-- found here: [https://openpmix.github.io/downloads.html]
+- found here: [https://github.com/openpmix/openpmix/releases/latest]
 
-`./configure CC=gcc CXX=g++ FC=gfortran \
---prefix=/apps/pmix-3.2.3 \
+```
+./configure CC=gcc CXX=g++ FC=gfortran \
+--prefix=/apps/pmix-5.0.4 \
 --enable-shared --enable-static \
 --with-hwloc=/apps/hwloc-2.1.0 \
 --with-hwloc-libdir=/apps/hwloc-2.1.0/lib \
---with-munge=/opt/munge-0.5.15 \
---with-munge-libdir=/opt/munge-0.5.15/lib \
+--with-munge=/opt/munge-0.5.16 \
+--with-munge-libdir=/opt/munge-0.5.16/lib \
 --with-libevent=/apps/libevent-2.1.11 \
---with-libevent-libdir=/apps/libevent-2.1.11/lib && \
-make && make check && make install`
+--with-libevent-libdir=/apps/libevent-2.1.11/lib
+make
+make check
+make install
+```
 
 ## Installing Slurm[edit]
 These steps are executed on the slurm management node as a non-privileged user
@@ -129,15 +147,20 @@ These steps are executed on the slurm management node as a non-privileged user
 - **Load the required modules:**
 
 `module load python`
+
 ### Configure Slurm
 
-`./configure CC=gcc CXX=g++ FC=gfortran \
+- found here: [https://download.schedmd.com/slurm/slurm-24.11.0.tar.bz2]
+
+```
+./configure CC=gcc CXX=g++ FC=gfortran \
 --prefix=/opt/slurm-22.05.6 \
 --enable-pam --enable-salloc-kill-cmd \
 --with-hwloc=/apps/hwloc-2.1.0 \
---with-pmix=/apps/pmix-3.2.3 \
+--with-pmix=/apps/pmix-5.0.4 \
 --with-munge=/opt/munge \
---with-ucx=/apps/ucx-1.7.0`
+--with-ucx=/apps/ucx-1.7.0
+```
 
 ### Build it
 
@@ -147,49 +170,60 @@ These steps are executed on the slurm management node as a non-privileged user
 
 ### Finish installing all the auth and pmi modules:
 
-`cd contribs/pmi`
-`make instxll`
-`cd ../pmix`
-`make install`
-`cd ../perlapi`
-`make && make install`
-`cd /opt/slurm-22.05.6/lib/ && ln -s ../lib64/perl5 perl`
-`cd -`
-`cd ../pam`
-`sudo make install`
-`cd ../pam_slurm_adopt`
-`sudo make install`
-`cp ../sjstat /opt/slurm-22.05.6/bin/`
-`cp ../seff/seff /opt/slurm-22.05.6/bin/`
-`cp ../seff/smail /opt/slurm-22.05.6/bin/`
+```
+cd contribs/pmi
+make instxll
+cd ../pmix
+make install
+cd ../perlapi
+make && make install
+cd /opt/slurm-22.05.6/lib/ && ln -s ../lib64/perl5 perl
+cd -
+cd ../pam
+sudo make install
+cd ../pam_slurm_adopt
+sudo make install
+cp ../sjstat /opt/slurm-22.05.6/bin/
+cp ../seff/seff /opt/slurm-22.05.6/bin/
+cp ../seff/smail /opt/slurm-22.05.6/bin/
+```
 
 ### Install all the extra slurm tools we like
 
-`cd /tmp/`
-`unzip Slurm_tools-master.zip`
-`cp Slurm_tools-master/partitions/showpartitions /opt/slurm-22.05.6/bin/`
-`cp Slurm_tools-master/showuserjobs/showuserjobs /opt/slurm-22.05.6/bin/`
+```
+cd /tmp/
+git clone https://github.com/OleHolmNielsen/Slurm_tools.git Slurm_tools-master # or unzip Slurm_tools-master.zip
+cp Slurm_tools-master/partitions/showpartitions Slurm_tools-master/showuserjobs/showuserjobs /opt/slurm-22.05.6/bin/
+```
 
 ### If internet access
 
-`git clone https://github.com/hl723/seff-array.git`
-`cp seff-array/seff-array.py /opt/slurm-21.08.8/bin/seff-array`
+```
+git clone https://github.com/hl723/seff-array.git
+cp seff-array/seff-array.py /opt/slurm-21.08.8/bin/seff-array
+```
 
 ### Create slurm/etc dir and transfer service files
 
-`mkdir /opt/slurm-22.05.6/etc`
-`cp etc/*.service /opt/slurm-22.05.6/etc/`
+```
+mkdir /opt/slurm-22.05.6/etc
+cp etc/*.service /opt/slurm-22.05.6/etc/
+```
 
 ### Modify the service files to run out of /opt/slurm
 
-`sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmctld.service`
-`sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmdbd.service`
-`sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmd.service`
-`sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmrestd.service`
+```
+sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmctld.service
+sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmdbd.service
+sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmd.service
+sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmrestd.service
+```
 
 ### Add the following line to slurmd.service, just above the ExecStart line:
 
-`Environment="SLURMD_OPTIONS=-M --conf-server Hercules-mn-1"`
+```
+Environment="SLURMD_OPTIONS=-M --conf-server Hercules-mn-1"
+```
 
 ### Put the config files in place
 
