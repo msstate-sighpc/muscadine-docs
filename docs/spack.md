@@ -134,7 +134,7 @@ which has an alias `fix-spack` that runs the above command. Making a modulefile 
 ### 3.1 Information
 There exists one environment for every compiler+mpi+arch in a specific syntax:
 
-<COMPILER>-<VERSION>-<MPI>-<VERSION>-ARCH
+\<COMPILER\>-\<VERSION\>-\<MPI\>-\<VERSION\>-\<ARCH\>
 
 examples:
 
