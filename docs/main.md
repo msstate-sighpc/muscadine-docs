@@ -1,6 +1,9 @@
 # Muscadine Documentation
 the included docs exist to instruct someone with a bit of knowledge about clusters but no muscadine-specific knowledge how to bring muscadine up from scratch, should a catastrophy happen or deep update.
 
+## Configuration Files:
+all configuration files mentioned in these docs *should* be included in this repo. these should **NOT** be droppped in, but rather used as a reference when following the documentation:
+
 ## Starting Point:
 before doing anything, it's important to know the starting point these documents assume you are at:
 
@@ -21,6 +24,19 @@ in order to meet the needs of a deployment cluster w/ only 1 management node. vi
 ## NFS
 the end goal is to have the PureStorage Flashblade host all NFS shares for the cluster. currently it's not operational. the remaining U.2 drives in the head node are used to create a zfs pool that is shared over NFS. 
 - first create the zpool by folloing this guide: [ZFS](zfs.md)
+- once the zfs datasets are created, they can be exported appropriately
+modify /etc/exports accordingly:
+```
+#share home and apps to everything in the muscadine cluster:
+/home	192.168.34.0/24(rw,root_squash)
+/apps	192.168.34.0/24(rw,no_root_squash)
+# note no_root_squash, this is for cluster-wide spack building
+# the ww vm has little storage. we want to store the entire warewulf insallation outside of it's image.
+/local/ww/ 192.168.34.13(rw,no_root_squash)
+we'll use patches for building ww images and such.
+/local/patches/ 192.168.34.13(ro,root_squash)
+```
+- now run `exportfs -a` to make apply the changes
 
 ## WareWulf
 Warewulf is covered in its own section here: [WareWulf](warewulf.md)
