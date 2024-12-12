@@ -13,7 +13,7 @@ Last updated July 8, 2024, by Huston Rogers (jhrogers)
 4. Adding to an Environment
 5. Modules
 6. Cloning Environments
-7+. Appendix of Environments Created, to be updated as new environments are created/updated
+7. Cleanup <!--+ Appendix of Environments Created, to be updated as new environments are created/updated-->
 
 ## 1. Installation and Global Configs
 
