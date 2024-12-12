@@ -39,9 +39,16 @@ we'll use patches for building ww images and such.
 - now run `exportfs -a` to make apply the changes
 
 ## WareWulf
-Warewulf is covered in its own section here: [WareWulf](warewulf.md)
+- Warewulf is covered in its own section here: [WareWulf](warewulf.md)
+
+## Slurm
+- Slurm is covered in its own section here: [Slurm](slurm.md)
 
 ## Spack
-Spack is covered in its own section here: [Spack](spack.md)
+- Spack is covered in its own section here: [Spack](spack.md)
+
+## PureStorage Flashblade
+Ideally, in the event of a rebuild, the storage persists from the previous build. However, included is the documentation for the blade as well as configurations needed to initially get it running
+- Flashblade is covered in its own section here: [Flashblade](flashblade.md)
 
 gitrepo
