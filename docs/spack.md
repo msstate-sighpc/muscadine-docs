@@ -240,7 +240,7 @@ spack concretize
 ```
 
 ### 4.5 Fixing boo boos
-If a package doesn't concretize correctly, you would need to remove it and fix it. From above example, it tries to add intel-oneapi-mpi
+If a package doesn't concretize correctly, you would need to uninstall it and fix it. From above example, it tries to add intel-oneapi-mpi
 and hdf5 as a dependency, and it may have done the wrong compiler. We don't want it to do mpi, for sure. We can add hdf5 beforehand, so that we only build one version
 
 ```
@@ -250,6 +250,22 @@ spack add hdf5 +fortran +hl ~~mpi %oneapi@2023.2.4
 spack add netcdf-c +hdf4 ~~mpi %oneapi@2023.2.4
 
 spack concretize -f
+```
+
+### 4.5.1 Addendum, example in ticket 138580
+
+```
+#Env activate
+spack env activate gcc-11_3_1-nompi-x86_64_v3
+#Find the hash that needs to be updated
+spack find --long netcdf-c
+#Uninstall, including dependents
+spack uninstall /zmfktng --dependents
+#Edit the spack.yaml to have new options, move the spack.lock file to spack.lock.date(or dot bak)
+spack concretize
+spack install -j 4
+
+and repeat for each arch target
 ```
 
 ### 4.6 Update/Install the new package(s)
