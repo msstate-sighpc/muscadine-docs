@@ -261,6 +261,7 @@ spack env activate gcc-11_3_1-nompi-x86_64_v3
 spack find --long netcdf-c
 #Uninstall, including dependents
 spack uninstall /zmfktng --dependents
+spack uninstall hdf@4
 #Edit the spack.yaml to have new options, move the spack.lock file to spack.lock.date(or dot bak)
 spack concretize
 spack install -j 4
