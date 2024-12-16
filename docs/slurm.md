@@ -139,7 +139,7 @@ make check
 make install
 ```
 
-## Installing Slurm[edit]
+## Installing Slurm<!--[edit]-->
 These steps are executed on the slurm management node as a non-privileged user
 - **Load the required modules:**
 ```
@@ -249,7 +249,7 @@ ln -s slurm-21.08.8 slurm
 mkdir -p /var/log/slurm
 ```
 
-## Creating the Slurm Database[edit]
+## Creating the Slurm Database<!--[edit]-->
 This section assumes we're setting up Slurm for the first time on a cluster. If we're simply upgrading Slurm for a given cluster, this section should be skipped. This section uses muscadine as an example case. Change cluster name as needed.
 
 - **On mitchell, login as root DB user**
@@ -290,7 +290,7 @@ systemctl enable slurmdbd
 tail -f /var/log/slurm/slurmdbd.log
 ```
 
-## Launching Slurmctld[edit]
+## Launching Slurmctld<!--[edit]-->
 On the cluster management node(s):
 ```
 cp /opt/slurm/etc/slurmctld.service /etc/systemd/system/
@@ -299,7 +299,7 @@ systemctl start slurmctld
 systemctl enable slurmctld
 ```
 
-## Pushing the Slurm installation to all available nodes[edit]
+## Pushing the Slurm installation to all available nodes<!--[edit]-->
 - **Define the nodelists (using Orion as an example):**
 ```
 nodelist=Orion-login-[1-4],Orion-devel-[1-2],Orion-dtn-[1-4],Orion-ood,Orion-[01-25]-[01-72] ood=Orion-ood
@@ -344,7 +344,7 @@ pdsh -w $nodelist -R ssh systemctl start slurmd
 rsync -vaxtHA /opt/slurm/etc $ood:/opt/slurm/
 ```
 
-- **Setting up the Initial Slurm Accounts/QOSs/Users[edit]**
+- **Setting up the Initial Slurm Accounts/QOSs/Users<!--[edit]-->**
 - **This step assumes we're setting up a fresh slurm database for a new cluster. This step isn't needing if we're just upgrading slurm.:**
 
 - **Create the admin account**
