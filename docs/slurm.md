@@ -173,7 +173,7 @@ make install
 
 ```
 cd contribs/pmi
-make instxll
+make install
 cd ../pmix
 make install
 cd ../perlapi

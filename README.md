@@ -1,7 +1,5 @@
 # muscadine-notes
+All notes, config files, and documentation for the SCC24 Team Cluster "Muscadine" will be stored here
 
-changes made to muscadine during initial setup and beyond will be documented here by symlinking changed files and commenting them
-
-## DO NOT DELETE THE CONTENTS OF THIS REPO LOCALLY ON MUSCADINE:
-- in order to keep this repo up to date w/ the `.conf` files of the system, said `.conf` files have beem moved here and symlinked to. deleting the contents of this repo on the local muscadine system without first copying the `.conf` files back to their proper place will have disastrous consequences
-## YOU HAVE BEEN WARNED
+## Intention
+configuration files stored in this repo are intended as a backup and for reference only. It is not advised to use these configs when bringing muscadine back up from scratch. follow the documentation for that.
