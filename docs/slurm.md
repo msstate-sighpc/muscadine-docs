@@ -191,19 +191,19 @@ git clone https://github.com/OleHolmNielsen/Slurm_tools.git Slurm_tools-master #
 cp Slurm_tools-master/partitions/showpartitions Slurm_tools-master/showuserjobs/showuserjobs /opt/slurm-22.05.6/bin/
 ```
 
-### If internet access
+- **If internet access**
 ```
 git clone https://github.com/hl723/seff-array.git
 cp seff-array/seff-array.py /opt/slurm-21.08.8/bin/seff-array
 ```
 
-### Create slurm/etc dir and transfer service files
+- **Create slurm/etc dir and transfer service files**
 ```
 mkdir /opt/slurm-22.05.6/etc
 cp etc/*.service /opt/slurm-22.05.6/etc/
 ```
 
-### Modify the service files to run out of /opt/slurm
+- **Modify the service files to run out of /opt/slurm**
 ```
 sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmctld.service
 sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmdbd.service
@@ -212,39 +212,39 @@ sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmrestd.ser
 ```
 
 <!--
-### Add the following line to slurmd.service, just above the ExecStart line:
+- **Add the following line to slurmd.service, just above the ExecStart line:**
 ```
 Environment="SLURMD_OPTIONS=-M --conf-server Hercules-mn-1"
 ```
 -->
 
-### Put the config files in place
+- **Put the config files in place**
 ```
 cp /opt/slurm/etc/*.conf /opt/slurm-22.05.6/etc/
 cp -r /opt/slurm/etc/CONF /opt/slurm-22.05.6/etc/
 ```
 
-### Fix ownership and permissions
+- **Fix ownership and permissions**
 ```
 chmod g-w -R /opt/slurm-22.05.6
 chown slurm:slurm -R /opt/slurm-22.05.6
 chmod 600 /opt/slurm-22.05.6/etc/slurmdbd.conf
 ```
 
-### Stop the old slurmdbd and slurmctld (if upgrading slurm)
+- **Stop the old slurmdbd and slurmctld (if upgrading slurm)**
 ```
 systemctl stop slurmctld
 systemctl stop slurmdbd
 ```
 
-### Relink to new slurm:
+- **Relink to new slurm:**
 ```
 rm /opt/slurm
 cd /opt/
 ln -s slurm-21.08.8 slurm
 ```
 
-### Make the log dir if it doesn't exist
+- **Make the log dir if it doesn't exist**
 ```
 mkdir -p /var/log/slurm
 ```
@@ -252,40 +252,40 @@ mkdir -p /var/log/slurm
 ## Creating the Slurm Database[edit]
 This section assumes we're setting up Slurm for the first time on a cluster. If we're simply upgrading Slurm for a given cluster, this section should be skipped. This section uses muscadine as an example case. Change cluster name as needed.
 
-### On mitchell, login as root DB user
+- **On mitchell, login as root DB user**
 ```
 mysql -u root -p
 ```
 
-### Create the slurm database
+- **Create the slurm database**
 ```
 CREATE DATABASE adm_muscadine_slurm;
 ```
 
-### Switch to that DB
+- **Switch to that DB**
 ```
 USE adm_muscadine_slurm;
 ```
 
-### Create the slurm DB user (password in pw file)
+- **Create the slurm DB user (password in pw file)**
 ```
 CREATE USER 'muscadine_slurm'@'muscadine-node-1.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';
 <!--CREATE USER 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';-->
 ```
 
-### Give permissions
+- **Give permissions**
 ```
 GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-1.hpc.msstate.edu';
 <!--`GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu';`-->
 ```
 
-### Now start the slurmdbd on the SlurmDBD host to have slurm set up and start populating the database
+- **Now start the slurmdbd on the SlurmDBD host to have slurm set up and start populating the database**
 ```
 systemctl start slurmdbd
 systemctl enable slurmdbd
 ```
 
-### Watch the slurmdbd log file to see when it finishes:
+- **Watch the slurmdbd log file to see when it finishes:**
 ```
 tail -f /var/log/slurm/slurmdbd.log
 ```
@@ -305,64 +305,64 @@ systemctl enable slurmctld
 nodelist=Orion-login-[1-4],Orion-devel-[1-2],Orion-dtn-[1-4],Orion-ood,Orion-[01-25]-[01-72] ood=Orion-ood
 ```
 
-### Load pdsh
+- **Load pdsh**
 ```
 module load pdsh
 ```
 
-### Stop and unlink the existing slurm install on the nodes
+- **Stop and unlink the existing slurm install on the nodes**
 ```
 pdsh -w $nodelist -R ssh systemctl stop slurmd
 pdsh -w $nodelist -R ssh rm /opt/slurm
 ```
 
-### Copy the installation over
+- **Copy the installation over**
 ```
 pdsh -w $nodelist -R exec rsync -vaxtHA /opt/slurm-21.08.8 %h:/opt/
 pdsh -w $nodelist -R exec rsync -vaxtHA /lib64/security/pam_slurm* %h:/lib64/security/
 ```
 
-### Link the new installation and copy service files
+- **Link the new installation and copy service files**
 ```
 pdsh -w $nodelist -R ssh "cd /opt && ln -s slurm-21.08.8 slurm"
 pdsh -w $nodelist -R ssh cp /opt/slurm/etc/slurmd.service /etc/systemd/system/
 ```
 
-### Remove the etc directory (for configless install)
+- **Remove the etc directory (for configless install)**
 ```
 pdsh -w $nodelist -R ssh rm -rf /opt/slurm/etc
 ```
 
-### Start the new slurmds
+- **Start the new slurmds**
 ```
 pdsh -w $nodelist -R ssh systemctl daemon-reload
 pdsh -w $nodelist -R ssh systemctl start slurmd
 ```
 
-### Push the etc directory to the OOD nodes, because OOD crashes without it:
+- **Push the etc directory to the OOD nodes, because OOD crashes without it:**
 ```
 rsync -vaxtHA /opt/slurm/etc $ood:/opt/slurm/
 ```
 
-## Setting up the Initial Slurm Accounts/QOSs/Users[edit]
+- **Setting up the Initial Slurm Accounts/QOSs/Users[edit]**
 - **This step assumes we're setting up a fresh slurm database for a new cluster. This step isn't needing if we're just upgrading slurm.:**
 
-### Create the admin account
+- **Create the admin account**
 ```
 sacctmgr --immediate add account admin Cluster=hercules Parent=root
 ```
 
-### Set the qos parameters (assuming using the default 'normal' qos)
+- **Set the qos parameters (assuming using the default 'normal' qos)**
 ```
 sacctmgr --immediate modify qos normal set Priority=20 Flags=DenyOnLimit UsageFactor=1.000000
 ```
 
-### Allow the admin account to use the configured QOS
+- **Allow the admin account to use the configured QOS**
 ```
 sacctmgr --immediate modify account admin set qos=normal defaultqos=normal
 ```
 
-### Add users to the admin account
+- **Add users to the admin account**
 ```
 sacctmgr --immediate add user joey Cluster=hercules Account=admin fairshare=parent
 sacctmgr --immediate add user sesser Cluster=hercules Account=admin fairshare=parent
@@ -371,7 +371,7 @@ sacctmgr --immediate add user sanders Cluster=hercules Account=admin fairshare=p
 sacctmgr --immediate add user jhrogers Cluster=hercules Account=admin fairshare=parent
 ```
 
-### The above admin users should now be able to submit jobs with:
+- **The above admin users should now be able to submit jobs with:**
 ```
 #SBATCH -A admin
 #SBATCH -p <clustername>
