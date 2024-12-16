@@ -8,6 +8,7 @@ First we need to install prerequisite software. The following are must-haves, an
 - Pmix (3.X.X)
 - UCX
 - Libevent
+- mysql-devel (from repo)
 
 Specific to Muscadine:
 - numa (Epyc 9454P have a numa node per ccx (4))
@@ -103,24 +104,30 @@ EOF`
 
 - **Edit the launch options:**
 
-`cat <<EOF>>/opt/munge/etc/sysconfig/munge
+```
+cat <<EOF>>/opt/munge/etc/sysconfig/munge
 OPTIONS="--key-file=/opt/munge-0.5.16/etc/munge/munge.key --num-threads=2 --log-file=/var/log/munge.log"
-EOF`
+EOF
+```
 
 - **Copy the service file to /opt/munge/etc so it can be distributed to each node:**
 
-`cp /etc/systemd/system/munge.service /opt/munge/etc/`
+```
+cp /etc/systemd/system/munge.service /opt/munge/etc/
+```
 
 - **Change ownership & permissions:**
 
-`chown munge:munge -R /opt/munge-0.5.16`
-`chmod g+s,g-w -R /opt/munge-0.5.16`
-
+```
+chown munge:munge -R /opt/munge-0.5.16
+chmod g+s,g-w -R /opt/munge-0.5.16
+```
 - **Start the service:**
-
-`systemctl daemon-reload`
-`systemctl start munge`
-`systemctl enable munge`
+```
+systemctl daemon-reload
+systemctl start munge
+systemctl enable munge
+```
 
 ### Installing PMIX:
 
