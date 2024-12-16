@@ -1,0 +1,37 @@
+modules:
+  prefix_inspections:
+    ./bin:
+      - 'PATH'
+    ./man:
+      - 'MANPATH'
+    ./share/man:
+      - 'MANPATH'
+    ./lib/pkgconfig:
+      - 'PKG_CONFIG_PATH'
+    ./lib64/pkgconfig:
+      - 'PKG_CONFIG_PATH'
+    ./share/pkgconfig:
+      - 'PKG_CONFIG_PATH'
+    ./lib64:
+      - 'LD_LIBRARY_PATH'
+    ./lib:
+      - 'LD_LIBRARY_PATH'
+  default:
+    enable::
+      - lmod
+    arch_folder: false
+    lmod:
+      exclude_implicits: true
+      hide_implicits: true
+      core_compilers:
+        - 'gcc@11.4.1'
+      hierarchy:
+        - mpi
+      hash_length: 0
+      all:
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+    roots:
+      tcl: /apps/spack-zen4-v1.0/modulefiles
+      lmod: /apps/spack-zen4-v1.0/modulefiles

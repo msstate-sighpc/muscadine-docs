@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+
+192.168.35.31   muscadine-node-1-ib  muscadine-node-1-ib.hpc.msstate.edu
+192.168.35.32   muscadine-node-2-ib  muscadine-node-2-ib.hpc.msstate.edu
+192.168.35.33   muscadine-node-3-ib  muscadine-node-3-ib.hpc.msstate.edu
+192.168.35.34   muscadine-node-4-ib  muscadine-node-4-ib.hpc.msstate.edu
+192.168.35.35   muscadine-node-5-ib  muscadine-node-5-ib.hpc.msstate.edu
+
