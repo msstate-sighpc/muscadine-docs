@@ -163,10 +163,11 @@ These steps are executed on the slurm management node as a non-privileged user
 ```
 
 ### Build it
-
-`make`
-`make check`
-`make install`
+```
+make
+make check
+make install
+```
 
 ### Finish installing all the auth and pmi modules:
 
