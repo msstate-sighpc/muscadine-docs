@@ -211,12 +211,10 @@ sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmd.service
 sed -i 's/opt\/slurm-22.05.6/opt\/slurm/g' /opt/slurm-22.05.6/etc/slurmrestd.service
 ```
 
-<!--
 - **Add the following line to slurmd.service, just above the ExecStart line:**
 ```
-Environment="SLURMD_OPTIONS=-M --conf-server Hercules-mn-1"
+Environment="SLURMD_OPTIONS=-M --conf-server muscadine-node-1"
 ```
--->
 
 - **Put the config files in place**
 ```
