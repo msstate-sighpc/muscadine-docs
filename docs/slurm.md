@@ -293,6 +293,8 @@ tail -f /var/log/slurm/slurmdbd.log
 On the cluster management node(s):
 ```
 cp /opt/slurm/etc/slurmctld.service /etc/systemd/system/
+mkdir /var/spool/slurmctld
+chown -R slurm:slurm /var/spool/slurmctld
 systemctl daemon-reload
 systemctl start slurmctld
 systemctl enable slurmctld
