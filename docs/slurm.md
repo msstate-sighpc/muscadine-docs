@@ -11,7 +11,8 @@ First we need to install prerequisite software. The following are must-haves, an
 - mysql-devel (from repo)
 
 Specific to Muscadine:
-- numa (Epyc 9454P have a numa node per ccx (4))
+- TODO: numa (Epyc 9454P have a numa node per ccx (4))
+- amdgpu (hwloc requries opencl in order to use it)
 
 ### Installing HWLOC:
 
@@ -25,7 +26,7 @@ Specific to Muscadine:
 ```
 make
 make check
-make install
+sudo make install
 ```
 
 ### Installing LibEvent:
@@ -36,7 +37,7 @@ make install
 ./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/libevent-2.1.11 
 make
 make check
-make install
+sudo make install
 ```
 - as of 12/4/24, openssl deprecated a dependent feature. using release-2.2.1-alpha instead of latest release solved this issue
 
@@ -48,7 +49,7 @@ make install
 ./configure CC=gcc CXX=g++ FC=gfortran --prefix=/apps/ucx-1.7.0 --enable-shared --enable-static
 make
 make check
-make install
+sudo make install
 ```
 
 ### Installing Munge:
@@ -60,7 +61,7 @@ make install
 ./configure CC=gcc CXX=g++ FC=gfortran --prefix=/opt/munge-0.5.16 --enable-shared --enable-static --enable-arch=64 --enable-debug
 make
 make check
-make install
+sudo make install
 ```
 
 - **Create the munge key:**
@@ -136,7 +137,7 @@ systemctl enable munge
 --with-libevent-libdir=/apps/libevent-2.1.11/lib
 make
 make check
-make install
+sudo make install
 ```
 
 ## Installing Slurm<!--[edit]-->
@@ -162,17 +163,17 @@ module load python
 ```
 make
 make check
-make install
+sudo make install
 ```
 
 ### Finish installing all the auth and pmi modules:
 ```
 cd contribs/pmi
-make install
+sudo make install
 cd ../pmix
-make install
+sudo make install
 cd ../perlapi
-make && make install
+make && sudo make install
 cd /opt/slurm-22.05.6/lib/ && ln -s ../lib64/perl5 perl
 cd -
 cd ../pam
@@ -268,14 +269,14 @@ USE adm_muscadine_slurm;
 - **Create the slurm DB user (password in pw file)**
 ```
 CREATE USER 'muscadine_slurm'@'muscadine-node-1.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';
-<!--CREATE USER 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';-->
 ```
+<!--CREATE USER 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';-->
 
 - **Give permissions**
 ```
 GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-1.hpc.msstate.edu';
-<!--`GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu';`-->
 ```
+<!--`GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu';`-->
 
 - **Now start the slurmdbd on the SlurmDBD host to have slurm set up and start populating the database**
 ```
@@ -300,54 +301,89 @@ systemctl enable slurmctld
 ## Pushing the Slurm installation to all available nodes<!--[edit]-->
 - **Define the nodelists (using Orion as an example):**
 ```
-nodelist=Orion-login-[1-4],Orion-devel-[1-2],Orion-dtn-[1-4],Orion-ood,Orion-[01-25]-[01-72] ood=Orion-ood
+NodeName=muscadine-node-1 CPUs=96 Boards=1 SocketsPerBoard=1 CoresPerSocket=48 ThreadsPerCore=2 RealMemory=192268 State=UNKNOWN Weight=2
+NodeName=muscadine-node-[2-5] CPUs=96 Boards=1 SocketsPerBoard=1 CoresPerSocket=48 ThreadsPerCore=2 RealMemory=192268 State=UNKNOWN
 ```
+<!--nodelist=Orion-login-[1-4],Orion-devel-[1-2],Orion-dtn-[1-4],Orion-ood,Orion-[01-25]-[01-72] ood=Orion-ood-->
 
-- **Load pdsh**
+### The propogating slurm to the rest of the nodes will be done inside the WareWulf contianer
+<!--- **Load pdsh**
 ```
 module load pdsh
+```-->
+- **create a copy of the current container for slurm's changes:**
+```
+wwctl container copy base-rocky-testing base-rocky-9.4-ib-gpu-slurm
 ```
 
-- **Stop and unlink the existing slurm install on the nodes**
+<!--- **Stop and unlink the existing slurm install on the nodes**
 ```
 pdsh -w $nodelist -R ssh systemctl stop slurmd
 pdsh -w $nodelist -R ssh rm /opt/slurm
+```-->
+- **cd into the ww chroot:**
+```
+cd /opt/warewulf/var/warewulf/chroots/base-rocky-9.4-ib-gpu-slurm/rootfs
 ```
 
 - **Copy the installation over**
 ```
+rsync -vaxtHA muscadine-node-1:/opt/slurm-* opt/
+rsync -vaxtHA muscadine-node-1:/lib64/security/pam_slurm* lib64/security/
+```
+<!--- **Copy the installation over**
+```
 pdsh -w $nodelist -R exec rsync -vaxtHA /opt/slurm-21.08.8 %h:/opt/
 pdsh -w $nodelist -R exec rsync -vaxtHA /lib64/security/pam_slurm* %h:/lib64/security/
-```
+```-->
 
-- **Link the new installation and copy service files**
+<!--- **Link the new installation and copy service files**
 ```
 pdsh -w $nodelist -R ssh "cd /opt && ln -s slurm-21.08.8 slurm"
 pdsh -w $nodelist -R ssh cp /opt/slurm/etc/slurmd.service /etc/systemd/system/
+```-->
+- **Link the new installation and copy service files**
+```
+cd opt && ln -s slurm-* slurm && cd -"
+cp opt/slurm/etc/slurmd.service /etc/systemd/system/
 ```
 
-- **Remove the etc directory (for configless install)**
+<!--- **Remove the etc directory (for configless install)**
 ```
 pdsh -w $nodelist -R ssh rm -rf /opt/slurm/etc
+```-->
+- **Remove the etc directory (for configless install)**
+```
+rm -rf opt/slurm/etc
 ```
 
-- **Start the new slurmds**
+- **Add the munge user and group to the system:**
+```
+getent passwd munge >> /etc/passwd
+getent group munge >> /etc/group
+```
+
+<!--- **Start the new slurmds**
 ```
 pdsh -w $nodelist -R ssh systemctl daemon-reload
 pdsh -w $nodelist -R ssh systemctl start slurmd
+```-->
+- **Boot the WW Nodes and check if slurmd is running:**
+```
+pdsh -w $nodelist -R ssh systemctl status slurmd
 ```
 
-- **Push the etc directory to the OOD nodes, because OOD crashes without it:**
+<!--- **Push the etc directory to the OOD nodes, because OOD crashes without it:**
 ```
 rsync -vaxtHA /opt/slurm/etc $ood:/opt/slurm/
-```
+```-->
 
-- **Setting up the Initial Slurm Accounts/QOSs/Users<!--[edit]-->**
+## Setting up the Initial Slurm Accounts/QOSs/Users<!--[edit]-->
 - **This step assumes we're setting up a fresh slurm database for a new cluster. This step isn't needing if we're just upgrading slurm.:**
 
 - **Create the admin account**
 ```
-sacctmgr --immediate add account admin Cluster=hercules Parent=root
+sacctmgr --immediate add account admin Cluster=muscadine Parent=root
 ```
 
 - **Set the qos parameters (assuming using the default 'normal' qos)**
