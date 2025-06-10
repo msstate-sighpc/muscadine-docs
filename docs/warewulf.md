@@ -88,7 +88,7 @@ dnf install -y docker
 ```
 
 ### Writing a Dockerfile
-<!--TODO-->
+TODO
 
 ### Exporting Podman Images to Warewulf
 <!--TODO-->
@@ -98,7 +98,7 @@ wwctl container import $TMPDIR/base-rocky9.tar base-rocky9
 ```
 
 ### Defining Nodes
-<!--TODO-->
+TODO
 
 ### Overlays
 <!--TODO-->
@@ -107,7 +107,7 @@ We use Overlays to automatically create any files that may change over time or m
 Read CIQ's [docs](https://warewulf.org/docs/v4.6.x/overlays/overlays.html) on the subject, then continue.
 
 ### Booting Nodes
-<!--TODO-->
+TODO
 
 
 
