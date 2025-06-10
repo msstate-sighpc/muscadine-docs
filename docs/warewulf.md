@@ -82,22 +82,32 @@ Warewulf images are really just specialized docker/podman/containerd/etc... cont
 The former works just fine, and is currently the motis operendi of HPC2 admins. The latter is an appealing alternative as it makes updates, and other scripting easier in the long run. As such, we'll be moving forward primarily with the 2nd approach, reserving the first for small tweaks requried to get things working
 
 ### Install Podman
-TODO
+<!--TODO-->
+```bash
+dnf install -y docker
+```
 
 ### Writing a Dockerfile
-TODO
+<!--TODO-->
 
 ### Exporting Podman Images to Warewulf
-TODO
+<!--TODO-->
+```bash
+docker save base-rocky9 -o $TMPDIR/base-rocky9.tar
+wwctl container import $TMPDIR/base-rocky9.tar base-rocky9
+```
 
 ### Defining Nodes
-TODO
+<!--TODO-->
 
 ### Overlays
-TODO
+<!--TODO-->
+Overlays work similarly to docker, but are used a bit differently here. 
+We use Overlays to automatically create any files that may change over time or may be different between nodes. 
+Read CIQ's [docs](https://warewulf.org/docs/v4.6.x/overlays/overlays.html) on the subject, then continue.
 
 ### Booting Nodes
-TODO
+<!--TODO-->
 
 
 
