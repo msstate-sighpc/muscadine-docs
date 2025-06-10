@@ -26,7 +26,7 @@ the end goal is to have the PureStorage Flashblade host all NFS shares for the c
 - first create the zpool by folloing this guide: [ZFS](zfs.md)
 - once the zfs datasets are created, they can be exported appropriately
 modify /etc/exports accordingly:
-```
+```/etc/exports
 #share home and apps to everything in the muscadine cluster:
 /home	192.168.34.0/24(rw,root_squash)
 /apps	192.168.34.0/24(rw,no_root_squash)

@@ -1,0 +1,6 @@
+dnf install -y \
+	gfortran \
+	libatomic \
+	rocm-device-libs \
+	hipcc \
+	hip-devel
