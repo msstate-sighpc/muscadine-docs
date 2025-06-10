@@ -66,5 +66,38 @@ make install
 cp -i /opt/warewulf/share/ipxe/bin-x86_64-efi-snponly.efi /var/lib/tftpboot/warewulf/ipxe-snponly-x86_64.efi
 ```
 
+### Initial Configuration
+
+```bash
+wwctl configure --all
+systemctl enable --now warewulfd
+```
+
+### Building the Containers
+
+Warewulf images are really just specialized docker/podman/containerd/etc... containers. Management can be done in 2 ways:
+1. pulling a base image straight into warewulf and managing it by chrooting into it and making stated changes
+2. using podman to pull a base image, make a derivative image using dockerfiles, and export that image to warewulf
+
+The former works just fine, and is currently the motis operendi of HPC2 admins. The latter is an appealing alternative as it makes updates, and other scripting easier in the long run. As such, we'll be moving forward primarily with the 2nd approach, reserving the first for small tweaks requried to get things working
+
+### Install Podman
+TODO
+
+### Writing a Dockerfile
+TODO
+
+### Exporting Podman Images to Warewulf
+TODO
+
+### Defining Nodes
+TODO
+
+### Overlays
+TODO
+
+### Booting Nodes
+TODO
+
 
 
