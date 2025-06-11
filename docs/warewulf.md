@@ -92,6 +92,8 @@ TODO
 
 ### Exporting Podman Images to Warewulf
 <!--TODO-->
+Exporting Images to warewulf is simple, both programs support tarball versions of images
+
 ```bash
 docker save base-rocky9 -o $TMPDIR/base-rocky9.tar
 wwctl container import $TMPDIR/base-rocky9.tar base-rocky9

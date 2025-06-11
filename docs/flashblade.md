@@ -6,3 +6,7 @@
 - a baudrate of 115200 must be set
 - 8N1 parity is used 
 - the username:password is pureuser:pureuser
+
+## Requirements for use:
+- LAgg capable SFP+/QSFP+ ethernet switch 
+- cabling
