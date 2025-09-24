@@ -76,4 +76,5 @@ In the webgui, follow these steps:
 
 
 ## A Note on Storage Schema
-PureStorage prides themselves on their compression and deduplication algorithms. it is **PARAMOUNT** that users do not compress data on a per-file basis. compressed data is almost impossible to deduplicate or compress again. rely on the appliance to handle these data-saving techniques.
+PureStorage prides themselves on their compression and deduplication algorithms.
+It is **PARAMOUNT** that users do not compress data on a per-file basis. compressed data is almost impossible to deduplicate or compress again. rely on the appliance to handle these data-saving techniques.

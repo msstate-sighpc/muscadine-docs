@@ -1,14 +1,20 @@
-#!/usr/bin/env python3
-
-import os
+import os,shutil,sys
 from pwd import getpwnam
 from grp import getgrgid
-import shutil # type: ignore
 
 from getusers import getusers
 
+try:
+    if sys.argv[1] == "write":
+        write = True
+        print( "writing changes:" )
+except:
+    write = False
+    print( "dry run:" )
+
 muscadineHome = "/home"
 muscadineScratch = "/scratch"
+muscadineWork = "/work"
 muscadineSkel = "/etc/skel"
 
 # # assume we query for homedir users and parse into this list
@@ -29,15 +35,25 @@ for user in homedirusers:
 
     usersHomeDir = f"{muscadineHome}/{user}"
     usersScratchDir = f"{muscadineScratch}/{group}/{user}"
+    usersWorkDir = f"{muscadineWork}/users/{user}"
 
     if (not os.path.exists(usersHomeDir)):
         print(usersHomeDir,uid,gid)
-        shutil.copytree(muscadineSkel,usersHomeDir)
-        os.chown(usersHomeDir,uid,gid)
-        os.chmod(usersHomeDir,0o750)
+        if write:
+            shutil.copytree(muscadineSkel,usersHomeDir)
+            os.chown(usersHomeDir,uid,gid)
+            os.chmod(usersHomeDir,0o750)
         
     if (not os.path.exists(usersScratchDir)):
         print(usersScratchDir,uid,gid)
-        os.makedirs(usersScratchDir,exist_ok=True)
-        os.chown(usersScratchDir,uid,gid)
-        os.chmod(usersScratchDir,0o750)
+        if write:
+            os.makedirs(usersScratchDir,exist_ok=True)
+            os.chown(usersScratchDir,uid,gid)
+            os.chmod(usersScratchDir,0o750)
+
+    if (not os.path.exists(usersWorkDir)):
+        print(usersWorkDir,uid,gid)
+        if write:
+            os.makedirs(usersWorkDir,exist_ok=True)
+            os.chown(usersWorkDir,uid,gid)
+            os.chmod(usersWorkDir,0o700)
