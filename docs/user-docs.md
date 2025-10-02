@@ -78,7 +78,7 @@ ssh <NetID>@muscadine-node-1.hpc.msstate.edu
  ## <div style="page-break-after: always;"></div>
 ## 3: Muscadine's Storage
 
-You are provided a decently fast and shared home directory. This is the location you start after ssh-ing into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
+You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
 
 `/scratch` is build off of the BeeGFS and is the most performant storage solution for Muscadine. The downside is that there is limited storage, thus there will be wipes of old files every now and then whenever it gets near capacity.
 
@@ -89,6 +89,7 @@ You are provided a decently fast and shared home directory. This is the location
 | `/scratch` | 2.2TB          | ***FAST*** | None  | Scratch is to be used for active data or programs that are not vital. ***SCRATCH WILL BE PERIODILY WIPED***                                                  |
 | `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other user's personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
 | `/work`    | 20TB           | *quick*    | 500GB | Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with `/home` and `/apps`.                                  |
+
 >[!WARNING]
 > Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
 
@@ -252,8 +253,10 @@ If you have any issues or questions regarding Muscadine, please email Oliver Hig
 ### FAQ
 1. 
 	Q: What if I don't want to build a program from source?
+	
 	A: Womp womp.
 
 2. 
 	Q:
+	
 	A:
