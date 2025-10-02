@@ -2,28 +2,6 @@
 
 Muscadine is MSU's Special Interest Group in High Performance Computing (SIG-HPC) cluster gifted to MSU by Dell for our 2024 GIGADAWGS team. Muscadine is currently operating as a student development cluster, being used to teach students at MSU skills in HPC.
 
-## Table of Contents:
-- 1: [Muscadine Specs](Muscadine#1%20Muscadine%20Specs)
-	- 1.1: [Hardware Specification](Muscadine#1.1%20Hardware%20Specification)
-	- 1.2: [Highest Benchmarks](Muscadine#1.2%20Highest%20Benchmarks)
-- 2: [How to access Muscadine](Muscadine#2%20How%20to%20access%20Muscadine)
-	- 2.1: [Method One - Titan](Muscadine#2.1%20Method%20One%20-%20Titan)
-	- 2.2: [Method Two - HPC VPN](Muscadine#2.2%20Method%20Two%20-%20HPC%20VPN)
-- 3: [Muscadine's Storage](Muscadine#3%20Muscadine's%20Storage)
-- 4: [How to use Muscadine](Muscadine#4%20How%20to%20use%20Muscadine)
-	- 4.1: [Getting a node allocation](Muscadine#4.1%20Getting%20a%20node%20allocation)
-	- 4.2: [Available modules](Muscadine#4.2%20Available%20modules)
-	- 4.3: [What do I do if there is a program I want?](Muscadine#4.3%20What%20do%20I%20do%20if%20there%20is%20a%20program%20I%20want?)
-- 5: [How to use Slurm](Muscadine#5%20How%20to%20use%20Slurm)
-	- 5.1: [Common Slurm commands](Muscadine#5.1%20Common%20Slurm%20commands)
-		- 5.1.1: [sinfo](Muscadine#5.1.1%20`sinfo`)
-		- 5.1.2: [squeue](Muscadine#5.1.2%20`squeue`)
-		- 5.1.3: [scancel](Muscadine#5.1.3%20`scancel`)
-		- 5.1.4: [sacct](Muscadine#5.1.4%20`sacct`)
-		- 5.1.5: [srun](Muscadine#5.1.5%20`srun`)
-	- 5.2: [Building a SBATCH script](Muscadine#5.2%20Building%20a%20SBATCH%20script)
-- 6: [Need Help?](Muscadine#Need%20Help?)
- ## <div style="page-break-after: always;"></div>
 ## 1: Muscadine Specs
 ### 1.1: Hardware Specification
 #### Compute:
