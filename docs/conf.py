@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'muscadine'
+project = 'Muscadine'
 copyright = '2025, sighpc'
 author = 'sighpc'
 release = '0.1'
@@ -24,5 +24,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme = 'shibuya'
 html_static_path = ['_static']
