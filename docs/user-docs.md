@@ -90,8 +90,9 @@ You are provided a decently fast and shared home directory. This is the location
 | `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other user's personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
 | `/work`    | 20TB           | *quick*    | 500GB | Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with `/home` and `/apps`.                                  |
 
->[!WARNING]
-> Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
+```{warning}
+Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
+```
 
  ## <div style="page-break-after: always;"></div>
 ## 4: How to use Muscadine
@@ -126,7 +127,10 @@ The simple answer is to build it from their source repository. The complex answe
 
 1. After building your binary, create a `.bin` in your home directory by running `mkdir ~/.bin`.
 2. Now move that binary into the `.bin` directory.
-3. Lastly, you'll need to add the path of that directory to your bash config. NOTE: *You only need to do this once.* Edit `~/.zshrc` adding `export PATH="$PATH:$(HOME)/.bin` to the end.
+3. Lastly, you'll need to add the path of that directory to your bash config. 
+```{note}
+NOTE: *You only need to do this once.* Edit `~/.zshrc` adding `export PATH="$PATH:$(HOME)/.bin` to the end.
+```
 
 Users can submit a request to add something they have built to `/apps/contrib` for other users to use as well. 
 

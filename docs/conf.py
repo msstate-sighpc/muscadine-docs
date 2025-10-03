@@ -26,4 +26,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 #html_theme = 'alabaster'
 html_theme = 'shibuya'
+
 html_static_path = ['_static']
+html_favicon = "_static/favicon.ico"
+html_theme_options = {
+    "accent_color": "pink",
+    "light_logo": "_static/pngs/logo_h_black.png",
+    "dark_logo": "_static/pngs/logo_h_white.png",
+}
+html_css_files = ['custom.css']

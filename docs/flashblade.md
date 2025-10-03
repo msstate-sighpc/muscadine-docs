@@ -16,10 +16,34 @@ Aganst PureStorage's advice, the following configuration works:
 On the Node: assuming the 2 NICs in question are ens5 and ens6 (their order doesn't matter)
 
 ```bash
-nmcli con add type bond con-name bond0 ifname bond0 bond.options "mode=802.3ad,miimon=100,xmit_hash_policy=layer3+4" ipv4.method disabled ipv6.method ignore mtu 9000
-nmcli con add type bond-slave con-name bond0-enp5 ifname enp5 master bond0 mtu 9000
-nmcli con add type bond-slave con-name bond0-enp6 ifname enp6 master bond0 mtu 9000
-nmcli con add type vlan con-name vlan334 ifname 334 dev bond0 id 334 master br0 mtu 9000
+nmcli con add \
+	type bond \
+	con-name bond0 \
+	ifname bond0 \
+	bond.options "mode=802.3ad,miimon=100,xmit_hash_policy=layer3+4" \
+	ipv4.method disabled \
+	ipv6.method ignore \
+	mtu 9000
+nmcli con add \
+	type bond-slave \
+	con-name bond0-enp5 \
+	ifname enp5 \
+	master bond0 \
+	mtu 9000
+nmcli con add \
+	type bond-slave \
+	con-name bond0-enp6 \
+	ifname enp6 \
+	master bond0 \
+	mtu 9000
+nmcli con add \
+	type vlan \
+	con-name vlan334 \
+	ifname 334 \
+	dev bond0 \
+	id 334 \
+	master br0 \
+	mtu 9000
 nmcli con up bond0
 nmcli con up bond0-enp5
 nmcli con up bond0-enp6

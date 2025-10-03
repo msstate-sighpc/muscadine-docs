@@ -9,6 +9,7 @@ Documentation
 Please read before using muscadine
 
 .. toctree::
+   :numbered:
    :maxdepth: 2
    :caption: Contents:
 
