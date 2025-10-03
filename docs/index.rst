@@ -12,6 +12,7 @@ Please read before using muscadine
    :numbered:
    :maxdepth: 3
    :caption: Contents:
+   :glob:
 
    introduction
    user-docs
