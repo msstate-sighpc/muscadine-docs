@@ -31,7 +31,7 @@ html_static_path = ['_static']
 html_favicon = "_static/favicon.ico"
 html_theme_options = {
     "accent_color": "pink",
-    "light_logo": "_static/pngs/logo_h_black.png",
+    "light_logo": "_static/pngs/logo_h_maroon.png",
     "dark_logo": "_static/pngs/logo_h_white.png",
 }
 html_css_files = ['custom.css']

@@ -15,3 +15,4 @@ Please read before using muscadine
 
    introduction
    user-docs
+   *
