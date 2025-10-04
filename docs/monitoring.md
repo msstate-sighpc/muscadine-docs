@@ -12,6 +12,9 @@ btop
 ```
 
 Use {kbd}`Esc` or {kbd}`q` to quit.
+```{hint}
+Find yourself using btop often? you can add `ml btop` to your .zshrc
+```
 
 ---
 
@@ -27,7 +30,7 @@ Use {kbd}`Esc` or {kbd}`q` to quit.
 |{kbd}`Esc` / {kbd}`q`|Exit `btop`|
 
 ```{note}
-it's possible to enable vim keybinds from the toptions menu
+it's possible to enable vim keybinds from the options menu
 ```
 
 ---
