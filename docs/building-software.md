@@ -48,9 +48,7 @@ make install
 
 **Typical flow:**
 
-```text
-CMakeLists.txt → CMake generates Makefiles → make builds → make install
-```
+**CMakeLists.txt → CMake generates Makefiles → make builds → make install**
 
 ---
 
