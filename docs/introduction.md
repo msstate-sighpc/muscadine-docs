@@ -1,6 +1,8 @@
 # Introduction
 Muscadine is MSU's Special Interest Group in High Performance Computing (SIG-HPC) cluster gifted to MSU by Dell for our 2024 GIGADAWGS team. Muscadine is currently operating as a student development cluster, being used to teach students at MSU skills in HPC.
 
+---
+
 ## Muscadine Specs
 ### Hardware
 #### Compute:
@@ -31,6 +33,8 @@ Muscadine is MSU's Special Interest Group in High Performance Computing (SIG-HPC
 	- 48x Gigabit ports
 	- Provides admin and cluster management
 
+---
+
 ### Architecture
 Muscadine uses *AMD EPYC Genoa 9454P* running AMD's Zen 4 architecture. This architecture divides the CPU's cores into groups called *core complexes* (CCX) which share L3 cache. CCXs also group into dies called CCDs. CCXs act as NUMA partitions and interface with a I/O Die which handles communication between NUMA partitions and the rest of the system. There are 12 memory controllers for this generation, meaning there are 3 per CCD hardware defined. 
 
@@ -38,6 +42,8 @@ Specifically for Muscadine, there are 6 cores per CCX, 2 CCX per CCD, and 4 CCD 
 
 - CPU Specifications: [AMD EPYC™ 9454P](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9454p.html)
 - Zen 4 White Paper: [Zen 4 White Paper](https://www.amd.com/en/products/processors/server/epyc/4th-generation-architecture.html)
+
+---
 
 ### Benchmarks Leaderboard
 Here, we have the students with the highest scores for various cluster benchmarking programs. In order to get your score verified, email your entire config and output file to the current student sysadmin. 

@@ -23,6 +23,8 @@ Method Two involves logging into the HPCC VPN. Go to https://servicedesk.its.mss
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 ```
 
+---
+
 ## Muscadine's Storage
 You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
 
@@ -43,7 +45,9 @@ The speeds are intentionally vague. Feel free to benchmark them yourself
 Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
 ```
 
-## How to use Muscadine
+---
+
+## Using Muscadine
 ### Getting a node allocation
 Say you want to build a given program. You could build it on the head, but that can interfere with other people doing the same or running a program on the head. An alternative to that is submitting a Slurm request to get a node for building purposes. Run the following command to reserve a node for a bash terminal.
 
@@ -78,7 +82,9 @@ NOTE: *You only need edit .zshrc once.*
 
 Users can submit a request to add something they have built to `/apps/contrib` for other users to use as well. 
 
-## How to use Slurm
+---
+
+## Using Slurm
 ### Common Slurm commands
 #### `sinfo`
 `sinfo` and is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
@@ -187,6 +193,8 @@ You can submit the SBATCH Script to Slurm via the following command:
 ```bash
 sbatch <sbatchScript>
 ```
+
+---
 
 ## Need Help?
 If you have any issues or questions regarding Muscadine, please email Oliver Higginbotham (odh49@msstate.edu) or put questions in the helpdesk-Muscadine thread channel in our SIG-HPC Discord. 
