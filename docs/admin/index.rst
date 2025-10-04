@@ -1,16 +1,13 @@
 .. muscadine documentation master file, created by
    sphinx-quickstart on Thu Oct  2 14:13:13 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-Documentation
+Admin
 =======================
 
-Please read before using muscadine
+These docs are for current and future admins only
 
 .. toctree::
    :numbered:
-   :maxdepth: 3
    :caption: Contents:
    :glob:
 

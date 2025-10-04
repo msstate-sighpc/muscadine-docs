@@ -1,3 +1,3 @@
 # OpenOnDemand
 
-Coming soon
+OOD is not currently available

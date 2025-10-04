@@ -10,10 +10,12 @@ Please read before using muscadine
 
 .. toctree::
    :numbered:
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: Contents:
    :glob:
 
    introduction
    user-docs
    *
+   adv/index
+
