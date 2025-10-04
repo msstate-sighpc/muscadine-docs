@@ -16,6 +16,10 @@ Please read before using muscadine
 
    introduction
    user-docs
+   administrative-limitations
+   monitoring
+   building-software
    *
+   sup/index
    adv/index
 
