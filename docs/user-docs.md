@@ -36,6 +36,9 @@ You are provided a decently fast and shared home directory. This is the location
 | `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other user's personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
 | `/work`    | 20TB           | *quick*    | 500GB | Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with `/home` and `/apps`.                                  |
 
+```{note}
+The speeds are intentionally vague. Feel free to benchmark them yourself
+```
 ```{warning}
 Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
 ```
