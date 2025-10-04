@@ -16,6 +16,7 @@ Please read before using muscadine
 
    introduction
    user-docs
+   getting-help
    administrative-limitations
    monitoring
    building-software

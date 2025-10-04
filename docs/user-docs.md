@@ -193,19 +193,3 @@ You can submit the SBATCH Script to Slurm via the following command:
 ```bash
 sbatch <sbatchScript>
 ```
-
----
-
-## Need Help?
-If you have any issues or questions regarding Muscadine, please email Oliver Higginbotham (odh49@msstate.edu) or put questions in the helpdesk-Muscadine thread channel in our SIG-HPC Discord. 
-
-### FAQ
-1. 
-	Q: What if I don't want to build a program from source?
-	
-	A: Womp womp.
-
-2. 
-	Q:
-	
-	A:
