@@ -10,6 +10,9 @@ If you have any issues or questions regarding Muscadine, please contact Oliver H
 	A: Womp womp.
 
 2. 
-	Q:
+	Q: **HELP!!!** I Accidentally delete a file. what can I do?
 	
-	A:
+	A: If it was on `/scratch`: Womp Womp. If it was on `/home` or `/work` and was greater than a day old, you may find it in it's corresponding path in `/home/.snapshots` or `/work/.snapshots` respectively
+```{warning}
+Do not wait to revtrieve deleted files. snapshots are automatiaclly purged after 30 days
+```
