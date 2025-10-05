@@ -1,5 +1,7 @@
 # Getting Help
-If you have any issues or questions regarding Muscadine, please contact Oliver Higginbotham via [eMail](mailto:odh49@msstate.edu) or submit questions to the #helpdesk-muscadine thread channel in our SIG-HPC Discord. 
+If you have any issues or questions regarding Muscadine, please contact Oliver Higginbotham via [eMail](mailto:<odh49@msstate.edu>) or submit questions to the #helpdesk-muscadine thread channel in our SIG-HPC Discord.
+
+If you have any issues with accounting or login, submit a helpdesk ticket to help@hpc.msstate.edu
 
 ---
 
