@@ -1,5 +1,5 @@
 # Introduction
-Muscadine is MSU's Special Interest Group in High Performance Computing (SIG-HPC) cluster gifted to MSU by Dell for our 2024 GIGADAWGS team. Muscadine is currently operating as a student development cluster, being used to teach students at MSU skills in HPC.
+Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'s cluster graciously gifted by Dell to the 2024 GIGADAWGS team. Muscadine's purpose is to be a student development cluster, teaching students at MSU skills in HPC.
 
 ---
 

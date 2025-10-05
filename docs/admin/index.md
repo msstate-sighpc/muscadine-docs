@@ -1,8 +1,21 @@
-# Muscadine Documentation
-the included docs exist to instruct someone with a bit of knowledge about clusters but no muscadine-specific knowledge how to bring muscadine up from scratch, should a catastrophy happen or deep update.
+# Admin Documentation
+These docs are for current and future admins only
+
+```{toctree}
+:numbered:
+:caption: Contents:
+:glob:
+
+rebuild/index
+*
+```
+
+---
+
+The included docs exist to instruct someone with a bit of knowledge about clusters but no muscadine-specific knowledge how to bring muscadine up from scratch, should a catastrophe happen or deep update.
 
 ## Configuration Files:
-all configuration files mentioned in these docs *should* be included in this repo. these should **NOT** be droppped in, but rather used as a reference when following the documentation:
+all configuration files mentioned in these docs *should* be included in this repo. these should **NOT** be dropped in, but rather used as a reference when following the documentation:
 
 ## Starting Point:
 before doing anything, it's important to know the starting point these documents assume you are at:

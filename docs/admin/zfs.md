@@ -9,8 +9,14 @@ the installation of ZFS on muscadine is very straitforward, mostly taken from Op
 	4. create datasets
 		- ensure their mountpoints are correct
 
+```{important}
+while this guide does what it says on the tin. ZFS was a stopgap while the prue was unusable. now that the pure is working, ZFS is no longer necessary
+```
+
+---
+
 ## Installation:
-since zfs is out-of-tree, it is installed as a dkms module:
+since ZFS is out-of-tree, it is installed as a dkms module:
 ```
 dnf install -y epel-release
 # in the HPC2 rocky image, yum looks for repos in a different path
@@ -61,6 +67,13 @@ zpool create tank raidz -f \
 	-O canmount=noauto \
 	-O compression=zstd-fast \
 	/dev/nvme0n1 /dev/nvme2n1 /dev/nvme5n1 /dev/nvme4n1
+```
+```{warning}
+Not doing the following step can cause data loss on reboot if the kernel decides to mess w/ the drive letters too much
+```
+```bash
+zpool export tank
+zpool import -d /dev/disk/by-uuid
 ```
 
 ### Create the datasets

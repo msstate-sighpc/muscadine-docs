@@ -1,4 +1,4 @@
-# HPC2 Cluster Slurm Installation Procedure
+# Slurm Installation
 
 ## Prerequisites:
 First we need to install prerequisite software. The following are must-haves, and they must all be available on the Slurm control node AND on the compute nodes:

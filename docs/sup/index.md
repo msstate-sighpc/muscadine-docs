@@ -6,5 +6,8 @@ Clusters are great, but on their own, they can accomplish very little. A cluster
 :caption: Contents
 :glob:
 
+mpi-basics
+ood
+fortran
 *
 ```

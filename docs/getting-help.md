@@ -1,5 +1,5 @@
 # Getting Help
-If you have any issues or questions regarding Muscadine, please contact Oliver Higginbotham via [mail](emailto:odh49@msstate.edu) or submit questions to the #helpdesk-muscadine thread channel in our SIG-HPC Discord. 
+If you have any issues or questions regarding Muscadine, please contact Oliver Higginbotham via [eMail](mailto:odh49@msstate.edu) or submit questions to the #helpdesk-muscadine thread channel in our SIG-HPC Discord. 
 
 ---
 
@@ -14,5 +14,5 @@ If you have any issues or questions regarding Muscadine, please contact Oliver H
 	
 	A: If it was on `/scratch`: Womp Womp. If it was on `/home` or `/work` and was greater than a day old, you may find it in it's corresponding path in `/home/.snapshots` or `/work/.snapshots` respectively
 ```{warning}
-Do not wait to revtrieve deleted files. snapshots are automatiaclly purged after 30 days
+Do not wait to retrieve deleted files. snapshots are automatiaclly purged after 30 days
 ```
