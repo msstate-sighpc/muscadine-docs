@@ -41,6 +41,9 @@ make -j
 # Step 3: Install
 make install
 ```
+```{note}
+If you're unsure what variables you can tweak in a cmake project, using `ccmake` in place of `cmake` can help
+```
 
 **Files involved:**
 - `CMakeLists.txt`: Describes targets, dependencies, and options.
