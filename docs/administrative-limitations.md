@@ -2,6 +2,11 @@
 ## Security
 While Muscadine isn't strictly a secure computing resource, it lives in an enterprise secure computing environment. As such, precautions have been taken to protect Muscadine as well as the environment
 
+## SSH
+SSH TCP forwarding has been administratively prohibited for security reasons. **DO NOT** attempt to circumvent this.
+
+SSH pubkey authenticion has been administratively prohibited. University policy maintains that users must authenticate themselves with 2-factor security upon each login. If you find yourself authenticating more often then you'd like, read the page on [**Setting up SSH ControlMaster**](adv/controlmaster.md).
+
 ---
 
 ## Networking

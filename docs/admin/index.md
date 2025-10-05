@@ -28,7 +28,10 @@ the following hardware configurations are necessary:
 - nodes should be connected to a single, flat network
 - ib cards should be connected to a switch in a star topology
 - dhcp is required until the ww server is configured
-	- after imagine, updates were installed and `/local/patches/os/Rocky-9.4/builds/muscadine/scripts/020-Convert2Cluster` was run
+- after imagine, updates were installed and the following was run
+	```bash
+	/local/patches/os/Rocky-9.4/builds/muscadine/scripts/020-Convert2Cluster
+	```
 
 ## VM's
 In order to meet the needs of a deployment cluster w/ only 1 management node. virtual machines are utilized for certain services. while not necessary, it helps aid management.
