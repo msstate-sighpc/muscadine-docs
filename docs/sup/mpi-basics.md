@@ -51,7 +51,9 @@ int main(int argc, char** argv) {
 Use your MPI compiler wrapper:
 
 ```bash
+# Load the gcc build of openmpi into our environment
 ml gcc openmpi
+# compile our source into the 'ping' binary
 mpicc -o ping ping.c
 ```
 
@@ -63,14 +65,22 @@ This ensures proper MPI headers and libraries are included.
 Create a batch script `ping.sh`:
 
 ```bash
-# bin/bash
+#!/usr/bin/env bash
+
+# set our job name
 #SBATCH --job-name=mpi-ping
-#SBATCH --nodes=1
+# we're not picky about where our ranks live, so we'll just specify we need 2 of them
 #SBATCH --ntasks=2
+# if it takes longer than a minute to run this simple application, we've got a bigger problem
 #SBATCH --time=00:01:00
 
+# finally launch the executible accross our allocation
 srun ./ping
 ```
+```{note}
+it's important to include the `./` before our executable since ping exists in our path, but is not written for MPI
+```
+
 
 Then submit the job:
 
@@ -83,7 +93,6 @@ Alternatively, you can run interactively on a SLURM allocation:
 ```bash
 srun -n2 ./ping
 ```
-
 ---
 
 ## Example Output
