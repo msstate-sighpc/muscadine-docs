@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     MPI_Finalize();
     return 0;
 }
-````
+```
 
 ---
 
@@ -96,6 +96,8 @@ Rank 0 received: pong
 ---
 
 ## Notes
+This program is designed to show you the bare minimum to get starting writing with OpenMPI. MPI is a large rabbit hole you can go down in order to eek out more performance of your cluster. Things like unbuffered send and receive, broadcasting, reducing, etc. are all possible with MPI. 
+Later on, we'll look at calculating digits of Pi using MPI.
 - `mpicc` ensures portability across MPI implementations (OpenMPI, MPICH, etc.).
 - SLURM’s `srun` automatically launches MPI ranks on allocated nodes.
 
