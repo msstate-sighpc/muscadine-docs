@@ -18,20 +18,24 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 	- mounted on `/scratch`
 	- 2.2TB Distributed Filesystem
 - PureStorage Flashblade
-	- Clustered flash array
+	- Clustered flash array storage appliance
 	- 6 16TB blades for 96TB raw storage
 	- mounted on `/home`, `/work`, and `/apps`
 	- 48TB usable space (w/ 100% redundancy)
 
 #### Networking:
-- HDR Infiniband Switch
-	- 24x HDR ports
+- HDR Infiniband
+	- 200Gbit/s RDMA
 	- Used for:
 		- Performant Cluster Communication
 		- RDMA BeeGFS
-- Gigabit Switch
-	- 48x Gigabit ports
-	- Provides admin and cluster management
+- Gigabit Ethernet
+	- 1Gbit/s
+	- Used for:
+		- NFS Storage
+		- scheduling
+		- admin
+		- monitoring
 
 ---
 
