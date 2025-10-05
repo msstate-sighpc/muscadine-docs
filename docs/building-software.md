@@ -42,7 +42,7 @@ make -j
 make install
 ```
 ```{note}
-If you're unsure what variables you can tweak in a cmake project, using `ccmake` in place of `cmake` can help
+If you're unsure what variables you can tweak in a cmake project, you can launch a terminal user interface by using `ccmake` in place of `cmake`
 ```
 
 **Files involved:**

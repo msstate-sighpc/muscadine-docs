@@ -1,7 +1,7 @@
 # Tuning HPL
 HPL (High Performance Linpack) is commonly used to benchmark HPC systems. Achieving good performance requires careful tuning of several parameters, mainly related to the problem size and process grid.
 
-This is a very basic overview. Much more consideration goes into a good HPL run such as balancing multi-processing vs multi-threading, choosing a BLAS library, etc.
+This is a very basic overview. Much more consideration goes into a good HPL run such as balancing [**multi-processing vs multi-threading**](mp-mt.md), choosing a BLAS library, etc.
 
 ---
 
