@@ -36,7 +36,7 @@ git add .
 It's very common to want git to ignore files from the repository that may exist on the filesystem. Build artifacts, dependency installations, pycaches are all common examples. To do this, simple create a file called `.gitignore` anywhere in the repo containing the names of files you'd like to ignore; globs may be used. The file will apply to all child directories
 
 Here's an example `.gitignore`:
-```.gitignore
+```bash
 .env
 *.o
 __pycache__

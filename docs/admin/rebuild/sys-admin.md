@@ -22,7 +22,7 @@ The home directory is a shared directory hosted via NFS by the PureStorage syste
 
 To mount this NFS, add the following to `/etc/fstab`
 
-```/etc/fstab
+```text
 192.168.34.9:/home /home nfs defaults,nconnect=16 0 0
 ```
 
@@ -42,7 +42,7 @@ Other than `/home`, the PureStorage system will also provide several other NFS d
 
 To add these NFS mounts, add the following to `/etc/fstab`
 
-```/etc/fstab
+```text
 192.168.34.9:/apps /apps nfs defaults,nconnect=16 0 0
 192.168.34.9:/work /work nfs defaults,nconnect=16 0 0
 ```
@@ -69,7 +69,7 @@ To keep the VM that Warewulf will be running in small, we'll want to store all o
 
 Append the following to `/etc/fstab`
 
-```/etc/fstab
+```text
 muscadine-node-1.hpc.msstate.edu:/local/ww /opt/warewulf nfs defaults,nodev,noatime 0 0
 ```
 
@@ -181,7 +181,7 @@ Warewulf makes configuring nodes on mass easy and intuiative. here are a few com
 
 We will start with configuring the default profile to be used for Muscadine. run `wwctl profile edit default` and add/edit the following into it.
 
-```warewulf
+```yaml
 default:
   system overlay:
     - <addOverlaysHere>
@@ -219,19 +219,21 @@ wwctl node set --discoverable muscadine-node-<enterNodeNum>
 ```
 
 ##  Slurm
+Comming soon
 
 ---
 
 ##  BeeGFS
-
----
-
-##  Spack
+Comming soon
 
 ---
 
 # Supporting Software
 
+##  Spack
+See [Using Spack](../spack.md)
+
 ---
 
 # Automation and Metrics
+Comming soon

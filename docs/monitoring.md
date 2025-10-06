@@ -4,7 +4,7 @@
 
 ---
 
-### Loading Btop
+## Loading Btop
 
 ```bash
 ml btop
