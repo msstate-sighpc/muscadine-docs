@@ -43,7 +43,8 @@ Other than `/home`, the PureStorage system will also provide several other NFS d
 To add these NFS mounts, add the following to `/etc/fstab`
 
 ```/etc/fstab
-<EnterMountHere>
+192.168.34.9:/apps /apps nfs defaults,nconnect=16 0 0
+192.168.34.9:/work /work nfs defaults,nconnect=16 0 0
 ```
 
 
