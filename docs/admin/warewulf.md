@@ -79,7 +79,7 @@ Warewulf images are really just specialized docker/podman/containerd/etc... cont
 1. pulling a base image straight into warewulf and managing it by chrooting into it and making stated changes
 2. using podman to pull a base image, make a derivative image using dockerfiles, and export that image to warewulf
 
-The former works just fine, and is currently the motis operendi of HPC2 admins. The latter is an appealing alternative as it makes updates, and other scripting easier in the long run. As such, we'll be moving forward primarily with the 2nd approach, reserving the first for small tweaks requried to get things working
+The former works just fine, and is currently the motis operendi of HPC{sup}`2` admins. The latter is an appealing alternative as it makes updates, and other scripting easier in the long run. As such, we'll be moving forward primarily with the 2nd approach, reserving the first for small tweaks requried to get things working
 
 ### Install Podman
 <!--TODO-->

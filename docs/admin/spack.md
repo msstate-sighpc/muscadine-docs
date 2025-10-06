@@ -1,5 +1,5 @@
-# Managing Spack Environments at HPC2
-Notes on creating/managing a spack envrionment at HPC2
+# Managing Spack
+Notes on creating/managing a spack envrionment at HPC{sup}`2`
 Initially Conceived June 27, 2024, First Drafted July 8, 2024
 Last updated July 8, 2024, by Huston Rogers (jhrogers)
 
@@ -32,7 +32,7 @@ cd /apps/other/spack-devel ; git pull
 ```
 
 ### 1.2 Configuration Changes
-Spack by default has some configuration that works, and some that we have changed for the HPC2 environment.
+Spack by default has some configuration that works, and some that we have changed for the HPC{sup}`2` environment.
 
 #### 1.2.1 spackroot/etc/spack/config.yaml changes
 search for the leading setting to find/update
