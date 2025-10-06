@@ -6,23 +6,16 @@ In order to prevent corruption to Muscadine's stable version, we will only be us
 # Basic Cluster Configuration
 This part will cover the basics of configuring New Muscadine and show how most Advanced Research Collaboratory (ARC) systems operate.
 
-This part will includes 5 sections:
-- 1.1: Storage
-- 1.2: Warewulf
-- 1.3: Slurm
-- 1.4: BeeGFS
-- 1.5: Spack
-
 ---
 
 ##  Storage
 Storage for Muscadine includes:
-- 5x U.2 -- GB PCIe 5.0 drives
+- 5x U.2 960 GB PCIe 5.0 drives
 	- 2x in RAID 1 for New Muscadine root
-- 10x M.2 -- GB PCIe 5.0 drives
+- 10x M.2 512 GB PCIe 5.0 drives
 	- 2x per node, used for BeeGFS
 - 6x 16TB PureStorage FlashBlades
-	- Connected via 40gbe
+	- Connected via 40GbE
 
 ###  Home Directory
 The home directory is a shared directory hosted via NFS by the PureStorage system. This directory is the directory you are put into when you ssh into Muscadine. The intended use of this directory include: configuration files, scripts, log files, etc. This can be found at `/home/<YourNetID>`. 
@@ -30,14 +23,15 @@ The home directory is a shared directory hosted via NFS by the PureStorage syste
 To mount this NFS, add the following to `/etc/fstab`
 
 ```/etc/fstab
-<EnterMountHere>
+192.168.34.9:/home /home nfs defaults,nconnect=16 0 0
 ```
 
 ###  Scratch Directory
 The scratch directory is a distributed flash storage solution provided by BeeGFS. This directory is intended for building programs, storing large datasets, etc. *DO NOT STORE IMPORTANT FILES HERE.* The reason for this is that when storage is close to full, it will automatically start clearing files based on its age. The path for this is `/scratch/`.
 
->[!NOTE]
->This will not work until you have deployed BeeGFS outlined in Section 1.5
+```{note}
+This will not work until you have deployed [BeeGFS](#beegfs)
+```
 
 ###  Other NFS via PureStorage
 Other than `/home`, the PureStorage system will also provide several other NFS directories such as `/work` and `/apps`. This step very similar to Section 1.1.1, but differs by intended purpose and quota size. 
