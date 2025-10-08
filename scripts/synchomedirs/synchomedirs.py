@@ -1,4 +1,5 @@
-import os,shutil,sys
+#!/usr/bin/env python3
+import os,shutil,sys,subprocess
 from pwd import getpwnam
 from grp import getgrgid
 
@@ -41,7 +42,7 @@ for user in homedirusers:
         print(usersHomeDir,uid,gid)
         if write:
             shutil.copytree(muscadineSkel,usersHomeDir)
-            os.chown(usersHomeDir,uid,gid)
+            subprocess.run(['chown','-R',f'{uid}:{gid}',usersHomeDir])
             os.chmod(usersHomeDir,0o750)
         
     if (not os.path.exists(usersScratchDir)):
