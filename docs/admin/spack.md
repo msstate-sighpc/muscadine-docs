@@ -2,7 +2,8 @@
 Notes on creating/managing a spack envrionment at HPC2
 Initially Conceived June 27, 2024, First Drafted July 8, 2024
 Last updated July 8, 2024, by Huston Rogers (jhrogers)
-### Revision History
+
+**Revision History**
 - v0: July 8, 2024, initial document
 - v1: September 5, 2024, updated to include new paths, new config information in section 1
 

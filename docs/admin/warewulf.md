@@ -5,7 +5,7 @@ Warewulf is where the majority of configuration will take place on muscadine. wa
 ## Building 
 
 Building warewulf is fairly straightforward, and can be performed by losely following CIQ's docs
-the following should be performed in the WW vm discussed on the [main](main.md) page.
+the following should be performed in the WW vm discussed on the [main](index.md) page.
 
 ### Install Dependencies:
 
@@ -19,7 +19,7 @@ to keep the VM small, we'll want to store all of warewulf's installation and sou
 
 Append the following line to `/etc/fstab`
 
-```/etc/fstab
+```text
 muscadine-node-1.hpc.msstate.edu:/local/ww                    /opt/warewulf        nfs     defaults,nodev,noatime     0 0
 ```
 
