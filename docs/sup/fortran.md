@@ -41,7 +41,7 @@ When working on larger or performance-sensitive applications, adding flags can h
 
 Example: 
 ```bash
-gfortran -O3 -fopenmp -Wall mycode.f90 -o mycode
+gfortran -O3 -fopenmp -Wall -march=znver4 mycode.f90 -o mycode
 ```
 
 ### Example Makefile for Larger Projects
