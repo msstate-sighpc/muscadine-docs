@@ -43,6 +43,9 @@ Example:
 ```bash
 gfortran -O3 -fopenmp -Wall -march=znver4 mycode.f90 -o mycode
 ```
+```{note}
+Compiler optimization flags may not always increase performance and can sometimes lead to performance regression. Experimentation is encouraged.
+```
 
 ### Example Makefile for Larger Projects
 For multi-file projects, a Makefile simplifies the build process and keeps everything organized. Here's a minimal example: 
