@@ -17,14 +17,28 @@ Using gfortran (GNU Fortran)
 gfortran hello.f90 -o hello
 ```
 
+```{note}
 -o specifies the name of the output executable.
+```
 
 ### Useful Compiler Flags
 When working on larger or performance-sensitive applications, adding flags can help with speed, debugging, or parallelization: 
-	- -O3		Enables high-level optimizations for better performance
-	- -fopenmp	Enables OpenMP for parallel programming
-	- -g		Includes debugging information for tools like gdb
-	- -Wall 	Shows common warnings to catch errors early
+
+`-O3`
+: Enables many common high-level optimizations for better performance; better when AVX instructions are present.
+
+`-fopenmp`
+: Enables OpenMP for parallel programming (See [OpenMP](/adv/openmp.md))
+
+`-g`
+: Includes debugging information for tools like gdb
+
+`-Wall`
+: Shows common warnings to catch errors early
+
+`-march=znver4`
+: Enable all instructions available on Muscadine (such as AVX512). Use `-march=native` if you're unsure which architecture other machines are.
+
 Example: 
 ```bash
 gfortran -O3 -fopenmp -Wall mycode.f90 -o mycode
@@ -74,7 +88,10 @@ gfortran myprog.f90 -llapack -lblas -o myprog
 
 If the libraries are installed in a non-standard location, which they are, you will need to include additional flags such as: 
 ```bash
-gfortran myprog.f90 -L/path/to/lib -I/path/to/include -llapack -lblas -o myprog
+gfortran myprog.f90 -o myprog \
+	-L/path/to/lib \
+	-I/path/to/include \
+	-llapack -lblas 
 ```
 
 Muscadine offers modules to load these libraries, e.g.: 
@@ -82,6 +99,14 @@ Muscadine offers modules to load these libraries, e.g.:
 module load gcc
 module load openmpi
 module load openblas
+```
+
+In that case, the compile line would look like:
+```bash
+gfortran myprog.f90 -o myprog \
+	-L$OPENBLAS_ROOT/lib \
+	-I$OPENBLAS_ROOT/include \
+	-llapack -lblas
 ```
 
 ### ScaLAPACK and HDF5
@@ -95,22 +120,16 @@ A little structure goes a long way when working on Fortran projects, especially 
 Keep your project directory organized so it's easy to navigate and build. Using a Makefile keeps compilation consistent and avoids having to remember long command lines. It's also easier to integrate new files without modifying build commands manually. 
 
 ### Using Version Control (Git)
-Version control makes collaboration and backup much easier. Git is the most common tool and works well even for small projects: 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-Once set up, you can track changes, roll back to earlier versions, and collaborate much easier. 
+Version control makes collaboration and backup much easier. Git is the most common tool and works well even for small projects. See [Using Git](/adv/git.md) for more details.
 
 ### Large File I/O 
 For large simulations (common with Fortran), file I/O can become a performance bottleneck. A few practical tips: 
-	- Prefer binary files for large datasets - they are smaller and read/write faster than text. 
-	- Use unformatted I/O or libraries like HDF5 for structured binary storage.
-	- Compress or clean up old output files regularly to save space. 
-	- Keep output structured and labeled with timestamps or run IDs.
-	
+- Prefer binary files for large datasets - they are smaller and read/write faster than text. 
+- Use unformatted I/O or libraries like HDF5 for structured binary storage.
+- Compress or clean up old output files regularly to save space. 
+- Keep output structured and labeled with timestamps or run IDs.
+- Utilize MPIIO to help streamline writes from multiple nodes.
+
 ### Memory Management
 Efficient memory management is crucial in Fortran, especially for large simulations or parallel jobs. Always allocate only what you need and deallocate when you're done with a variable. Forgetting to free memory can lead to unnecessary usage or, in larger runs, job failures due to memory limits.
 ```bash
