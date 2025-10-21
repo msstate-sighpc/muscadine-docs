@@ -50,18 +50,17 @@ Specifically for Muscadine, there are 6 cores per CCX, 2 CCX per CCD, and 4 CCD 
 ---
 
 ### Benchmarks Leaderboard
-Here, we have the students with the highest scores for various cluster benchmarking programs. In order to get your score verified, email your entire config and output file to the current student sysadmin. 
-#### Single Node HPL:
-- 1st place: Drew Helgerson - 2.405 TeraFlops
-- 2nd place: Oliver Higginbotham - 2.371 TeraFlops
-- 3rd place:
+To promote a sense of competition. Here we will host a leaderboard of the best scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to the current student sysadmin. 
 
-#### Five Node HPL:
-- 1st place: Drew Helgerson - 11.8 TeraFlops
-- 2nd place: 
-- 3rd place: 
+#### HPL:
 
-#### MLPerf:
-- 1st place:
-- 2nd place:
-- 3rd place:
+| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
+| ---- | ------------------- | ------------- | ------------- | ------- |
+| 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s | GPU     |
+| 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
+%%| 1st  | Drew Helgerson      | 2.392 TFlop/s | 11.81 TFlop/s | CPU     |%%
+
+See [Tuning HPL](/adv/hpl.md) to get started
+
+#### HPCg:
+Nobody has submitted scores for HPCg
