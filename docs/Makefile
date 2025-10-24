@@ -18,3 +18,6 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+upload: html
+	rsync -vax _build/html/ drew@typhon.systemanomaly.com:/data/httpd/j3b.in/muscadine/ --delete
