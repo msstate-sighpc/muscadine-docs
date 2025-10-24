@@ -24,6 +24,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 myst_heading_anchors = 3
 myst_enable_extensions = [
     'deflist',
+    'attrs_inline',
     'linkify',
 ]
 
