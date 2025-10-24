@@ -7,7 +7,5 @@ Clusters are great, but on their own, they can accomplish very little. A cluster
 :glob:
 
 mpi-basics
-ood
-fortran
 *
 ```
