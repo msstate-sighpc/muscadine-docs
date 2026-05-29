@@ -11,13 +11,13 @@ Last updated May 29, 2026, by Oliver Higginbotham (odh49)
 ### Table of Contents
 1. Muscadine's Spack Architecture
 2. Maintaining Muscadine's Spack
-  2.1 Activating Desired Environment
-  2.2 Adding a Package
-  2.3 Building New Packages
-  2.4 Updating Modulefiles
+- 2.1 Activating Desired Environment
+- 2.2 Adding a Package
+- 2.3 Building New Packages
+- 2.4 Updating Modulefiles
 3. Creating a New Environment
-  3.1 Making Environment with Template
-  3.2 Finding Externals
+- 3.1 Making Environment with Template
+- 3.2 Finding Externals
 4. Cleaning Up
 
 
