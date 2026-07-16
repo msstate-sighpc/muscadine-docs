@@ -9,6 +9,7 @@
 project = 'SIGHPC'
 copyright = '2025, sighpc'
 author = 'sighpc'
+announcement = "Next scheduled maintenance: TBD"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -42,5 +43,6 @@ html_theme_options = {
     "accent_color": "pink",
     "light_logo": "_static/pngs/logo_h_maroon.png",
     "dark_logo": "_static/pngs/logo_h_white.png",
+    "announcement": announcement,
 }
 html_css_files = ['custom.css']
