@@ -28,7 +28,6 @@ Please read before using muscadine
 
 getting-started/index
 clusters/index
-getting-help
 administrative-limitations
 monitoring
 building-software
@@ -36,4 +35,5 @@ building-software
 ood/index
 sup/index
 adv/index
+getting-help
 ```
