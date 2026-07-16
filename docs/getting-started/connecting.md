@@ -22,7 +22,7 @@ ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 Repeat the authentication process from logging into Titan and you'll be set.
 ````
 
-````{tab-item}
+````{tab-item} Method Two: HPC VPN
 :sync: vpn
  \
 ## Method Two: HPC VPN
