@@ -16,29 +16,18 @@ created by sphinx-quickstart on Thu Oct  2 14:13:13 2025.
  ░░░░░░░░░  ░░░░░   ░░░░░░░░░             ░░░░░   ░░░░░ ░░░░░          ░░░░░░░░░  
 ```
 
-Welcome to MSU's SIG-HPC Club documentation. Here you'll find information relating to the club and the student clusters.
+Welcome to MSU's SIG-HPC Club documentation. Here you'll find information relating the student clusters.
 
 Please read before using muscadine
 
 
-
 ```{toctree}
 :maxdepth: 1
-:caption: SIG-HPC:
-:glob:
-
-sighpc
-sighpc-slides/index
-```
-
-
-```{toctree}
-:maxdepth: 1
-:caption: Clustering:
+:caption: Muscadine:
 :glob:
 
 user-docs
-clusters/index
+muscadine
 getting-help
 administrative-limitations
 monitoring
