@@ -4,6 +4,7 @@
 :maxdepth: 1
 :glob:
 
+quick-start
 connecting
 slurm-basics
 ```
