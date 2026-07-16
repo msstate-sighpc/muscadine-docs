@@ -26,7 +26,7 @@ Please read before using muscadine
 :caption: Muscadine:
 :glob:
 
-user-docs
+getting-started/index
 muscadine
 getting-help
 administrative-limitations
