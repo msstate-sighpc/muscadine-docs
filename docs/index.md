@@ -27,7 +27,8 @@ Please read before using muscadine
 :caption: SIG-HPC:
 :glob:
 
-
+sighpc
+sighpc-slides/index
 ```
 
 
