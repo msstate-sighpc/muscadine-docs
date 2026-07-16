@@ -1,6 +1,7 @@
 # Clusters
 
 `````{grid} 1 1 2 2
+:gutter: 4
 
 ````{grid-item-card} Musadine
 :link: muscadine
@@ -8,7 +9,7 @@
 :img-top: ../../_static/clusters/muscadine/muscadine-1.webp
 :img-alt:
 
-Muscadine is a 5 node, 100 TFLOP system gifted by Dell for MSU students' HPC development.
+Muscadine is a 5 node, 100 TFLOP cluster gifted by Dell for MSU students' HPC development.
 ````
 ````{grid-item-card} Pi4 Cluster
 :link: pi4-cluster
