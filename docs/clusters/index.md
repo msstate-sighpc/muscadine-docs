@@ -7,5 +7,5 @@ Here are the student clusters
 :caption: Contents
 :glob:
 
-muscadine.md
+muscadine
 ```
