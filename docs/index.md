@@ -28,9 +28,7 @@ Please read before using muscadine
 
 getting-started/index
 clusters/index
-administrative-limitations
-monitoring
-building-software
+hpc-guides/index
 ood/index
 sup/index
 adv/index
