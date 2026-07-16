@@ -22,7 +22,7 @@ Please read before using muscadine
 
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Muscadine:
 :glob:
 
