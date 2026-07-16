@@ -5,7 +5,7 @@
 ````{grid-item-card} Musadine
 :link: muscadine
 :link-type: doc
-:img-top: ../../_static/clusters/muscadine/musacdine-1.webp
+:img-top: ../../_static/clusters/muscadine/muscadine-1.webp
 :img-alt:
 
 Muscadine is a 5 node, 100 TFLOP system gifted by Dell for MSU students' HPC development.
