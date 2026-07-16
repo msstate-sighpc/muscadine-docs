@@ -27,7 +27,7 @@ Please read before using muscadine
 :glob:
 
 getting-started/index
-muscadine
+clusters/index
 getting-help
 administrative-limitations
 monitoring
