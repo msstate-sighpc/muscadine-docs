@@ -16,14 +16,13 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 
 ---
 
-## Muscadine Specs
-### Hardware
-#### Compute:
+## Muscadine Specification
+### Compute:
 | Node Type       | Cores   | Memory     | GPUs     | Count |
 | --------------- | ------- | ---------- | -------- | ----- |
 | PowerEdge R7615 | 48 Zen4 | 192GB DDR5 | 1x Mi210 | 5     |
 
-#### Storage:
+### Storage:
 | Mount      | FileSystem  | Hardware                   | Total Capacity  | Quota | 
 | ---------- | ----------- | -------------------------- | --------------- | ----- |
 | `/scratch` | BeeGFS      | 5x BOSS-N1 RAID-1 Arrays   | 2.2TB           | None  |
@@ -34,7 +33,7 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 `/scratch` will be periodically wiped due to limited space. Back up critical data to your `/work` directory.
 ```
 
-#### Networking:
+### Networking:
 | Network Type     | Speed     | Latency   | Usecase                                           |
 | ---------------- | --------- | --------- | ------------------------------------------------- |
 | HDR Infiniband   | 200Gbit/s | 700-900ns | RDMA Storage, Performant Cluster Innerconnect     |
@@ -42,9 +41,9 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 
 ---
 
-### Advanced Hardware Analysis
+## Advanced Hardware Analysis
 
-#### CPU Architecture
+### CPU Architecture
 ````{sidebar}
 *image goes here*
 ````
@@ -59,7 +58,7 @@ Talk about Zen4 pipeline
 - CPU Specifications: [AMD EPYC™ 9454P](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9454p.html)
 - Zen 4 White Paper: [Zen 4 White Paper](https://www.amd.com/en/products/processors/server/epyc/4th-generation-architecture.html)
 
-#### GPU Architecture
+### GPU Architecture
 ````{sidebar}
 *gpu image goes here*
 ````
@@ -67,7 +66,7 @@ Muscadine is equipped with a AMD Mi210 48GB Accelerator in each node.
 
 - GPU Specifications: [AMD Instinct MI210](https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html)
 
-#### Storage
+### Storage
 
 You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
 
@@ -90,10 +89,10 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 
 ---
 
-### Benchmarks Leaderboard
+## Benchmarks Leaderboard
 To promote a sense of competition. Here we will host a leaderboard of the best scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to the current student sysadmin. 
 
-#### HPL
+### HPL
 
 | Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
@@ -103,14 +102,14 @@ To promote a sense of competition. Here we will host a leaderboard of the best s
 
 See [Tuning HPL](/adv/hpl.md) to get started
 
-#### MxP-HPL
+### MxP-HPL
 
 | Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
 
 Nobody has submitted scores for Mxp-HPL
 
-#### HPCg
+### HPCg
 
 | Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
