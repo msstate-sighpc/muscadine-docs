@@ -69,7 +69,24 @@ Muscadine is equipped with a AMD Mi210 48GB Accelerator in each node.
 
 #### Storage
 
-Muscadine is designed with two storage systems, each with a specific usecase in mind.
+You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
+
+`/scratch` is build off of the BeeGFS and is the most performant storage solution for Muscadine. The downside is that there is limited storage, thus there will be wipes of old files every now and then whenever it gets near capacity.
+
+`/work` and `/home` are based on the same storage solution so they have the same speed. The difference is that `/work` is intended for project data such as datasets, AI models, output files, etc. If your program intakes data or outputs data, that data should be stored in `/work`.
+
+| Mount      | Total Capacity | Speed      | Quota | Description                                                                                                                                                  |
+| ---------- | -------------- | ---------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/scratch` | 2.2TB          | ***FAST*** | None  | Scratch is to be used for active data or programs that are not vital. ***SCRATCH WILL BE PERIODILY WIPED***                                                  |
+| `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other user's personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
+| `/work`    | 20TB           | *quick*    | 500GB | Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with `/home` and `/apps`.                                  |
+
+```{note}
+The speeds are intentionally vague. Feel free to benchmark them yourself
+```
+```{warning}
+Do not put anything you want to keep for longer than a day in `/scratch` as all files are subject to deletion to preserve free space. 
+```
 
 ---
 
