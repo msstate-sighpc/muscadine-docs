@@ -45,7 +45,8 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 
 ### CPU Architecture
 ````{sidebar}
-*image goes here*
+```{image} _static/clusters/muscadine/muscadine-die.jpg
+```
 ````
 Muscadine uses *AMD EPYC Genoa 9454P* running AMD's Zen 4 architecture. This architecture divides the CPU's cores into groups called *core complexes* (CCX) which share L3 cache. CCXs also group into dies called CCDs. CCXs act as NUMA partitions and interface with a I/O Die which handles communication between NUMA partitions and the rest of the system. There are 12 memory controllers for this generation, meaning there are 3 per CCD hardware defined. 
 
@@ -60,7 +61,8 @@ Talk about Zen4 pipeline
 
 ### GPU Architecture
 ````{sidebar}
-*gpu image goes here*
+```{image} _static/clusters/muscadine/mi210-die.jpg
+```
 ````
 Muscadine is equipped with a AMD Mi210 48GB Accelerator in each node. 
 
