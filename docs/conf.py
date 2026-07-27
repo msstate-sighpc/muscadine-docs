@@ -21,7 +21,6 @@ extensions = [
     'sphinx_design',
     'sphinxcontrib.video',
     'sphinx_new_tab_link',
-    'sphinx_iconify',
 ]
 
 templates_path = ['_templates']
