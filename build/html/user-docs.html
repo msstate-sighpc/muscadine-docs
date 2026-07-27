@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Getting Started - SIGHPC documentation</title><link rel="shortcut icon" href="_static/favicon.png"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting Help" href="getting-help.html" /><link rel="prev" title="Introduction" href="introduction.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="Getting Started"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="index.html">
+      <img class="light-logo" src="_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sup/index.html">Supporting Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sup/mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sup/fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sup/spack.html">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adv/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adv/mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv/git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv/slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv/hpl.html">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv/controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv/openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#accessing-muscadine">Accessing Muscadine</a><ul>
+<li><a class="reference internal" href="#method-one-titan">Method One: Titan</a></li>
+<li><a class="reference internal" href="#method-two-hpc-vpn">Method Two: HPC VPN</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#muscadine-s-storage">Muscadine&#8217;s Storage</a></li>
+<li><a class="reference internal" href="#using-muscadine">Using Muscadine</a><ul>
+<li><a class="reference internal" href="#getting-a-node-allocation">Getting a node allocation</a></li>
+<li><a class="reference internal" href="#available-modules">Available modules</a></li>
+<li><a class="reference internal" href="#what-do-i-do-if-there-is-a-program-i-want">What do I do if there is a program I want?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-slurm">Using Slurm</a><ul>
+<li><a class="reference internal" href="#common-slurm-commands">Common Slurm commands</a><ul>
+<li><a class="reference internal" href="#sinfo"><code class="docutils literal notranslate"><span class="pre">sinfo</span></code></a></li>
+<li><a class="reference internal" href="#squeue"><code class="docutils literal notranslate"><span class="pre">squeue</span></code></a></li>
+<li><a class="reference internal" href="#scancel"><code class="docutils literal notranslate"><span class="pre">scancel</span></code></a></li>
+<li><a class="reference internal" href="#sacct"><code class="docutils literal notranslate"><span class="pre">sacct</span></code></a></li>
+<li><a class="reference internal" href="#srun"><code class="docutils literal notranslate"><span class="pre">srun</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-a-sbatch-script">Building a SBATCH script</a></li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Getting Started</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<section id="accessing-muscadine">
+<h2>Accessing Muscadine<a class="headerlink" href="#accessing-muscadine" title="Link to this heading">#</a></h2>
+<section id="method-one-titan">
+<h3>Method One: Titan<a class="headerlink" href="#method-one-titan" title="Link to this heading">#</a></h3>
+<p>First log into Titan at <code class="docutils literal notranslate"><span class="pre">titan.hpc.msstate.edu</span></code>. Use the following template if needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">ssh<span class="w"> </span>&lt;NetID&gt;@titan.hpc.msstate.edu
+</span></pre></div>
+</div>
+<p>After entering your HPC password and doing the 2FA push, you can proceed to logging into Muscadine. Muscadine only has one node facing the HPCC network which is <code class="docutils literal notranslate"><span class="pre">muscadine-node-1</span></code>, so that is the one we’ll want to ssh into. Use the following template if needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">ssh<span class="w"> </span>&lt;NetID&gt;@muscadine-node-1.hpc.msstate.edu
+</span></pre></div>
+</div>
+<p>Repeat the authentication process from logging into Titan and you’ll be set.</p>
+</section>
+<section id="method-two-hpc-vpn">
+<span id="id1"></span><h3>Method Two: HPC VPN<a class="headerlink" href="#method-two-hpc-vpn" title="Link to this heading">#</a></h3>
+<p>Method Two involves logging into the HPC<sup>2</sup> VPN. Go to <a class="reference external" href="https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80" rel="noreferrer" target="_blank">https://servicedesk.its.msstate.edu</a> and download the Cisco AnyConnect VPN by following ITS’s guide. Once that is completed, launch the VPN and connect to <code class="docutils literal notranslate"><span class="pre">vpn.hpc.msstate.edu</span></code>. It will then ask for your Group (HPC2), Username (your NetID), Password (your HPC Password), and Duo 2FA Passcode (get from duo app or enter ‘push’ to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine’s head node <code class="docutils literal notranslate"><span class="pre">muscadine-node-1</span></code>. Use the following template if needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">ssh<span class="w"> </span>&lt;NetID&gt;@muscadine-node-1.hpc.msstate.edu
+</span></pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="muscadine-s-storage">
+<h2>Muscadine’s Storage<a class="headerlink" href="#muscadine-s-storage" title="Link to this heading">#</a></h2>
+<p>You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> and <code class="docutils literal notranslate"><span class="pre">/work</span></code> that you can use.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/scratch</span></code> is build off of the BeeGFS and is the most performant storage solution for Muscadine. The downside is that there is limited storage, thus there will be wipes of old files every now and then whenever it gets near capacity.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/work</span></code> and <code class="docutils literal notranslate"><span class="pre">/home</span></code> are based on the same storage solution so they have the same speed. The difference is that <code class="docutils literal notranslate"><span class="pre">/work</span></code> is intended for project data such as datasets, AI models, output files, etc. If your program intakes data or outputs data, that data should be stored in <code class="docutils literal notranslate"><span class="pre">/work</span></code>.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mount</p></th>
+<th class="head"><p>Total Capacity</p></th>
+<th class="head"><p>Speed</p></th>
+<th class="head"><p>Quota</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/scratch</span></code></p></td>
+<td><p>2.2TB</p></td>
+<td><p><em><strong>FAST</strong></em></p></td>
+<td><p>None</p></td>
+<td><p>Scratch is to be used for active data or programs that are not vital. <em><strong>SCRATCH WILL BE PERIODILY WIPED</strong></em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/home</span></code></p></td>
+<td><p>20TB</p></td>
+<td><p><em>quick</em></p></td>
+<td><p>10GB</p></td>
+<td><p>Home is where your and other user’s personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with <code class="docutils literal notranslate"><span class="pre">/work</span></code> and <code class="docutils literal notranslate"><span class="pre">/apps</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/work</span></code></p></td>
+<td><p>20TB</p></td>
+<td><p><em>quick</em></p></td>
+<td><p>500GB</p></td>
+<td><p>Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with <code class="docutils literal notranslate"><span class="pre">/home</span></code> and <code class="docutils literal notranslate"><span class="pre">/apps</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The speeds are intentionally vague. Feel free to benchmark them yourself</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not put anything you want to keep for longer than a day in <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> as all files are subject to deletion to preserve free space.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-muscadine">
+<h2>Using Muscadine<a class="headerlink" href="#using-muscadine" title="Link to this heading">#</a></h2>
+<section id="getting-a-node-allocation">
+<h3>Getting a node allocation<a class="headerlink" href="#getting-a-node-allocation" title="Link to this heading">#</a></h3>
+<p>Say you want to build a given program. You could build it on the head, but that can interfere with other people doing the same or running a program on the head. An alternative to that is submitting a Slurm request to get a node for building purposes. Run the following command to reserve a node for a bash terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">srun<span class="w"> </span>-c16<span class="w"> </span>--pty<span class="w"> </span>bash
+</span></pre></div>
+</div>
+</section>
+<section id="available-modules">
+<h3>Available modules<a class="headerlink" href="#available-modules" title="Link to this heading">#</a></h3>
+<p>Modules are software stacks such as GCC, Python, OpenBLAS, or ROCM that we provide that are optimized for the cluster its on. A list of all available modules can be seen by running <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">avail</span></code>. Here is a table of all the modules provided by default. A few more modules can be made available after loading a compiler like <code class="docutils literal notranslate"><span class="pre">aocc</span></code> or <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">--------------------</span> <span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">spack</span><span class="o">-</span><span class="n">zen4</span><span class="o">-</span><span class="n">v1</span><span class="mf">.0</span><span class="o">/</span><span class="n">modulefiles</span><span class="o">/</span><span class="n">Core</span> <span class="o">-----------------</span>
+</span><span data-line="2">   <span class="n">amdblis</span><span class="o">/</span><span class="mf">5.0</span>       <span class="n">hip</span><span class="o">/</span><span class="mf">6.2.4</span>          <span class="n">python</span><span class="o">/</span><span class="mf">3.12.5</span>             <span class="n">rust</span><span class="o">/</span><span class="mf">1.81.0</span>
+</span><span data-line="3">   <span class="n">aocc</span><span class="o">/</span><span class="mf">5.0.0</span>        <span class="n">hipblas</span><span class="o">/</span><span class="mf">6.2.4</span>      <span class="n">rocblas</span><span class="o">/</span><span class="mf">6.2.4</span>             <span class="n">sqlite</span><span class="o">/</span><span class="mf">3.34.1</span>
+</span><span data-line="4">   <span class="n">apptainer</span><span class="o">/</span><span class="mf">1.3.4</span>   <span class="n">miopen</span><span class="o">-</span><span class="n">hip</span><span class="o">/</span><span class="mf">6.2.4</span>   <span class="n">rocm</span><span class="o">-</span><span class="n">cmake</span><span class="o">/</span><span class="mf">6.2.4</span>
+</span><span data-line="5">   <span class="n">contrib</span><span class="o">/</span><span class="mf">0.1</span>       <span class="n">openmpi</span><span class="o">/</span><span class="mf">5.0.5</span>      <span class="n">rocm</span><span class="o">-</span><span class="n">device</span><span class="o">-</span><span class="n">libs</span><span class="o">/</span><span class="mf">6.2.4</span>
+</span><span data-line="6">   <span class="n">gcc</span><span class="o">/</span><span class="mf">14.2.0</span>        <span class="n">python</span><span class="o">/</span><span class="mf">3.11.9</span>      <span class="n">rocsolver</span><span class="o">/</span><span class="mf">6.2.4</span>
+</span></pre></div>
+</div>
+<p>In order to load a module, you can run <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">load</span> <span class="pre">&lt;moduleName&gt;</span></code>. Tab complete does work with ml and we encourage you use tab complete as it can also list several different versions we provide for each module, most will only have one though.</p>
+</section>
+<section id="what-do-i-do-if-there-is-a-program-i-want">
+<h3>What do I do if there is a program I want?<a class="headerlink" href="#what-do-i-do-if-there-is-a-program-i-want" title="Link to this heading">#</a></h3>
+<p>The simple answer is to build it from their source repository. The complex answer is to build it from their source repository. We do not install tools or programs for users. That is the user’s job of using the cluster. After building a program, you should get a binary executable. If you want to make binaries you make accessible by you anywhere on the system, complete the following steps.</p>
+<ol class="arabic simple">
+<li><p>After building your binary, create a <code class="docutils literal notranslate"><span class="pre">.bin</span></code> in your home directory by running <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">~/.bin</span></code>.</p></li>
+<li><p>Now move that binary into the <code class="docutils literal notranslate"><span class="pre">.bin</span></code> directory.</p></li>
+<li><p>Lastly, you’ll need to add the path of that directory to your environment.</p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> adding <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=&quot;$PATH:$(HOME)/.bin</span></code> to the end.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NOTE: <em>You only need edit .zshrc once.</em></p>
+</div>
+<p>Users can submit a request to add something they have built to <code class="docutils literal notranslate"><span class="pre">/apps/contrib</span></code> for other users to use as well.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="using-slurm">
+<h2>Using Slurm<a class="headerlink" href="#using-slurm" title="Link to this heading">#</a></h2>
+<section id="common-slurm-commands">
+<h3>Common Slurm commands<a class="headerlink" href="#common-slurm-commands" title="Link to this heading">#</a></h3>
+<section id="sinfo">
+<h4><code class="docutils literal notranslate"><span class="pre">sinfo</span></code><a class="headerlink" href="#sinfo" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">sinfo</span></code> and is a command that lets you see the cluster status. I have ran <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> on Muscadine during a low usage time so all the nodes are idle. It is <em>highly</em> recommended to check this before submitting jobs, specifically greater than half a node in size.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">╭─odh49@muscadine-node-1<span class="w"> </span>~
+</span><span data-line="2">╰─$<span class="w"> </span>sinfo
+</span><span data-line="3">PARTITION<span class="w">  </span>AVAIL<span class="w">  </span>TIMELIMIT<span class="w">  </span>NODES<span class="w">  </span>STATE<span class="w"> </span>NODELIST
+</span><span data-line="4">muscadine*<span class="w">    </span>up<span class="w">   </span>infinite<span class="w">      </span><span class="m">5</span><span class="w">   </span>idle<span class="w"> </span>muscadine-node-<span class="o">[</span><span class="m">1</span>-5<span class="o">]</span>
+</span></pre></div>
+</div>
+</section>
+<section id="squeue">
+<h4><code class="docutils literal notranslate"><span class="pre">squeue</span></code><a class="headerlink" href="#squeue" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">squeue</span></code> is a command that allows you to see any current jobs running on the cluster. This is very useful if you want to monitor if your job is running/waiting for resources along with its Job ID. I ran it on Muscadine while I have my <a class="reference external" href="http://meta-8B.sh" rel="noreferrer" target="_blank">meta-8B.sh</a> running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">╭─odh49@muscadine-node-1<span class="w"> </span>~
+</span><span data-line="2">╰─$<span class="w"> </span>squeue
+</span><span data-line="3"><span class="w">    </span>JOBID<span class="w"> </span>PARTITION<span class="w">     </span>NAME<span class="w">     </span>USER<span class="w"> </span>ST<span class="w">       </span>TIME<span class="w">  </span>NODES<span class="w"> </span>NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+</span><span data-line="4"><span class="w">     </span><span class="m">3449</span><span class="w"> </span>muscadine<span class="w"> </span>meta-8B.<span class="w">    </span>odh49<span class="w">  </span>R<span class="w">       </span><span class="m">0</span>:18<span class="w">      </span><span class="m">1</span><span class="w"> </span>muscadine-node-2
+</span></pre></div>
+</div>
+</section>
+<section id="scancel">
+<h4><code class="docutils literal notranslate"><span class="pre">scancel</span></code><a class="headerlink" href="#scancel" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">scancel</span></code> kills a Slurm job. This is useful if you realize there was a mistake in your SBATCH file, made a change before it finished, or if it was an interactive job that froze. Here I used the Job ID from my job previously shown to kill the model running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">╭─odh49@muscadine-node-1<span class="w"> </span>~
+</span><span data-line="2">╰─$<span class="w"> </span>scancel<span class="w"> </span><span class="m">3449</span>
+</span></pre></div>
+</div>
+</section>
+<section id="sacct">
+<h4><code class="docutils literal notranslate"><span class="pre">sacct</span></code><a class="headerlink" href="#sacct" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">sacct</span></code> is like <code class="docutils literal notranslate"><span class="pre">squeue</span></code> except it shows all Slurm jobs that have been ran, is running, or errored out solely by you. This is very useful when looking at several jobs and seeing how its being handled. Here is the output of <code class="docutils literal notranslate"><span class="pre">sacct</span></code> with a few things running, ran, and failed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">╭─odh49@muscadine-node-1<span class="w"> </span>~/Demos/helloWorld
+</span><span data-line="2">╰─$<span class="w"> </span>sacct
+</span><span data-line="3">JobID<span class="w">           </span>JobName<span class="w">  </span>Partition<span class="w">    </span>Account<span class="w">  </span>AllocCPUS<span class="w">      </span>State<span class="w"> </span>ExitCode
+</span><span data-line="4">------------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>----------<span class="w"> </span>--------
+</span><span data-line="5"><span class="m">3449</span><span class="w">         </span>meta-8B.sh<span class="w">  </span>muscadine<span class="w">     </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w"> </span>CANCELLED+<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="6"><span class="m">3449</span>.batch<span class="w">        </span>batch<span class="w">                </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">  </span>CANCELLED<span class="w">     </span><span class="m">0</span>:15
+</span><span data-line="7"><span class="m">3449</span>.0<span class="w">        </span>llama-cli<span class="w">                </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">  </span>CANCELLED<span class="w">     </span><span class="m">0</span>:15
+</span><span data-line="8"><span class="m">3450</span><span class="w">          </span>llama-cli<span class="w">  </span>muscadine<span class="w">     </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">     </span>FAILED<span class="w">      </span><span class="m">0</span>:2
+</span><span data-line="9"><span class="m">3450</span>.0<span class="w">        </span>llama-cli<span class="w">                </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">  </span>CANCELLED<span class="w">      </span><span class="m">0</span>:2
+</span><span data-line="10"><span class="m">3451</span><span class="w">         </span>meta-8B.sh<span class="w">  </span>muscadine<span class="w">     </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="11"><span class="m">3451</span>.batch<span class="w">        </span>batch<span class="w">                </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="12"><span class="m">3451</span>.0<span class="w">        </span>llama-cli<span class="w">                </span>sighpc<span class="w">          </span><span class="m">2</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="13"><span class="m">3452</span><span class="w">         </span>helloWorld<span class="w">  </span>muscadine<span class="w">     </span>sighpc<span class="w">         </span><span class="m">48</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="14"><span class="m">3452</span>.batch<span class="w">        </span>batch<span class="w">                </span>sighpc<span class="w">         </span><span class="m">48</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span><span data-line="15"><span class="m">3452</span>.0<span class="w">        </span>hello_mpi<span class="w">                </span>sighpc<span class="w">         </span><span class="m">48</span><span class="w">    </span>RUNNING<span class="w">      </span><span class="m">0</span>:0
+</span></pre></div>
+</div>
+</section>
+<section id="srun">
+<h4><code class="docutils literal notranslate"><span class="pre">srun</span></code><a class="headerlink" href="#srun" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">srun</span></code> is the command you’ll use to run a parallel program via Slurm. For the most part, you’ll use this within an SBATCH script described in Section 5.3. But if you want an interactive session (eg. <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-c2</span> <span class="pre">--pty</span> <span class="pre">bash</span></code>). Using <code class="docutils literal notranslate"><span class="pre">srun</span></code> is also useful when testing code on a small scale before fully implementing the SBATCH for it. Check out <a class="reference external" href="https://slurm.schedmd.com/srun.html" rel="noreferrer" target="_blank">https://slurm.schedmd.com/srun.html</a> for a full list of arguments to use with <code class="docutils literal notranslate"><span class="pre">srun</span></code>.</p>
+</section>
+</section>
+<section id="building-a-sbatch-script">
+<h3>Building a SBATCH script<a class="headerlink" href="#building-a-sbatch-script" title="Link to this heading">#</a></h3>
+<p>SBATCH Scripts are what are used by Slurm to better allocate/distribute your program. Below is a template you can use for nearly any Slurm job.</p>
+<div class="highlight-SBATCH notranslate"><div class="highlight"><pre><span></span><span data-line="1">!/bin/bash
+</span><span data-line="2">
+</span><span data-line="3"><span class="w"> </span>Slurm<span class="w"> </span>Specific
+</span><span data-line="4">
+</span><span data-line="5">SBATCH<span class="w"> </span>--job-name<span class="o">=</span><span class="s2">&quot;my_name&quot;</span><span class="w">            </span><span class="c1">#job name</span>
+</span><span data-line="6">SBATCH<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w">                       </span><span class="c1">#number of nodes</span>
+</span><span data-line="7">SBATCH<span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">16</span><span class="w">            </span><span class="c1">#number of tasks per node</span>
+</span><span data-line="8">SBATCH<span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">1</span><span class="w">               </span><span class="c1">#number of physical cores per task</span>
+</span><span data-line="9">SBATCH<span class="w"> </span>--mem<span class="o">=</span>4G<span class="w">                        </span><span class="c1">#max memory allocated </span>
+</span><span data-line="10">SBATCH<span class="w"> </span>--time<span class="o">=</span><span class="m">0</span>-1:00:00<span class="w">                </span><span class="c1">#max runtime (D-hh:mm:ss)</span>
+</span><span data-line="11">SBATCH<span class="w"> </span>--output<span class="o">=</span>my_run.log<span class="w">             </span><span class="c1">#output name</span>
+</span><span data-line="12">
+</span><span data-line="13">
+</span><span data-line="14"><span class="w"> </span>Muscadine<span class="w"> </span>Specific
+</span><span data-line="15">
+</span><span data-line="16">ml<span class="w"> </span>load<span class="w"> </span>&lt;neededModules&gt;
+</span><span data-line="17">
+</span><span data-line="18">
+</span><span data-line="19"><span class="w"> </span>Your<span class="w"> </span>Application
+</span><span data-line="20">
+</span><span data-line="21"><span class="nb">srun</span><span class="w"> </span>&lt;application&gt;
+</span></pre></div>
+</div>
+<p>Here is an example of a SBATCH Script used for a Hello World spanning across 2 nodes, 48 threads each, using the openmpi/5.0.5 module, and the binary I made.</p>
+<div class="highlight-SBATCH notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="ch">#!/bin/bash</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="c1"># Slurm Specific</span>
+</span><span data-line="4">
+</span><span data-line="5"><span class="kp">#SBATCH --job-name=helloWorld           #job name</span>
+</span><span data-line="6"><span class="kp">#SBATCH --nodes=2                       #number of nodes</span>
+</span><span data-line="7"><span class="kp">#SBATCH --ntasks-per-node=48            #number of tasks per node</span>
+</span><span data-line="8"><span class="kp">#SBATCH --cpus-per-task=1               #number of cpus per task</span>
+</span><span data-line="9"><span class="kp">#SBATCH --mem=8G                        #max memory allocated</span>
+</span><span data-line="10"><span class="kp">#SBATCH --time=0-1:00:00                #max runtime</span>
+</span><span data-line="11"><span class="kp">#SBATCH --output=helloWorld-%j.out      #output name</span>
+</span><span data-line="12">
+</span><span data-line="13">
+</span><span data-line="14"><span class="c1"># Muscadine Specific</span>
+</span><span data-line="15">
+</span><span data-line="16">ml<span class="w"> </span>load<span class="w"> </span>openmpi/5.0.5
+</span><span data-line="17">
+</span><span data-line="18">
+</span><span data-line="19"><span class="c1"># Your Application</span>
+</span><span data-line="20">
+</span><span data-line="21"><span class="nb">srun</span><span class="w"> </span>./hello_mpi
+</span></pre></div>
+</div>
+<p>You can submit the SBATCH Script to Slurm via the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">sbatch<span class="w"> </span>&lt;sbatchScript&gt;
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="introduction.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Introduction</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="getting-help.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Getting Help</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script src="_static/shibuya.js?v=50760d75"></script></body>
+</html>

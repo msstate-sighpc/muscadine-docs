@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Building Software with Spack - SIGHPC documentation</title><link rel="shortcut icon" href="../_static/favicon.png"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Advanced Topics" href="../adv/index.html" /><link rel="prev" title="What Even is Fortran?" href="fortran.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="Building Software with Spack"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      <img class="light-logo" src="../_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-docs.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supporting Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../adv/mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/hpl.html">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#foreword">Foreword</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#initial-setup">Initial setup</a></li>
+<li><a class="reference internal" href="#environment-setup">Environment Setup</a></li>
+<li><a class="reference internal" href="#configuring-spack">Configuring Spack</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#create-an-environment">Create an Environment</a></li>
+<li><a class="reference internal" href="#identifying-a-spec">Identifying a spec</a></li>
+<li><a class="reference internal" href="#writing-a-spec-line">Writing a spec line</a><ul>
+<li><a class="reference internal" href="#the-spec-line">The spec line</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-the-spec">Adding the spec</a><ul>
+<li><a class="reference internal" href="#spack-add"><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">add</span></code></a></li>
+<li><a class="reference internal" href="#spack-config-edit"><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">config</span> <span class="pre">edit</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#concretize">Concretize</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#load">Load</a><ul>
+<li><a class="reference internal" href="#spack-location"><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">location</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">Supporting Software</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Building Software with Spack</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="building-software-with-spack">
+<h1>Building Software with Spack<a class="headerlink" href="#building-software-with-spack" title="Link to this heading">#</a></h1>
+<p>Resources: <a class="reference external" href="https://spack.readthedocs.io/en/latest/getting_started.html" rel="noreferrer" target="_blank">spack</a></p>
+<p>Spack is an HPC-focused, source-based package manager. Spack is helpful for both building software as well as dependencies for manually-built software.</p>
+<section id="foreword">
+<h2>Foreword<a class="headerlink" href="#foreword" title="Link to this heading">#</a></h2>
+<p>Much care and consideration goes into curating a given cluster’s site-wide apps tree. It is imperative that users do not attempt to rebuild some of this software.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<section id="initial-setup">
+<h3>Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading">#</a></h3>
+<p>Spack is a user-land python suite that can be installed almost anywhere. Installing is easy.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">2</span><span class="w"> </span>https://github.com/spack/spack.git<span class="w"> </span>/path/to/install
+</span></pre></div>
+</div>
+</section>
+<section id="environment-setup">
+<h3>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h3>
+<p>Each time you open a new shell, Spack needs to be loaded into your environment. do this with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">.<span class="w"> </span>/path/to/spack/share/spack/setup-env.sh
+</span></pre></div>
+</div>
+</section>
+<section id="configuring-spack">
+<h3>Configuring Spack<a class="headerlink" href="#configuring-spack" title="Link to this heading">#</a></h3>
+<p>As stated in the <a class="reference internal" href="#foreword">Foreword</a>, it’s imperative some software not be rebuilt. The best way to ensure this, as well as relieve the workload of rebuilding some dependencies, is to select an ‘upstream’ in spack. this way, spack uses what’s already in the site-wide apps tree.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>config<span class="w"> </span>add<span class="w"> </span>upstreams:apps:install_tree:/apps/spack-managed-zen4-v1.0
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<p>Using spack is quite simple, the general workflow looks like this:</p>
+<ol class="arabic simple">
+<li><p>create an environment</p></li>
+<li><p>identify a spec(package) to add</p></li>
+<li><p>investigate what the spec line should be</p></li>
+<li><p>add the spec to the environment</p></li>
+<li><p>concretize</p></li>
+<li><p>install (build)</p></li>
+<li><p>load (optional)</p></li>
+</ol>
+<section id="create-an-environment">
+<h3>Create an Environment<a class="headerlink" href="#create-an-environment" title="Link to this heading">#</a></h3>
+<p>Environments are how spack compartmentalizes its installed packages. environments can share packages but cannot share specs. reducing the size of environments is how spack keeps the computational complexity of solving the dependency tree low. It’s advised to create a new environment for each target piece of software or project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>my-environment
+</span><span data-line="2">spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>my-environment
+</span></pre></div>
+</div>
+</section>
+<section id="identifying-a-spec">
+<h3>Identifying a spec<a class="headerlink" href="#identifying-a-spec" title="Link to this heading">#</a></h3>
+<p>A spec refers to the target software you want spack to install. examples include ‘hpl’, ‘openblas’, ‘chameleon’, or your favorite version of mpi. For each possible spec, spack maintains a recipe for what this package needs and how to build it.</p>
+<p>For example: say I want to build the dependencies for HPL. I’d need a compiler, an mpi, and a blas library. An example would be ‘gcc&#64;15’, ‘openmpi&#64;5.0.8’, and ‘amdblis’</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Versions are specified with an &#64;. They aren’t required but allow you to be specific.</p>
+</div>
+</section>
+<section id="writing-a-spec-line">
+<h3>Writing a spec line<a class="headerlink" href="#writing-a-spec-line" title="Link to this heading">#</a></h3>
+<p>Spack is very specific about how it builds its software. You can choose to be as specific or vague about your specs. Being vague allows spack to choose the best (easiest to solve) specs.</p>
+<p>You can view all the possible spec options for a package by issuing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>info<span class="w"> </span>&lt;package&gt;
+</span></pre></div>
+</div>
+<p>This will show all the info provided about a package recipe including possible verions, build systems, configuration options, etc.</p>
+<section id="the-spec-line">
+<h4>The spec line<a class="headerlink" href="#the-spec-line" title="Link to this heading">#</a></h4>
+<p>A normal spec line looks like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">hpl@2.3<span class="w"> </span>%gcc@15<span class="w"> </span>^openmpi<span class="w"> </span>^amdblis
+</span></pre></div>
+</div>
+<p>Let’s break that down.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">hpl&#64;2.3</span></code></dt><dd><p>here we’re saying we want spack to install hpl version 2.3</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">%gcc&#64;15</span></code></dt><dd></dd>
+<dd><p>Here we want any subversion of gcc 15</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">^openmpi</span></code></dt><dd><p>^ means we want our package to use this package as a dependency. In this case we want any openmpi to satisfy our mpi dependency</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">^amdblis</span></code></dt><dd><p>Another dependency; use ‘amdblis’ to satisfy our blas dependency.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="adding-the-spec">
+<h3>Adding the spec<a class="headerlink" href="#adding-the-spec" title="Link to this heading">#</a></h3>
+<p>We can supply the spec in one of two ways, either by running the <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">add</span></code> command, or by adding it to the module config.</p>
+<section id="spack-add">
+<h4><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">add</span></code><a class="headerlink" href="#spack-add" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>add<span class="w"> </span>hpl<span class="w"> </span>^amdblis<span class="w"> </span>...
+</span></pre></div>
+</div>
+</section>
+<section id="spack-config-edit">
+<h4><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">config</span> <span class="pre">edit</span></code><a class="headerlink" href="#spack-config-edit" title="Link to this heading">#</a></h4>
+<p>this command will open the environment’s yaml file in an editor for you to modify. add a spec by creating a newling under <code class="docutils literal notranslate"><span class="pre">specs</span></code> with your spec line.</p>
+</section>
+</section>
+<section id="concretize">
+<h3>Concretize<a class="headerlink" href="#concretize" title="Link to this heading">#</a></h3>
+<p>Concretization is very simple, it’s the part when spack solves the dependency tree and ‘sets the specs in concrete’. Simply run it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>concretize
+</span></pre></div>
+</div>
+<p>After waiting a bit (a while if it’s your first time), you’ll be presented with a rudimentary graph of the dependency tree of your chosen specs. note that all packages have a complete spec line and nothing is to chance. It’s at this point that you should look over the specs and make sure that spack plans to do what you want.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s at this point that spack can have issues. Solving the dependency tree can be difficult and sometime impossible. If the process takes more than ~5 minutes or fails, back up and try again. If you are having trouble, see <a class="reference internal" href="../getting-help.html"><span class="std std-doc">Getting Help</span></a>.</p>
+</div>
+</section>
+<section id="install">
+<h3>Install<a class="headerlink" href="#install" title="Link to this heading">#</a></h3>
+<p>Good news! The hard work is mostly done. at this stage, spack does all the work (and it’s a lot).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">spack<span class="w"> </span>install<span class="w"> </span>-jX<span class="w"> </span><span class="c1"># where X is desired cores</span>
+</span></pre></div>
+</div>
+<p>Building an entire dependency tree from source can take a long time. be patient. Spack will give status updates as it goes. Often times if spack seems to be doing nothing, it’s working, just give it time.</p>
+</section>
+<section id="load">
+<h3>Load<a class="headerlink" href="#load" title="Link to this heading">#</a></h3>
+<p>Once your packages are finally installed. it’s up to you to use them. by default, spack maintains what it calls ‘views’. these are places where it tries to make relavent files available automatically for your environment. for some build systems, this works and that’s all you need. for others, it may be necessary to <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">load</span> <span class="pre">package</span></code>. This is the equivalent of <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">an-app</span></code> for your individual spack tree; it loads the necessary environment variables for your build system to pick up on.</p>
+<section id="spack-location">
+<h4><code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">location</span></code><a class="headerlink" href="#spack-location" title="Link to this heading">#</a></h4>
+<p>Some build systems can be quite stubborn. in this case, it may be necessary to manually specify where packages are located. An easy way to find this information is to use <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">location</span> <span class="pre">-i</span> <span class="pre">my-package</span></code>. this will return the install prefix of that package. Keep in mind that library files are in <code class="docutils literal notranslate"><span class="pre">/lib</span></code> or <code class="docutils literal notranslate"><span class="pre">/lib64</span></code>, headers are in <code class="docutils literal notranslate"><span class="pre">/include</span></code>, and binaries are in <code class="docutils literal notranslate"><span class="pre">/bin</span></code> relative to this path.</p>
+</section>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="fortran.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">What Even is Fortran?</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../adv/index.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Advanced Topics</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>

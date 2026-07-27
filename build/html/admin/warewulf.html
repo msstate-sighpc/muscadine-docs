@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>7. Warewulf - SIGHPC documentation</title><link rel="shortcut icon" href="../_static/favicon.png"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="7. Warewulf"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      <img class="light-logo" src="../_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-docs.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sup/index.html">Supporting Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sup/mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/spack.html">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../adv/mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/hpl.html">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#building">7.1. Building</a><ul>
+<li><a class="reference internal" href="#install-dependencies">7.1.1. Install Dependencies:</a></li>
+<li><a class="reference internal" href="#mount-setup">7.1.2. Mount setup:</a></li>
+<li><a class="reference internal" href="#cloning-the-source">7.1.3. Cloning the Source</a></li>
+<li><a class="reference internal" href="#patching">7.1.4. Patching</a></li>
+<li><a class="reference internal" href="#id1">7.1.5. Building</a></li>
+<li><a class="reference internal" href="#populate-ipxe-files">7.1.6. Populate iPXE files</a></li>
+<li><a class="reference internal" href="#initial-configuration">7.1.7. Initial Configuration</a></li>
+<li><a class="reference internal" href="#building-the-containers">7.1.8. Building the Containers</a></li>
+<li><a class="reference internal" href="#install-podman">7.1.9. Install Podman</a></li>
+<li><a class="reference internal" href="#writing-a-dockerfile">7.1.10. Writing a Dockerfile</a></li>
+<li><a class="reference internal" href="#exporting-podman-images-to-warewulf">7.1.11. Exporting Podman Images to Warewulf</a></li>
+<li><a class="reference internal" href="#defining-nodes">7.1.12. Defining Nodes</a></li>
+<li><a class="reference internal" href="#overlays">7.1.13. Overlays</a></li>
+<li><a class="reference internal" href="#booting-nodes">7.1.14. Booting Nodes</a></li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name"><span class="section-number">7. </span>Warewulf</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="warewulf">
+<h1><span class="section-number">7. </span>Warewulf<a class="headerlink" href="#warewulf" title="Link to this heading">#</a></h1>
+<p>Warewulf is where the majority of configuration will take place on muscadine. warewulf is used to handle the compute node images. all software that can’t be made available in the apps tree will need to be present in the compute image.</p>
+<section id="building">
+<h2><span class="section-number">7.1. </span>Building<a class="headerlink" href="#building" title="Link to this heading">#</a></h2>
+<p>Building warewulf is fairly straightforward, and can be performed by losely following CIQ’s docs
+the following should be performed in the WW vm discussed on the <a class="reference internal" href="index.html"><span class="std std-doc">main</span></a> page.</p>
+<section id="install-dependencies">
+<h3><span class="section-number">7.1.1. </span>Install Dependencies:<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">dnf<span class="w">  </span>--assumeyes<span class="w">  </span>--setopt<span class="o">=</span><span class="nv">install_weak_deps</span><span class="o">=</span>False<span class="w">  </span>--nodocs<span class="w">  </span>install<span class="w">  </span>dhcp-server<span class="w">  </span>tftp-server<span class="w">  </span>nfs-utils<span class="w">  </span>golang
+</span></pre></div>
+</div>
+</section>
+<section id="mount-setup">
+<h3><span class="section-number">7.1.2. </span>Mount setup:<a class="headerlink" href="#mount-setup" title="Link to this heading">#</a></h3>
+<p>to keep the VM small, we’ll want to store all of warewulf’s installation and source on an NFS mount. this shouldn’t affect performance since the connection between VM and host is virtual and is as fast as loopback.</p>
+<p>Append the following line to <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">muscadine-node-1.hpc.msstate.edu:/local/ww                    /opt/warewulf        nfs     defaults,nodev,noatime     0 0
+</span></pre></div>
+</div>
+<p>now mount it w/</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>/opt/warewulf
+</span><span data-line="2">mount<span class="w"> </span>-a
+</span></pre></div>
+</div>
+</section>
+<section id="cloning-the-source">
+<h3><span class="section-number">7.1.3. </span>Cloning the Source<a class="headerlink" href="#cloning-the-source" title="Link to this heading">#</a></h3>
+<p>fetch the source code and checkout the correct tag with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/warewulf/warewulf.git<span class="w"> </span>/opt/warewulf/src
+</span><span data-line="2">git<span class="w"> </span>-C<span class="w"> </span>/opt/warewulf/src<span class="w"> </span>checkout<span class="w"> </span>v4.6.x
+</span></pre></div>
+</div>
+</section>
+<section id="patching">
+<h3><span class="section-number">7.1.4. </span>Patching<a class="headerlink" href="#patching" title="Link to this heading">#</a></h3>
+<p>there are a few things we need to change before we build, to suite our environment</p>
+<p>first, locate the file <code class="docutils literal notranslate"><span class="pre">configs/ww/HPC2-dhcpd-ww.patch</span></code> in this repo, replace <patch> with the path to that file in the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>apply<span class="w"> </span>&lt;patch&gt;
+</span></pre></div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">7.1.5. </span>Building<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><em>NOTE:</em> Building requries an http connection. Ask senior admins for the best way to do this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">cd</span><span class="w"> </span>/opt/warewulf/src
+</span><span data-line="2">make<span class="w"> </span>clean<span class="w"> </span>defaults<span class="w"> </span><span class="nv">PREFIX</span><span class="o">=</span>/opt/warewulf
+</span><span data-line="3">make<span class="w"> </span>all
+</span><span data-line="4">make<span class="w"> </span>install
+</span></pre></div>
+</div>
+</section>
+<section id="populate-ipxe-files">
+<h3><span class="section-number">7.1.6. </span>Populate iPXE files<a class="headerlink" href="#populate-ipxe-files" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">./scripts/build-ipxe.sh
+</span><span data-line="2">cp<span class="w"> </span>-i<span class="w"> </span>/opt/warewulf/share/ipxe/bin-x86_64-efi-snponly.efi<span class="w"> </span>/var/lib/tftpboot/warewulf/ipxe-snponly-x86_64.efi
+</span></pre></div>
+</div>
+</section>
+<section id="initial-configuration">
+<h3><span class="section-number">7.1.7. </span>Initial Configuration<a class="headerlink" href="#initial-configuration" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">wwctl<span class="w"> </span>configure<span class="w"> </span>--all
+</span><span data-line="2">systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>warewulfd
+</span></pre></div>
+</div>
+</section>
+<section id="building-the-containers">
+<h3><span class="section-number">7.1.8. </span>Building the Containers<a class="headerlink" href="#building-the-containers" title="Link to this heading">#</a></h3>
+<p>Warewulf images are really just specialized docker/podman/containerd/etc… containers. Management can be done in 2 ways:</p>
+<ol class="arabic simple">
+<li><p>pulling a base image straight into warewulf and managing it by chrooting into it and making stated changes</p></li>
+<li><p>using podman to pull a base image, make a derivative image using dockerfiles, and export that image to warewulf</p></li>
+</ol>
+<p>The former works just fine, and is currently the motis operendi of HPC<sup>2</sup> admins. The latter is an appealing alternative as it makes updates, and other scripting easier in the long run. As such, we’ll be moving forward primarily with the 2nd approach, reserving the first for small tweaks requried to get things working</p>
+</section>
+<section id="install-podman">
+<h3><span class="section-number">7.1.9. </span>Install Podman<a class="headerlink" href="#install-podman" title="Link to this heading">#</a></h3>
+<!--TODO-->
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker
+</span></pre></div>
+</div>
+</section>
+<section id="writing-a-dockerfile">
+<h3><span class="section-number">7.1.10. </span>Writing a Dockerfile<a class="headerlink" href="#writing-a-dockerfile" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="exporting-podman-images-to-warewulf">
+<h3><span class="section-number">7.1.11. </span>Exporting Podman Images to Warewulf<a class="headerlink" href="#exporting-podman-images-to-warewulf" title="Link to this heading">#</a></h3>
+<!--TODO-->
+<p>Exporting Images to warewulf is simple, both programs support tarball versions of images</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">docker<span class="w"> </span>save<span class="w"> </span>base-rocky9<span class="w"> </span>-o<span class="w"> </span><span class="nv">$TMPDIR</span>/base-rocky9.tar
+</span><span data-line="2">wwctl<span class="w"> </span>container<span class="w"> </span>import<span class="w"> </span><span class="nv">$TMPDIR</span>/base-rocky9.tar<span class="w"> </span>base-rocky9
+</span></pre></div>
+</div>
+</section>
+<section id="defining-nodes">
+<h3><span class="section-number">7.1.12. </span>Defining Nodes<a class="headerlink" href="#defining-nodes" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="overlays">
+<h3><span class="section-number">7.1.13. </span>Overlays<a class="headerlink" href="#overlays" title="Link to this heading">#</a></h3>
+<!--TODO-->
+<p>Overlays work similarly to docker, but are used a bit differently here.
+We use Overlays to automatically create any files that may change over time or may be different between nodes.
+Read CIQ’s <a class="reference external" href="https://warewulf.org/docs/v4.6.x/overlays/overlays.html" rel="noreferrer" target="_blank">docs</a> on the subject, then continue.</p>
+</section>
+<section id="booting-nodes">
+<h3><span class="section-number">7.1.14. </span>Booting Nodes<a class="headerlink" href="#booting-nodes" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>

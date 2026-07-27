@@ -9,7 +9,6 @@
 project = 'SIGHPC'
 copyright = '2025, sighpc'
 author = 'sighpc'
-announcement = "Next scheduled maintenance: TBD"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -17,8 +16,9 @@ announcement = "Next scheduled maintenance: TBD"
 extensions = [
     'myst_parser',
     'sphinx_copybutton',
-    'sphinx_design',
     'sphinx_new_tab_link',
+    'sphinx_design',
+    'sphinxcontrib.video',
 ]
 
 templates_path = ['_templates']
@@ -38,11 +38,12 @@ myst_enable_extensions = [
 html_theme = 'shibuya'
 
 html_static_path = ['_static']
-html_favicon = "_static/favicon.ico"
+html_favicon = "_static/favicon.png"
 html_theme_options = {
+    "github_url": "https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs",
+    "discord_url": "https://discord.gg/RbQK45RMcB",
     "accent_color": "pink",
     "light_logo": "_static/pngs/logo_h_maroon.png",
     "dark_logo": "_static/pngs/logo_h_white.png",
-    "announcement": announcement,
 }
 html_css_files = ['custom.css']

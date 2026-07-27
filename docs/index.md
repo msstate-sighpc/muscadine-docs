@@ -3,34 +3,36 @@ muscadine documentation master file,
 created by sphinx-quickstart on Thu Oct  2 14:13:13 2025. 
 -->
 
-# Introduction
+# Documentation
 
 ```
-  █████████  █████   █████████             █████   █████ ███████████    █████████ 
- ███░░░░░███░░███   ███░░░░░███           ░░███   ░░███ ░░███░░░░░███  ███░░░░░███
-░███    ░░░  ░███  ███     ░░░             ░███    ░███  ░███    ░███ ███     ░░░ 
-░░█████████  ░███ ░███          ██████████ ░███████████  ░██████████ ░███         
- ░░░░░░░░███ ░███ ░███    █████░░░░░░░░░░  ░███░░░░░███  ░███░░░░░░  ░███         
- ███    ░███ ░███ ░░███  ░░███             ░███    ░███  ░███        ░░███     ███
-░░█████████  █████ ░░█████████             █████   █████ █████        ░░█████████ 
- ░░░░░░░░░  ░░░░░   ░░░░░░░░░             ░░░░░   ░░░░░ ░░░░░          ░░░░░░░░░  
+$$\      $$\                     Welcome to:         $$\$$\
+$$$\    $$$ |                                        $$ \__|
+$$$$\  $$$$ $$\   $$\ $$$$$$$\ $$$$$$$\$$$$$$\  $$$$$$$ $$\$$$$$$$\  $$$$$$\
+$$\$$\$$ $$ $$ |  $$ $$  _____$$  _____\____$$\$$  __$$ $$ $$  __$$\$$  __$$\
+$$ \$$$  $$ $$ |  $$ \$$$$$$\ $$ /     $$$$$$$ $$ /  $$ $$ $$ |  $$ $$$$$$$$ |
+$$ |\$  /$$ $$ |  $$ |\____$$\$$ |    $$  __$$ $$ |  $$ $$ $$ |  $$ $$   ____|
+$$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
+\__|     \__|\______/\_______/ \_______\_______|\_______\__\__|  \__|\_______|
 ```
-
-Welcome to MSU's SIG-HPC Club documentation. Here you'll find information relating the student clusters.
 
 Please read before using muscadine
 
-
 ```{toctree}
 :maxdepth: 1
-:caption: Muscadine:
+:caption: Contents:
 :glob:
 
-getting-started/index
-clusters/index
-hpc-guides/index
+introduction
+user-docs
+getting-help
+helpful-information
+administrative-limitations
+monitoring
+building-software
+*
+demos/index
 ood/index
 sup/index
 adv/index
-getting-help
 ```

@@ -10,7 +10,7 @@ Please don't read these until you've familiarized yourself with Muscadine and cl
 
 mp-mt
 git
-advanced-slurm
+slurm
 hpl
 *
 ```

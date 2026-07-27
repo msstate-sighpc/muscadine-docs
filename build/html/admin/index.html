@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Documentation - SIGHPC documentation</title><link rel="shortcut icon" href="../_static/favicon.png"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="Admin Documentation"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      <img class="light-logo" src="../_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-docs.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sup/index.html">Supporting Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sup/mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/spack.html">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../adv/mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/hpl.html">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#configuration-files">Configuration Files:</a></li>
+<li><a class="reference internal" href="#starting-point">Starting Point:</a><ul>
+<li><a class="reference internal" href="#hardware">Hardware:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vm-s">VM&#8217;s</a></li>
+<li><a class="reference internal" href="#nfs">NFS</a></li>
+<li><a class="reference internal" href="#warewulf">WareWulf</a></li>
+<li><a class="reference internal" href="#slurm">Slurm</a></li>
+<li><a class="reference internal" href="#spack">Spack</a></li>
+<li><a class="reference internal" href="#gpus">GPUs</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Admin Documentation</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="admin-documentation">
+<h1>Admin Documentation<a class="headerlink" href="#admin-documentation" title="Link to this heading">#</a></h1>
+<p>These docs are for current and future admins only</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rebuild/index.html">1. Muscadine Rebuild</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rebuild/sys-admin.html">1.1. Hardware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebuild/sys-admin.html#basic-cluster-configuration">1.2. Basic Cluster Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebuild/sys-admin.html#supporting-software">1.3. Supporting Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebuild/sys-admin.html#automation-and-metrics">1.4. Automation and Metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flashblade.html">2. Purestorage Flashblade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">3. GPUs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rochpl.html">4. rocHPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm.html">5. Slurm Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spack.html">6. Managing Spack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="warewulf.html">7. Warewulf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zfs.html">8. ZFS</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<p>The included docs exist to instruct someone with a bit of knowledge about clusters but no muscadine-specific knowledge how to bring muscadine up from scratch, should a catastrophe happen or deep update.</p>
+<section id="configuration-files">
+<h2>Configuration Files:<a class="headerlink" href="#configuration-files" title="Link to this heading">#</a></h2>
+<p>all configuration files mentioned in these docs <em>should</em> be included in this repo. these should <strong>NOT</strong> be dropped in, but rather used as a reference when following the documentation:</p>
+</section>
+<section id="starting-point">
+<h2>Starting Point:<a class="headerlink" href="#starting-point" title="Link to this heading">#</a></h2>
+<p>before doing anything, it’s important to know the starting point these documents assume you are at:</p>
+<section id="hardware">
+<h3>Hardware:<a class="headerlink" href="#hardware" title="Link to this heading">#</a></h3>
+<p>the following hardware configurations are necessary:</p>
+<ul>
+<li><p>all U.2 PCIe NVMe Drives should be located in the head node (HBA/JBOD mode, no raid)</p></li>
+<li><p>each node should have 2 M.2 NVMe Drives in the rear BOSS.N-1 card sleds</p></li>
+<li><p>nodes should be connected to a single, flat network</p></li>
+<li><p>ib cards should be connected to a switch in a star topology</p></li>
+<li><p>dhcp is required until the ww server is configured</p></li>
+<li><p>after imagine, updates were installed and the following was run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">/local/patches/os/Rocky-9.4/builds/muscadine/scripts/020-Convert2Cluster
+</span></pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="vm-s">
+<h2>VM’s<a class="headerlink" href="#vm-s" title="Link to this heading">#</a></h2>
+<p>In order to meet the needs of a deployment cluster w/ only 1 management node. virtual machines are utilized for certain services. while not necessary, it helps aid management.</p>
+<ul class="simple">
+<li><p>vince’s script for creating a vmserver was used but most guides on how to install kvm on redhat should work.</p></li>
+</ul>
+</section>
+<section id="nfs">
+<h2>NFS<a class="headerlink" href="#nfs" title="Link to this heading">#</a></h2>
+<p>NFS is used for the /apps, /work, /home, and /ww directories.
+All NFS storage is provided by the PureStorage Flashblade.
+Details on administering it are found here: <a class="reference internal" href="flashblade.html"><span class="std std-doc">Purity//FB</span></a>.</p>
+</section>
+<section id="warewulf">
+<h2>WareWulf<a class="headerlink" href="#warewulf" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Warewulf is covered in its own section here: <a class="reference internal" href="warewulf.html"><span class="std std-doc">WareWulf</span></a></p></li>
+</ul>
+</section>
+<section id="slurm">
+<h2>Slurm<a class="headerlink" href="#slurm" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Slurm is covered in its own section here: <a class="reference internal" href="slurm.html"><span class="std std-doc">Slurm</span></a></p></li>
+</ul>
+</section>
+<section id="spack">
+<h2>Spack<a class="headerlink" href="#spack" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Spack is covered in its own section here: <a class="reference internal" href="spack.html"><span class="std std-doc">Spack</span></a></p></li>
+</ul>
+</section>
+<section id="gpus">
+<h2>GPUs<a class="headerlink" href="#gpus" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GPU configuration is convered in its own section here: <a class="reference internal" href="gpu.html"><span class="std std-doc">GPUs</span></a></p></li>
+</ul>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>

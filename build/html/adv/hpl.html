@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Building and Tuning HPL - SIGHPC documentation</title><link rel="shortcut icon" href="../_static/favicon.png"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SSH Control-Master" href="controlmaster.html" /><link rel="prev" title="Slurm Tips &amp; Tricks" href="slurm.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="Building and Tuning HPL"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      <img class="light-logo" src="../_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-docs.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sup/index.html">Supporting Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sup/mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/spack.html">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Topics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#what-hpl-actually-measures">What HPL Actually Measures</a></li>
+<li><a class="reference internal" href="#choosing-a-blas-library">Choosing a BLAS Library</a><ul>
+<li><a class="reference internal" href="#common-blas-options">Common BLAS Options</a><ul>
+<li><a class="reference internal" href="#intel-mkl">Intel MKL</a></li>
+<li><a class="reference internal" href="#openblas">OpenBLAS</a></li>
+<li><a class="reference internal" href="#aocl-blis">(AOCL-)BLIS</a></li>
+<li><a class="reference internal" href="#vendor-blas-aocl-cray-libsci-etc">Vendor BLAS (AOCL, Cray LibSci, etc.)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notes-on-multi-threading">Notes on Multi-threading</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mpi-implementation">MPI Implementation</a></li>
+<li><a class="reference internal" href="#building-hpl">Building HPL</a><ul>
+<li><a class="reference internal" href="#get-the-source">Get the Source</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#build">Build</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hybrid-mpi-openmp">Hybrid MPI + OpenMP</a><ul>
+<li><a class="reference internal" href="#why-hybrid">Why Hybrid?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hpl-dat-tuning">HPL.dat Tuning</a><ul>
+<li><a class="reference internal" href="#problem-size-n">Problem Size (N)</a></li>
+<li><a class="reference internal" href="#block-size-nb">Block Size (NB)</a></li>
+<li><a class="reference internal" href="#process-grid-p-q">Process Grid (P &#215; Q)</a></li>
+<li><a class="reference internal" href="#key-parameters-summary">Key Parameters Summary</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#slurm-job-script-example">Slurm Job Script Example</a><ul>
+<li><a class="reference internal" href="#mpi-only">MPI only</a></li>
+<li><a class="reference internal" href="#mpi-openmp">MPI + OpenMP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#numa-and-affinity">NUMA and Affinity</a></li>
+<li><a class="reference internal" href="#benchmarking-strategy">Benchmarking Strategy</a></li>
+<li><a class="reference internal" href="#interpreting-results">Interpreting Results</a><ul>
+<li><a class="reference internal" href="#expected-efficiency">Expected Efficiency</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#common-mistakes">Common Mistakes</a></li>
+<li><a class="reference internal" href="#final-advice">Final Advice</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">Advanced Topics</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Building and Tuning HPL</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="building-and-tuning-hpl">
+<h1>Building and Tuning HPL<a class="headerlink" href="#building-and-tuning-hpl" title="Link to this heading">#</a></h1>
+<p>This guide walks through building, running, and <em>tuning</em> <strong>HPL (High Performance Linpack)</strong> on a Slurm cluster such as Muscadine. It assumes:</p>
+<ul class="simple">
+<li><p>You already have a functioning cluster ✅</p></li>
+<li><p>functional MPI ✅</p></li>
+<li><p>Slurm works ✅</p></li>
+<li><p>You are comfortable compiling software and reading performance numbers</p></li>
+</ul>
+<hr class="docutils" />
+<section id="what-hpl-actually-measures">
+<h2>What HPL Actually Measures<a class="headerlink" href="#what-hpl-actually-measures" title="Link to this heading">#</a></h2>
+<p>HPL solves a dense system of linear equations using LU decomposition. In practice, HPL performance is dominated by:</p>
+<ul class="simple">
+<li><p><strong>DGEMM performance</strong> from your BLAS</p></li>
+<li><p>Memory bandwidth and NUMA effects</p></li>
+<li><p>MPI latency and bandwidth</p></li>
+<li><p>Process/thread placement</p></li>
+</ul>
+<p>If DGEMM is slow, HPL will be slow. Everything else is secondary.</p>
+</section>
+<hr class="docutils" />
+<section id="choosing-a-blas-library">
+<h2>Choosing a BLAS Library<a class="headerlink" href="#choosing-a-blas-library" title="Link to this heading">#</a></h2>
+<p>This is the single most important decision.</p>
+<section id="common-blas-options">
+<h3>Common BLAS Options<a class="headerlink" href="#common-blas-options" title="Link to this heading">#</a></h3>
+<section id="intel-mkl">
+<h4>Intel MKL<a class="headerlink" href="#intel-mkl" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Usually the best performance on Intel CPUs</p></li>
+<li><p>Excellent threading and NUMA behavior</p></li>
+<li><p>Proprietary but free to use</p></li>
+</ul>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Usually the fastest</p></li>
+<li><p>Minimal blas-specific tuning required</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Muscadine has AMD Processors</p></li>
+<li><p>Closed source</p></li>
+</ul>
+<p>We’ll consider other options for Muscadine</p>
+</section>
+<section id="openblas">
+<h4>OpenBLAS<a class="headerlink" href="#openblas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Open source</p></li>
+<li><p>Works everywhere</p></li>
+<li><p>Performance varies widely by architecture</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">module<span class="w"> </span>load<span class="w"> </span>openblas
+</span></pre></div>
+</div>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Portable</p></li>
+<li><p>Easy to build</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Threading is less predictable</p></li>
+<li><p>NUMA handling is weaker</p></li>
+</ul>
+</section>
+<section id="aocl-blis">
+<h4>(AOCL-)BLIS<a class="headerlink" href="#aocl-blis" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Modular, modern BLAS</p></li>
+<li><p>Very strong on AMD EPYC</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">module<span class="w"> </span>load<span class="w"> </span>amdblis
+</span></pre></div>
+</div>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Excellent EPYC performance</p></li>
+<li><p>Cleaner threading model than OpenBLAS</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Limited hardware support</p></li>
+</ul>
+</section>
+<section id="vendor-blas-aocl-cray-libsci-etc">
+<h4>Vendor BLAS (AOCL, Cray LibSci, etc.)<a class="headerlink" href="#vendor-blas-aocl-cray-libsci-etc" title="Link to this heading">#</a></h4>
+<p>If your vendor provides a tuned BLAS, use it. They exist for a reason.</p>
+</section>
+</section>
+<section id="notes-on-multi-threading">
+<h3>Notes on Multi-threading<a class="headerlink" href="#notes-on-multi-threading" title="Link to this heading">#</a></h3>
+<p>If you’re unsure of the difference between Multi-Processing and Multi-Threading, read <a class="reference internal" href="mp-mt.html"><span class="std std-doc">this</span></a> first</p>
+<p>All spack-managed blas libraries (ones you use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> to use) have multi-threading <strong>DISABLED</strong>. This means if you’d like to experiment with using hybrid-parallelism to gain more performance, you’ll need to build your blas library of choice, following their documents to enable it.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mpi-implementation">
+<h2>MPI Implementation<a class="headerlink" href="#mpi-implementation" title="Link to this heading">#</a></h2>
+<p>If blas is the single most important performance factor of HPL, Inter-process communication speed and, more importantly, latency, are the second.</p>
+<p>Common choices:</p>
+<ul class="simple">
+<li><p>OpenMPI</p></li>
+<li><p>MPICH</p></li>
+<li><p>Intel MPI</p></li>
+<li><p>Cray MPI</p></li>
+</ul>
+<p>Key requirements:</p>
+<ul class="simple">
+<li><p>Good support for your interconnect</p></li>
+<li><p>Correct PMI/PMIx integration with Slurm</p></li>
+</ul>
+<p>Muscadine uses a 200Gbit/s Mellanox Infiniband Interconnect. MPI implementations that support this are: Intel MPI, OpenMPI, and MPICH.</p>
+<p>Currently, only OpenMPI is provided to Muscadine users. It has compiled in support for slurm, pmi, infiniband, AMD, etc.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">module<span class="w"> </span>load<span class="w"> </span>openmpi
+</span></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please do <strong>NOT</strong> attempt to build/install a different version of MPI. These builds require a rich understanding of the hardware and how it’s configured in order to build correctly. We’ve already done the work for you, please use it.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="building-hpl">
+<h2>Building HPL<a class="headerlink" href="#building-hpl" title="Link to this heading">#</a></h2>
+<section id="get-the-source">
+<h3>Get the Source<a class="headerlink" href="#get-the-source" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">curl<span class="w"> </span>-LO<span class="w"> </span>https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz
+</span><span data-line="2">tar<span class="w"> </span>xf<span class="w"> </span>hpl-2.3.tar.gz
+</span><span data-line="3"><span class="nb">cd</span><span class="w"> </span>hpl-2.3
+</span></pre></div>
+</div>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<p>Since version 2.3 (the latest as of writing), HPL can either use static Makefiles or GNU Autotools. Since autotools is alot simple and somewhat more consistent, we’ll be using that.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$PWD</span>/hpl-demo<span class="w"> </span><span class="se">\</span>
+</span><span data-line="2"><span class="w">  </span><span class="nv">CC</span><span class="o">=</span>mpicc<span class="w"> </span><span class="se">\</span>
+</span><span data-line="3"><span class="w">  </span><span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$OPENBLAS_ROOT</span><span class="s2">/lib -L</span><span class="nv">$OPENMPI_ROOT</span><span class="s2">/lib&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="4"><span class="w">  </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I</span><span class="nv">$OPENMPI_ROOT</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span data-line="5"><span class="w">  </span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-O2 -march=znver4 -mtune=znver4&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="build">
+<h3>Build<a class="headerlink" href="#build" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</span><span data-line="2">make<span class="w"> </span>install
+</span></pre></div>
+</div>
+<p>Binary appears as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">hpl-demo/bin/xhpl
+</span></pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hybrid-mpi-openmp">
+<h2>Hybrid MPI + OpenMP<a class="headerlink" href="#hybrid-mpi-openmp" title="Link to this heading">#</a></h2>
+<p>Modern clusters rarely run optimally with just one rank per core. Shared memory can lead to increased utilization and efficiency. At scale, thousands to tens of thousands of ranks communicating over the fabric can significantly reduce performance.</p>
+<p>Instead, it’s preferable to use a hybrid approach.</p>
+<section id="why-hybrid">
+<h3>Why Hybrid?<a class="headerlink" href="#why-hybrid" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reduces MPI rank count</p></li>
+<li><p>Improves cache reuse</p></li>
+<li><p>Reduces communication overhead</p></li>
+</ul>
+<p>Typical strategy:</p>
+<ul class="simple">
+<li><p>1 MPI rank per socket</p></li>
+<li><p>OpenMP threads = cores per socket</p></li>
+</ul>
+<p>Modern Chiplet architecture strategy (Muscadine is one):</p>
+<ul class="simple">
+<li><p>1 MPI rank per NUMA domain (CCX in the case of Muscadine)</p></li>
+<li><p>OpenMP threads = cores per CCX</p></li>
+</ul>
+<p>Example (8 CCX, 6 cores/CCX):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1">#SBATCH --ntasks-per-node 8</span>
+</span><span data-line="2"><span class="c1">#SBATCH --cpus-per-task   6</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+</span><span data-line="5"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+</span><span data-line="6"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The keen-eyed who know their way around Muscadine might have noticed that <span class="math notranslate nohighlight">\(6*8=48\)</span> and Muscadine has <span class="math notranslate nohighlight">\(96\)</span> threads. AMD Epyc and many other processors support Symmetric Multi-Threading (SMT) otherwise known as Hyper-Threading. While this feature is available, HPL already saturates the pipeline enough to make SMT <em><strong>less</strong></em> efficient. The scheduler is smart enough to keep threads on their own core.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hpl-dat-tuning">
+<h2>HPL.dat Tuning<a class="headerlink" href="#hpl-dat-tuning" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HPL.dat</span></code> controls performance-critical parameters.</p>
+<section id="problem-size-n">
+<h3>Problem Size (N)<a class="headerlink" href="#problem-size-n" title="Link to this heading">#</a></h3>
+<p>Problem size is the parameter you’ll mess with the most. HPL is a very Memory Bandwidth-intensive application. the more memory you use, the more the LU algorithm with stripe across it, increasing bandwidth. Use to little, and you won’t saturate your memory bandwidth, use too much, and you’ll start swapping. A perfect <em>HERO</em> run balances the two.</p>
+<p>Rule of thumb:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">N ≈ sqrt(0.8 × total_memory_bytes / 8)
+</span></pre></div>
+</div>
+<p>Example: 192 GB total RAM</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">N ≈ sqrt(0.8 × 192e9 / 8) ≈ 130k
+</span></pre></div>
+</div>
+<p>Use as much memory as possible <em>without swapping</em>.</p>
+<p>If you’d like to play around with it. I’ve created a handy <a class="reference external" href="https://www.desmos.com/calculator/h7g9c3pbwe" rel="noreferrer" target="_blank">desmos calculator</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="block-size-nb">
+<h3>Block Size (NB)<a class="headerlink" href="#block-size-nb" title="Link to this heading">#</a></h3>
+<p>Block size is how much of the matrix each chunk works on at a time. This value is very CPU architecture-specific. Calculating the precise value requires a deep knowledge of how the cores are laid out in the CPU. Thankfully, it’s easier to exhaustively find this value. We know that NB needs to be a multiple of cores. Simply run a test for each multiple of cores between 100 and 400.</p>
+<p>Typical values:</p>
+<ul class="simple">
+<li><p>128</p></li>
+<li><p>192</p></li>
+<li><p>256</p></li>
+<li><p>384</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="process-grid-p-q">
+<h3>Process Grid (P × Q)<a class="headerlink" href="#process-grid-p-q" title="Link to this heading">#</a></h3>
+<p>Choose a grid close to square:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">P × Q = number of MPI ranks
+</span></pre></div>
+</div>
+<p>Example: 16 ranks</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">P</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">4</span>
+</span></pre></div>
+</div>
+<p>Rule:</p>
+<ul class="simple">
+<li><p>Q ≥ P</p></li>
+<li><p>Match network topology if possible</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-parameters-summary">
+<h3>Key Parameters Summary<a class="headerlink" href="#key-parameters-summary" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">N    : As large as memory allows
+</span><span data-line="2">NB   : 100-400%core-count (benchmark!)
+</span><span data-line="3">P,Q  : Nearly square
+</span></pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="slurm-job-script-example">
+<h2>Slurm Job Script Example<a class="headerlink" href="#slurm-job-script-example" title="Link to this heading">#</a></h2>
+<section id="mpi-only">
+<h3>MPI only<a class="headerlink" href="#mpi-only" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="ch">#!/bin/bash</span>
+</span><span data-line="2"><span class="c1">#SBATCH -N 4</span>
+</span><span data-line="3"><span class="c1">#SBATCH --ntasks-per-node=48</span>
+</span><span data-line="4"><span class="c1">#SBATCH --cpus-per-task=1</span>
+</span><span data-line="5"><span class="c1">#SBATCH -t 00:30:00</span>
+</span><span data-line="6"><span class="c1">#SBATCH -J hpl</span>
+</span><span data-line="7">
+</span><span data-line="8">module<span class="w"> </span>load<span class="w"> </span>openmpi
+</span><span data-line="9">module<span class="w"> </span>load<span class="w"> </span>openblas
+</span><span data-line="10">
+</span><span data-line="11">srun<span class="w"> </span>--cpu-bind<span class="o">=</span>cores<span class="w"> </span>./xhpl
+</span></pre></div>
+</div>
+</section>
+<section id="mpi-openmp">
+<h3>MPI + OpenMP<a class="headerlink" href="#mpi-openmp" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="ch">#!/bin/bash</span>
+</span><span data-line="2"><span class="c1">#SBATCH -N 4</span>
+</span><span data-line="3"><span class="c1">#SBATCH --ntasks-per-node=8</span>
+</span><span data-line="4"><span class="c1">#SBATCH --cpus-per-task=6</span>
+</span><span data-line="5"><span class="c1">#SBATCH -t 00:30:00</span>
+</span><span data-line="6"><span class="c1">#SBATCH -J hpl</span>
+</span><span data-line="7">
+</span><span data-line="8">module<span class="w"> </span>load<span class="w"> </span>openmpi
+</span><span data-line="9">module<span class="w"> </span>load<span class="w"> </span>openmp
+</span><span data-line="10">
+</span><span data-line="11"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+</span><span data-line="12"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PROC_BIND</span><span class="o">=</span>close
+</span><span data-line="13"><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_PLACES</span><span class="o">=</span>cores
+</span><span data-line="14">
+</span><span data-line="15">srun<span class="w"> </span>--cpu-bind<span class="o">=</span>cores<span class="w"> </span>./xhpl
+</span></pre></div>
+</div>
+<p>Verify placement:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">srun<span class="w"> </span>--cpu-bind<span class="o">=</span>verbose<span class="w"> </span>./xhpl
+</span></pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="numa-and-affinity">
+<h2>NUMA and Affinity<a class="headerlink" href="#numa-and-affinity" title="Link to this heading">#</a></h2>
+<p>If NUMA is wrong, performance collapses.</p>
+<p>Recommendations:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">numactl</span> <span class="pre">--hardware</span></code> to inspect layout</p></li>
+<li><p>Align MPI ranks with sockets</p></li>
+<li><p>Bind OpenMP threads tightly</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">srun<span class="w"> </span>--distribution<span class="o">=</span>block:block<span class="w"> </span>--cpu-bind<span class="o">=</span>cores<span class="w"> </span>./xhpl
+</span></pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="benchmarking-strategy">
+<h2>Benchmarking Strategy<a class="headerlink" href="#benchmarking-strategy" title="Link to this heading">#</a></h2>
+<p>Never trust a single run.</p>
+<p>Suggested sweep:</p>
+<ul class="simple">
+<li><p>Fix N</p></li>
+<li><p>Sweep NB = {128,192,256,384}</p></li>
+<li><p>Try different P×Q layouts</p></li>
+<li><p>Record Gflop/s</p></li>
+</ul>
+<p>Track:</p>
+<ul class="simple">
+<li><p>Per-node performance</p></li>
+<li><p>Scaling efficiency</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="interpreting-results">
+<h2>Interpreting Results<a class="headerlink" href="#interpreting-results" title="Link to this heading">#</a></h2>
+<section id="expected-efficiency">
+<h3>Expected Efficiency<a class="headerlink" href="#expected-efficiency" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>80–90% of theoretical peak is <em>excellent</em></p></li>
+<li><p>70–80% is common</p></li>
+<li><p>&lt;60% usually indicates:</p>
+<ul>
+<li><p>Bad BLAS</p></li>
+<li><p>Bad affinity</p></li>
+<li><p>Bad NB</p></li>
+<li><p>too few or many N’s</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using tiny N</p></li>
+<li><p>Ignoring NUMA</p></li>
+<li><p>Using default OpenBLAS builds</p></li>
+<li><p>Running one MPI rank per core</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="final-advice">
+<h2>Final Advice<a class="headerlink" href="#final-advice" title="Link to this heading">#</a></h2>
+<p>HPL is an incredibly nuanced benchmark that requires practical knowledge of every facet of the hardware. Don’t be discouraged if you cannot achieve the same scores as someone else.</p>
+<p>If you have any questions, see those listed in <a class="reference internal" href="../getting-help.html"><span class="std std-doc">Getting-Help</span></a></p>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="slurm.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Slurm Tips &amp; Tricks</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="controlmaster.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">SSH Control-Master</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script></body>
+</html>

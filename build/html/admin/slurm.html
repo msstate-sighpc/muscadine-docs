@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="pink" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>5. Slurm Installation - SIGHPC documentation</title><link rel="shortcut icon" href="../_static/favicon.png"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=971c5320" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="5. Slurm Installation"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      <img class="light-logo" src="../_static/pngs/logo_h_maroon.png" alt="SIGHPC" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/pngs/logo_h_white.png" alt="SIGHPC" height="28" loading="lazy" />
+      <strong>SIGHPC</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-docs.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../helpful-information.html">Linux Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administrative-limitations.html">Administrative Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-software.html">Building Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slurm-monitoring.html">Monitoring Slurm Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">Demostrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/weather.html">Weather Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/fierro.html">Fierro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">OpenOnDemand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ood/ood.html">Using Open OnDemand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/code.html">VSCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ood/jupyter.html">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sup/index.html">Supporting Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sup/mpi-basics.html">MPI Programming Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/fortran.html">What Even is Fortran?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sup/spack.html">Building Software with Spack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../adv/mp-mt.html">Multi-processing vs. Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/git.html">Using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/slurm.html">Slurm Tips &amp; Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/hpl.html">Building and Tuning HPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/controlmaster.html">SSH Control-Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adv/openmp.html">Getting Started with OpenMP</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#prerequisites">5.1. Prerequisites:</a><ul>
+<li><a class="reference internal" href="#installing-hwloc">5.1.1. Installing HWLOC:</a></li>
+<li><a class="reference internal" href="#installing-libevent">5.1.2. Installing LibEvent:</a></li>
+<li><a class="reference internal" href="#installing-ucx">5.1.3. Installing UCX:</a></li>
+<li><a class="reference internal" href="#installing-munge">5.1.4. Installing Munge:</a></li>
+<li><a class="reference internal" href="#installing-pmix">5.1.5. Installing PMIX:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-slurm">5.2. Installing Slurm</a><ul>
+<li><a class="reference internal" href="#configure-slurm">5.2.1. Configure Slurm</a></li>
+<li><a class="reference internal" href="#build-it">5.2.2. Build it</a></li>
+<li><a class="reference internal" href="#finish-installing-all-the-auth-and-pmi-modules">5.2.3. Finish installing all the auth and pmi modules:</a></li>
+<li><a class="reference internal" href="#install-all-the-extra-slurm-tools-we-like">5.2.4. Install all the extra slurm tools we like</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-the-slurm-database">5.3. Creating the Slurm Database</a></li>
+<li><a class="reference internal" href="#launching-slurmctld">5.4. Launching Slurmctld</a></li>
+<li><a class="reference internal" href="#pushing-the-slurm-installation-to-all-available-nodes">5.5. Pushing the Slurm installation to all available nodes</a><ul>
+<li><a class="reference internal" href="#the-propogating-slurm-to-the-rest-of-the-nodes-will-be-done-inside-the-warewulf-contianer">5.5.1. The propogating slurm to the rest of the nodes will be done inside the WareWulf contianer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setting-up-the-initial-slurm-accounts-qoss-users">5.6. Setting up the Initial Slurm Accounts/QOSs/Users</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">SIGHPC</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name"><span class="section-number">5. </span>Slurm Installation</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="slurm-installation">
+<h1><span class="section-number">5. </span>Slurm Installation<a class="headerlink" href="#slurm-installation" title="Link to this heading">#</a></h1>
+<section id="prerequisites">
+<h2><span class="section-number">5.1. </span>Prerequisites:<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>First we need to install prerequisite software. The following are must-haves, and they must all be available on the Slurm control node AND on the compute nodes:</p>
+<ul class="simple">
+<li><p>Munge</p></li>
+<li><p>Hwloc</p></li>
+<li><p>Pmix (3.X.X)</p></li>
+<li><p>UCX</p></li>
+<li><p>Libevent</p></li>
+<li><p>mysql-devel (from repo)</p></li>
+</ul>
+<p>Specific to Muscadine:</p>
+<ul class="simple">
+<li><p>TODO: numa (Epyc 9454P have a numa node per ccx (4))</p></li>
+<li><p>amdgpu (hwloc requries opencl in order to use it)</p></li>
+</ul>
+<section id="installing-hwloc">
+<h3><span class="section-number">5.1.1. </span>Installing HWLOC:<a class="headerlink" href="#installing-hwloc" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://github.com/open-mpi/hwloc/releases/latest" rel="noreferrer" target="_blank">https://github.com/open-mpi/hwloc/releases/latest</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">autogen</span><span class="o">.</span><span class="n">sh</span> <span class="c1">#if necessary</span>
+</span><span data-line="2"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">hwloc</span><span class="o">-</span><span class="mf">2.1.0</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">netloc</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">static</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p>additional flags for muscadine: <code class="docutils literal notranslate"><span class="pre">--disable-cuda</span> <span class="pre">--disable-nvml</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">make</span>
+</span><span data-line="2"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="3"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+</section>
+<section id="installing-libevent">
+<h3><span class="section-number">5.1.2. </span>Installing LibEvent:<a class="headerlink" href="#installing-libevent" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://github.com/libevent/libevent/releases/latest" rel="noreferrer" target="_blank">https://github.com/libevent/libevent/releases/latest</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">libevent</span><span class="o">-</span><span class="mf">2.1.11</span> 
+</span><span data-line="2"><span class="n">make</span>
+</span><span data-line="3"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="4"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p>as of 12/4/24, openssl deprecated a dependent feature. using release-2.2.1-alpha instead of latest release solved this issue</p></li>
+</ul>
+</section>
+<section id="installing-ucx">
+<h3><span class="section-number">5.1.3. </span>Installing UCX:<a class="headerlink" href="#installing-ucx" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://github.com/openucx/ucx/releases/latest/" rel="noreferrer" target="_blank">https://github.com/openucx/ucx/releases/latest/</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">ucx</span><span class="o">-</span><span class="mf">1.7.0</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">static</span>
+</span><span data-line="2"><span class="n">make</span>
+</span><span data-line="3"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="4"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+</section>
+<section id="installing-munge">
+<h3><span class="section-number">5.1.4. </span>Installing Munge:<a class="headerlink" href="#installing-munge" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://github.com/dun/munge/releases/latest" rel="noreferrer" target="_blank">https://github.com/dun/munge/releases/latest</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">bootstrap</span>
+</span><span data-line="2"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">static</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">arch</span><span class="o">=</span><span class="mi">64</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">debug</span>
+</span><span data-line="3"><span class="n">make</span>
+</span><span data-line="4"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="5"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create the munge key:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">mungekey</span> <span class="o">-</span><span class="n">cv</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Link munge -&gt; munge-0.5.16:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span>
+</span><span data-line="2"><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span> <span class="n">munge</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create the socket dir:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">munge</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create the munge service file:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">cat &lt;&lt;EOF&gt; /etc/systemd/system/munge.service
+</span><span data-line="2">[Unit]
+</span><span data-line="3">Description=MUNGE authentication service
+</span><span data-line="4">Documentation=man:munged(8)
+</span><span data-line="5">After=network.target
+</span><span data-line="6">After=time-sync.target
+</span><span data-line="7">
+</span><span data-line="8">[Service]
+</span><span data-line="9">Type=forking
+</span><span data-line="10">EnvironmentFile=-/opt/munge/etc/sysconfig/munge
+</span><span data-line="11">ExecStart=/opt/munge/sbin/munged $OPTIONS
+</span><span data-line="12">PIDFile=/opt/munge/var/run/munge/munged.pid
+</span><span data-line="13">RuntimeDirectory=munge
+</span><span data-line="14">RuntimeDirectoryMode=0755
+</span><span data-line="15">User=munge
+</span><span data-line="16">Group=munge
+</span><span data-line="17">Restart=on-abort
+</span><span data-line="18">
+</span><span data-line="19">[Install]
+</span><span data-line="20">WantedBy=multi-user.target
+</span><span data-line="21">EOF
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Edit the launch options:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cat</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span><span class="o">&gt;&gt;/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">munge</span>
+</span><span data-line="2"><span class="n">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--key-file=/opt/munge-0.5.16/etc/munge/munge.key --num-threads=2 --log-file=/var/log/munge.log&quot;</span>
+</span><span data-line="3"><span class="n">EOF</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Copy the service file to /opt/munge/etc so it can be distributed to each node:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">munge</span><span class="o">.</span><span class="n">service</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Change ownership &amp; permissions:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">chown</span> <span class="n">munge</span><span class="p">:</span><span class="n">munge</span> <span class="o">-</span><span class="n">R</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span>
+</span><span data-line="2"><span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">g</span><span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">R</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Start the service:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+</span><span data-line="2"><span class="n">systemctl</span> <span class="n">start</span> <span class="n">munge</span>
+</span><span data-line="3"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">munge</span>
+</span></pre></div>
+</div>
+</section>
+<section id="installing-pmix">
+<h3><span class="section-number">5.1.5. </span>Installing PMIX:<a class="headerlink" href="#installing-pmix" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://github.com/openpmix/openpmix/releases/latest" rel="noreferrer" target="_blank">https://github.com/openpmix/openpmix/releases/latest</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> \
+</span><span data-line="2"><span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">pmix</span><span class="o">-</span><span class="mf">5.0.4</span> \
+</span><span data-line="3"><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">static</span> \
+</span><span data-line="4"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">hwloc</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">hwloc</span><span class="o">-</span><span class="mf">2.1.0</span> \
+</span><span data-line="5"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">hwloc</span><span class="o">-</span><span class="n">libdir</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">hwloc</span><span class="o">-</span><span class="mf">2.1.0</span><span class="o">/</span><span class="n">lib</span> \
+</span><span data-line="6"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">munge</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span> \
+</span><span data-line="7"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">munge</span><span class="o">-</span><span class="n">libdir</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span><span class="o">-</span><span class="mf">0.5.16</span><span class="o">/</span><span class="n">lib</span> \
+</span><span data-line="8"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">libevent</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">libevent</span><span class="o">-</span><span class="mf">2.1.11</span> \
+</span><span data-line="9"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">libevent</span><span class="o">-</span><span class="n">libdir</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">libevent</span><span class="o">-</span><span class="mf">2.1.11</span><span class="o">/</span><span class="n">lib</span>
+</span><span data-line="10"><span class="n">make</span>
+</span><span data-line="11"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="12"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="installing-slurm">
+<h2><span class="section-number">5.2. </span>Installing Slurm<!--[edit]--><a class="headerlink" href="#installing-slurm" title="Link to this heading">#</a></h2>
+<p>These steps are executed on the slurm management node as a non-privileged user</p>
+<ul class="simple">
+<li><p><strong>Load the required modules:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">module</span> <span class="n">load</span> <span class="n">python</span>
+</span></pre></div>
+</div>
+<section id="configure-slurm">
+<h3><span class="section-number">5.2.1. </span>Configure Slurm<a class="headerlink" href="#configure-slurm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>found here: [<a class="reference external" href="https://download.schedmd.com/slurm/slurm-24.11.0.tar.bz2" rel="noreferrer" target="_blank">https://download.schedmd.com/slurm/slurm-24.11.0.tar.bz2</a>]</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="o">./</span><span class="n">configure</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++</span> <span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span> \
+</span><span data-line="2"><span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span> \
+</span><span data-line="3"><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">pam</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">salloc</span><span class="o">-</span><span class="n">kill</span><span class="o">-</span><span class="n">cmd</span> \
+</span><span data-line="4"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">hwloc</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">hwloc</span><span class="o">-</span><span class="mf">2.1.0</span> \
+</span><span data-line="5"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">pmix</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">pmix</span><span class="o">-</span><span class="mf">5.0.4</span> \
+</span><span data-line="6"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">munge</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">munge</span> \
+</span><span data-line="7"><span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">ucx</span><span class="o">=/</span><span class="n">apps</span><span class="o">/</span><span class="n">ucx</span><span class="o">-</span><span class="mf">1.7.0</span>
+</span></pre></div>
+</div>
+</section>
+<section id="build-it">
+<h3><span class="section-number">5.2.2. </span>Build it<a class="headerlink" href="#build-it" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">make</span>
+</span><span data-line="2"><span class="n">make</span> <span class="n">check</span>
+</span><span data-line="3"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></pre></div>
+</div>
+</section>
+<section id="finish-installing-all-the-auth-and-pmi-modules">
+<h3><span class="section-number">5.2.3. </span>Finish installing all the auth and pmi modules:<a class="headerlink" href="#finish-installing-all-the-auth-and-pmi-modules" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cd</span> <span class="n">contribs</span><span class="o">/</span><span class="n">pmi</span>
+</span><span data-line="2"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span><span data-line="3"><span class="n">cd</span> <span class="o">../</span><span class="n">pmix</span>
+</span><span data-line="4"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span><span data-line="5"><span class="n">cd</span> <span class="o">../</span><span class="n">perlapi</span>
+</span><span data-line="6"><span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span><span data-line="7"><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span> <span class="o">&amp;&amp;</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">../</span><span class="n">lib64</span><span class="o">/</span><span class="n">perl5</span> <span class="n">perl</span>
+</span><span data-line="8"><span class="n">cd</span> <span class="o">-</span>
+</span><span data-line="9"><span class="n">cd</span> <span class="o">../</span><span class="n">pam</span>
+</span><span data-line="10"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span><span data-line="11"><span class="n">cd</span> <span class="o">../</span><span class="n">pam_slurm_adopt</span>
+</span><span data-line="12"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span><span data-line="13"><span class="n">cp</span> <span class="o">../</span><span class="n">sjstat</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+</span><span data-line="14"><span class="n">cp</span> <span class="o">../</span><span class="n">seff</span><span class="o">/</span><span class="n">seff</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+</span><span data-line="15"><span class="n">cp</span> <span class="o">../</span><span class="n">seff</span><span class="o">/</span><span class="n">smail</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+</span></pre></div>
+</div>
+</section>
+<section id="install-all-the-extra-slurm-tools-we-like">
+<h3><span class="section-number">5.2.4. </span>Install all the extra slurm tools we like<a class="headerlink" href="#install-all-the-extra-slurm-tools-we-like" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
+</span><span data-line="2"><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OleHolmNielsen</span><span class="o">/</span><span class="n">Slurm_tools</span><span class="o">.</span><span class="n">git</span> <span class="n">Slurm_tools</span><span class="o">-</span><span class="n">master</span> <span class="c1"># or unzip Slurm_tools-master.zip</span>
+</span><span data-line="3"><span class="n">cp</span> <span class="n">Slurm_tools</span><span class="o">-</span><span class="n">master</span><span class="o">/</span><span class="n">partitions</span><span class="o">/</span><span class="n">showpartitions</span> <span class="n">Slurm_tools</span><span class="o">-</span><span class="n">master</span><span class="o">/</span><span class="n">showuserjobs</span><span class="o">/</span><span class="n">showuserjobs</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>If internet access</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hl723</span><span class="o">/</span><span class="n">seff</span><span class="o">-</span><span class="n">array</span><span class="o">.</span><span class="n">git</span>
+</span><span data-line="2"><span class="n">cp</span> <span class="n">seff</span><span class="o">-</span><span class="n">array</span><span class="o">/</span><span class="n">seff</span><span class="o">-</span><span class="n">array</span><span class="o">.</span><span class="n">py</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">21.08.8</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">seff</span><span class="o">-</span><span class="n">array</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create slurm/etc dir and transfer service files</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">mkdir</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span>
+</span><span data-line="2"><span class="n">cp</span> <span class="n">etc</span><span class="o">/*.</span><span class="n">service</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Modify the service files to run out of /opt/slurm</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/opt\/slurm-22.05.6/opt\/slurm/g&#39;</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmctld</span><span class="o">.</span><span class="n">service</span>
+</span><span data-line="2"><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/opt\/slurm-22.05.6/opt\/slurm/g&#39;</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmdbd</span><span class="o">.</span><span class="n">service</span>
+</span><span data-line="3"><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/opt\/slurm-22.05.6/opt\/slurm/g&#39;</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmd</span><span class="o">.</span><span class="n">service</span>
+</span><span data-line="4"><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/opt\/slurm-22.05.6/opt\/slurm/g&#39;</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmrestd</span><span class="o">.</span><span class="n">service</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Add the following line to slurmd.service, just above the ExecStart line:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;SLURMD_OPTIONS=-M --conf-server muscadine-node-1&quot;</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Put the config files in place</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">etc</span><span class="o">/*.</span><span class="n">conf</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span>
+</span><span data-line="2"><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">CONF</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Fix ownership and permissions</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">chmod</span> <span class="n">g</span><span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">R</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span>
+</span><span data-line="2"><span class="n">chown</span> <span class="n">slurm</span><span class="p">:</span><span class="n">slurm</span> <span class="o">-</span><span class="n">R</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span>
+</span><span data-line="3"><span class="n">chmod</span> <span class="mi">600</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-</span><span class="mf">22.05.6</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmdbd</span><span class="o">.</span><span class="n">conf</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Stop the old slurmdbd and slurmctld (if upgrading slurm)</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">systemctl</span> <span class="n">stop</span> <span class="n">slurmctld</span>
+</span><span data-line="2"><span class="n">systemctl</span> <span class="n">stop</span> <span class="n">slurmdbd</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Relink to new slurm:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">rm</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span>
+</span><span data-line="2"><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span>
+</span><span data-line="3"><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">slurm</span><span class="o">-</span><span class="mf">21.08.8</span> <span class="n">slurm</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Make the log dir if it doesn’t exist</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">slurm</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-the-slurm-database">
+<h2><span class="section-number">5.3. </span>Creating the Slurm Database<!--[edit]--><a class="headerlink" href="#creating-the-slurm-database" title="Link to this heading">#</a></h2>
+<p>This section assumes we’re setting up Slurm for the first time on a cluster. If we’re simply upgrading Slurm for a given cluster, this section should be skipped. This section uses muscadine as an example case. Change cluster name as needed.</p>
+<ul class="simple">
+<li><p><strong>On mitchell, login as root DB user</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create the slurm database</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">adm_muscadine_slurm</span><span class="p">;</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Switch to that DB</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">USE</span> <span class="n">adm_muscadine_slurm</span><span class="p">;</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Create the slurm DB user (password in pw file)</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">CREATE</span> <span class="n">USER</span> <span class="s1">&#39;muscadine_slurm&#39;</span><span class="o">@</span><span class="s1">&#39;muscadine-node-1.hpc.msstate.edu&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s1">&#39;xxxxx&#39;</span><span class="p">;</span>
+</span></pre></div>
+</div>
+<!--CREATE USER 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu' IDENTIFIED BY 'xxxxx';-->
+<ul class="simple">
+<li><p><strong>Give permissions</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">PRIVILEGES</span> <span class="n">ON</span> <span class="n">adm_muscadine_slurm</span><span class="o">.*</span> <span class="n">TO</span> <span class="s1">&#39;muscadine_slurm&#39;</span><span class="o">@</span><span class="s1">&#39;muscadine-node-1.hpc.msstate.edu&#39;</span><span class="p">;</span>
+</span></pre></div>
+</div>
+<!--`GRANT ALL PRIVILEGES ON adm_muscadine_slurm.* TO 'muscadine_slurm'@'muscadine-node-2.hpc.msstate.edu';`-->
+<ul class="simple">
+<li><p><strong>Now start the slurmdbd on the SlurmDBD host to have slurm set up and start populating the database</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">systemctl</span> <span class="n">start</span> <span class="n">slurmdbd</span>
+</span><span data-line="2"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">slurmdbd</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Watch the slurmdbd log file to see when it finishes:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">slurmdbd</span><span class="o">.</span><span class="n">log</span>
+</span></pre></div>
+</div>
+</section>
+<section id="launching-slurmctld">
+<h2><span class="section-number">5.4. </span>Launching Slurmctld<!--[edit]--><a class="headerlink" href="#launching-slurmctld" title="Link to this heading">#</a></h2>
+<p>On the cluster management node(s):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmctld</span><span class="o">.</span><span class="n">service</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span>
+</span><span data-line="2"><span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">slurmctld</span>
+</span><span data-line="3"><span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">slurm</span><span class="p">:</span><span class="n">slurm</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">slurmctld</span>
+</span><span data-line="4"><span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+</span><span data-line="5"><span class="n">systemctl</span> <span class="n">start</span> <span class="n">slurmctld</span>
+</span><span data-line="6"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">slurmctld</span>
+</span></pre></div>
+</div>
+</section>
+<section id="pushing-the-slurm-installation-to-all-available-nodes">
+<h2><span class="section-number">5.5. </span>Pushing the Slurm installation to all available nodes<!--[edit]--><a class="headerlink" href="#pushing-the-slurm-installation-to-all-available-nodes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Define the nodelists (using Orion as an example):</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">NodeName</span><span class="o">=</span><span class="n">muscadine</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span> <span class="n">CPUs</span><span class="o">=</span><span class="mi">96</span> <span class="n">Boards</span><span class="o">=</span><span class="mi">1</span> <span class="n">SocketsPerBoard</span><span class="o">=</span><span class="mi">1</span> <span class="n">CoresPerSocket</span><span class="o">=</span><span class="mi">48</span> <span class="n">ThreadsPerCore</span><span class="o">=</span><span class="mi">2</span> <span class="n">RealMemory</span><span class="o">=</span><span class="mi">192268</span> <span class="n">State</span><span class="o">=</span><span class="n">UNKNOWN</span> <span class="n">Weight</span><span class="o">=</span><span class="mi">2</span>
+</span><span data-line="2"><span class="n">NodeName</span><span class="o">=</span><span class="n">muscadine</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="p">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="n">CPUs</span><span class="o">=</span><span class="mi">96</span> <span class="n">Boards</span><span class="o">=</span><span class="mi">1</span> <span class="n">SocketsPerBoard</span><span class="o">=</span><span class="mi">1</span> <span class="n">CoresPerSocket</span><span class="o">=</span><span class="mi">48</span> <span class="n">ThreadsPerCore</span><span class="o">=</span><span class="mi">2</span> <span class="n">RealMemory</span><span class="o">=</span><span class="mi">192268</span> <span class="n">State</span><span class="o">=</span><span class="n">UNKNOWN</span>
+</span></pre></div>
+</div>
+<!--nodelist=Orion-login-[1-4],Orion-devel-[1-2],Orion-dtn-[1-4],Orion-ood,Orion-[01-25]-[01-72] ood=Orion-ood-->
+<section id="the-propogating-slurm-to-the-rest-of-the-nodes-will-be-done-inside-the-warewulf-contianer">
+<h3><span class="section-number">5.5.1. </span>The propogating slurm to the rest of the nodes will be done inside the WareWulf contianer<a class="headerlink" href="#the-propogating-slurm-to-the-rest-of-the-nodes-will-be-done-inside-the-warewulf-contianer" title="Link to this heading">#</a></h3>
+<!--- **Load pdsh**
+```
+module load pdsh
+```-->
+<ul class="simple">
+<li><p><strong>create a copy of the current container for slurm’s changes:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">wwctl</span> <span class="n">container</span> <span class="n">copy</span> <span class="n">base</span><span class="o">-</span><span class="n">rocky</span><span class="o">-</span><span class="n">testing</span> <span class="n">base</span><span class="o">-</span><span class="n">rocky</span><span class="o">-</span><span class="mf">9.4</span><span class="o">-</span><span class="n">ib</span><span class="o">-</span><span class="n">gpu</span><span class="o">-</span><span class="n">slurm</span>
+</span></pre></div>
+</div>
+<!--- **Stop and unlink the existing slurm install on the nodes**
+```
+pdsh -w $nodelist -R ssh systemctl stop slurmd
+pdsh -w $nodelist -R ssh rm /opt/slurm
+```-->
+<ul class="simple">
+<li><p><strong>cd into the ww chroot:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">warewulf</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">warewulf</span><span class="o">/</span><span class="n">chroots</span><span class="o">/</span><span class="n">base</span><span class="o">-</span><span class="n">rocky</span><span class="o">-</span><span class="mf">9.4</span><span class="o">-</span><span class="n">ib</span><span class="o">-</span><span class="n">gpu</span><span class="o">-</span><span class="n">slurm</span><span class="o">/</span><span class="n">rootfs</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Copy the installation over</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">rsync</span> <span class="o">-</span><span class="n">vaxtHA</span> <span class="n">muscadine</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">-*</span> <span class="n">opt</span><span class="o">/</span>
+</span><span data-line="2"><span class="n">rsync</span> <span class="o">-</span><span class="n">vaxtHA</span> <span class="n">muscadine</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">pam_slurm</span><span class="o">*</span> <span class="n">lib64</span><span class="o">/</span><span class="n">security</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<!--- **Copy the installation over**
+```
+pdsh -w $nodelist -R exec rsync -vaxtHA /opt/slurm-21.08.8 %h:/opt/
+pdsh -w $nodelist -R exec rsync -vaxtHA /lib64/security/pam_slurm* %h:/lib64/security/
+```-->
+<!--- **Link the new installation and copy service files**
+```
+pdsh -w $nodelist -R ssh "cd /opt && ln -s slurm-21.08.8 slurm"
+pdsh -w $nodelist -R ssh cp /opt/slurm/etc/slurmd.service /etc/systemd/system/
+```-->
+<ul class="simple">
+<li><p><strong>Link the new installation and copy service files</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">cd</span> <span class="n">opt</span> <span class="o">&amp;&amp;</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">slurm</span><span class="o">-*</span> <span class="n">slurm</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="o">-</span><span class="s2">&quot;</span>
+</span><span data-line="2"><span class="n">cp</span> <span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">slurmd</span><span class="o">.</span><span class="n">service</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span>
+</span></pre></div>
+</div>
+<!--- **Remove the etc directory (for configless install)**
+```
+pdsh -w $nodelist -R ssh rm -rf /opt/slurm/etc
+```-->
+<ul class="simple">
+<li><p><strong>Remove the etc directory (for configless install)</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">opt</span><span class="o">/</span><span class="n">slurm</span><span class="o">/</span><span class="n">etc</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Add the munge user and group to the system:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">getent</span> <span class="n">passwd</span> <span class="n">munge</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+</span><span data-line="2"><span class="n">getent</span> <span class="n">group</span> <span class="n">munge</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">group</span>
+</span></pre></div>
+</div>
+<!--- **Start the new slurmds**
+```
+pdsh -w $nodelist -R ssh systemctl daemon-reload
+pdsh -w $nodelist -R ssh systemctl start slurmd
+```-->
+<ul class="simple">
+<li><p><strong>Boot the WW Nodes and check if slurmd is running:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">pdsh -w $nodelist -R ssh systemctl status slurmd
+</span></pre></div>
+</div>
+<!--- **Push the etc directory to the OOD nodes, because OOD crashes without it:**
+```
+rsync -vaxtHA /opt/slurm/etc $ood:/opt/slurm/
+```-->
+</section>
+</section>
+<section id="setting-up-the-initial-slurm-accounts-qoss-users">
+<h2><span class="section-number">5.6. </span>Setting up the Initial Slurm Accounts/QOSs/Users<!--[edit]--><a class="headerlink" href="#setting-up-the-initial-slurm-accounts-qoss-users" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>This step assumes we’re setting up a fresh slurm database for a new cluster. This step isn’t needing if we’re just upgrading slurm.:</strong></p></li>
+<li><p><strong>Create the admin account</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">account</span> <span class="n">admin</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">muscadine</span> <span class="n">Parent</span><span class="o">=</span><span class="n">root</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Set the qos parameters (assuming using the default ‘normal’ qos)</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">modify</span> <span class="n">qos</span> <span class="n">normal</span> <span class="nb">set</span> <span class="n">Priority</span><span class="o">=</span><span class="mi">20</span> <span class="n">Flags</span><span class="o">=</span><span class="n">DenyOnLimit</span> <span class="n">UsageFactor</span><span class="o">=</span><span class="mf">1.000000</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Allow the admin account to use the configured QOS</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">modify</span> <span class="n">account</span> <span class="n">admin</span> <span class="nb">set</span> <span class="n">qos</span><span class="o">=</span><span class="n">normal</span> <span class="n">defaultqos</span><span class="o">=</span><span class="n">normal</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Add users to the admin account</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">user</span> <span class="n">joey</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">hercules</span> <span class="n">Account</span><span class="o">=</span><span class="n">admin</span> <span class="n">fairshare</span><span class="o">=</span><span class="n">parent</span>
+</span><span data-line="2"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">user</span> <span class="n">sesser</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">hercules</span> <span class="n">Account</span><span class="o">=</span><span class="n">admin</span> <span class="n">fairshare</span><span class="o">=</span><span class="n">parent</span>
+</span><span data-line="3"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">user</span> <span class="n">jfrulla</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">hercules</span> <span class="n">Account</span><span class="o">=</span><span class="n">admin</span> <span class="n">fairshare</span><span class="o">=</span><span class="n">parent</span>
+</span><span data-line="4"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">user</span> <span class="n">sanders</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">hercules</span> <span class="n">Account</span><span class="o">=</span><span class="n">admin</span> <span class="n">fairshare</span><span class="o">=</span><span class="n">parent</span>
+</span><span data-line="5"><span class="n">sacctmgr</span> <span class="o">--</span><span class="n">immediate</span> <span class="n">add</span> <span class="n">user</span> <span class="n">jhrogers</span> <span class="n">Cluster</span><span class="o">=</span><span class="n">hercules</span> <span class="n">Account</span><span class="o">=</span><span class="n">admin</span> <span class="n">fairshare</span><span class="o">=</span><span class="n">parent</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>The above admin users should now be able to submit jobs with:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1">#SBATCH -A admin</span>
+</span><span data-line="2"><span class="c1">#SBATCH -p &lt;clustername&gt;</span>
+</span><span data-line="3"><span class="c1">#SBATCH -q normal.05.6/etc/</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2025, sighpc</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://discord.gg/RbQK45RMcB" aria-label="Discord">
+    <iconify-icon icon="simple-icons:discord"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>

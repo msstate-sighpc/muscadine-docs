@@ -7,7 +7,7 @@ This guide explains how to launch and use the **JupyterLab** app through Open On
 ## Creating a python kernel
 The site-wide python installation is quite bare-bones by design. In most cases, users will want to prepare a python virtual environment (venv) and kernel for jupyter before launching:
 
-1. (Optional) Load your desired python
+1. Load your desired python version
 	```bash
 	ml load python/{version}
 	```
@@ -73,6 +73,8 @@ When finished:
 
 ## Troubleshooting
 
+- Jupyter launches but my custom kernel never launches
+	- You skipped `module load python` which caused your venv to include the system python. recreate your venv after loading the python module.
 - If JupyterLab fails to start, check:
     - The requested resources (wall time, cores) are available.
     - The **Interactive App** logs for errors (`View Output Log`).
