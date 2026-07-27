@@ -30,7 +30,7 @@ helpful-information
 administrative-limitations
 monitoring
 building-software
-slurm-monitoring
+*
 demos/index
 ood/index
 sup/index

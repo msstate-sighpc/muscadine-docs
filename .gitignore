@@ -1,4 +1,2 @@
-_build
-.obsidian
-sphinx
 *.swp
+.obsidian
