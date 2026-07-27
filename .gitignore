@@ -1,2 +1,4 @@
-*.swp
+_build
 .obsidian
+sphinx
+*.swp
