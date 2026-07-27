@@ -1,3 +1,7 @@
+stages:
+  - build
+  - deploy
+
 pages:
   image: python:trixie
   script:
@@ -11,3 +15,12 @@ pages:
     - public
   only:
   - main
+
+deploy-web:
+  stage: deploy
+  tags:
+    - docs
+  needs:
+    - pages
+  only:
+    - main
