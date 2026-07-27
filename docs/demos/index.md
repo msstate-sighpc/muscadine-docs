@@ -1,4 +1,4 @@
-# Demostrations
+# Demos
 
 Here are detailed demos supported and avaliable on Muscadine. Select your desired demo to learn more.
 

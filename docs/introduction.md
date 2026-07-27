@@ -29,7 +29,7 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 | `/home`    | PureStorage | 6x PureStorage Flashblades | 48TB (96TB raw) | 10GB  |
 | `/work`    | PureStorage | 6x PureStorage Flashblades | 48TB (96TB raw) | 500GB |
 
-```{attention}
+```{warning}
 `/scratch` will be periodically wiped due to limited space. Back up critical data to your `/work` directory.
 ```
 
