@@ -11,21 +11,21 @@
 
 Muscadine is a 5 node, 100 TFLOP cluster gifted by Dell for MSU students' HPC development.
 ````
-````{grid-item-card} Pi4 Cluster
+````{grid-item-card} Box-O-Cluster
 :link: box-o-cluster
 :link-type: doc
 :img-top: ../_static/clusters/boc/logo-1.png
 :img-alt:
 
-The Pi4 Cluster is a 21 node, 175 GFLOP cluster designed to teach HPC basics to MSU students.
+Box-O-Cluster is a project to deploy a virtual cluster on MSU HPC systems. This enables students to practice HPC deployments without effecting production systems.
 ````
 ````{grid-item-card} Pi4 Cluster
 :link: pi4-cluster
 :link-type: doc
-:img-top: ../_static/clusters/pi4/pi4-cluster-1.webp
+:img-top: ../_static/clusters/pi4/pi4-cluster-2.webp
 :img-alt:
 
-The Pi4 Cluster is a 21 node, 175 GFLOP cluster designed to teach HPC basics to MSU students.
+The Pi4 Cluster is a 21 node, 175 GFLOP cluster designed to teach HPC basics to MSU students. Used in the SBCC26.
 ````
 ````{grid-item-card} Pi5 Cluster
 :link: muscadine
