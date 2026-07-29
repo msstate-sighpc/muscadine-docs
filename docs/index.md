@@ -23,9 +23,9 @@ Please read before using muscadine
 :caption: Contents:
 :glob:
 
-introduction
 user-docs
 getting-help
+clusters/index
 helpful-information
 administrative-limitations
 monitoring
