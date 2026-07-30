@@ -1006,3 +1006,10 @@ html.dark {
 .light {
   --accent-9: #5D1725;
 }
+
+
+.ascii-art pre {
+  font-size: 0.9rem;      /* shrink until it fits — try 0.45–0.6rem */
+  line-height: 1.15;
+  overflow-x: visible;    /* stop the scrollbar once it fits */
+}
