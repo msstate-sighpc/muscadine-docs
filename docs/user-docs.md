@@ -1,6 +1,6 @@
 # Getting Started
 
-## Accessing Muscadine
+## Accessing the Cluster
 ### Method One: Titan
 First log into Titan at `titan.hpc.msstate.edu`. Use the following template if needed:
 
@@ -8,22 +8,34 @@ First log into Titan at `titan.hpc.msstate.edu`. Use the following template if n
 ssh <NetID>@titan.hpc.msstate.edu
 ```
 
+`````{tab-set}
+:sync-group: cluster
+````{tab-item} Muscadine
+:sync: muscadine
+
 After entering your HPC password and doing the 2FA push, you can proceed to logging into Muscadine. Muscadine only has one node facing the HPCC network which is `muscadine-node-1`, so that is the one we'll want to ssh into. Use the following template if needed:
 
 ```bash
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 ```
-
+````
+`````
 Repeat the authentication process from logging into Titan and you'll be set.
 
 (method-two-hpc-vpn)=
 ### Method Two: HPC VPN
+`````{tab-set}
+:sync-group: cluster
+````{tab-item} Muscadine
+:sync: muscadine
+
 Method Two involves logging into the HPC{sup}`2` VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your HPC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
 
 ```bash
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 ```
-
+````
+`````
 ---
 
 ## Muscadine's Storage
@@ -48,7 +60,7 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 
 ---
 
-## Using Muscadine
+## Using Slurm
 ### Getting a node allocation
 Say you want to build a given program. You could build it on the head, but that can interfere with other people doing the same or running a program on the head. An alternative to that is submitting a Slurm request to get a node for building purposes. Run the following command to reserve a node for a bash terminal.
 
@@ -67,6 +79,9 @@ Modules are software stacks such as GCC, Python, OpenBLAS, or ROCM that we provi
    contrib/0.1       openmpi/5.0.5      rocm-device-libs/6.2.4
    gcc/14.2.0        python/3.11.9      rocsolver/6.2.4
 ```
+```{note}
+This may not be an accurate list of currently avaliable modules, run `ml avail` to get the system specific module list.
+```
 
 In order to load a module, you can run `ml load <moduleName>`. Tab complete does work with ml and we encourage you use tab complete as it can also list several different versions we provide for each module, most will only have one though.
 
@@ -83,9 +98,6 @@ NOTE: *You only need edit .zshrc once.*
 
 Users can submit a request to add something they have built to `/apps/contrib` for other users to use as well. 
 
----
-
-## Using Slurm
 ### Common Slurm commands
 #### `sinfo`
 `sinfo` and is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
