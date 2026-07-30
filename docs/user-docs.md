@@ -60,7 +60,7 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 
 ---
 
-## Using Slurm
+## Using an HPC System
 ### Getting a node allocation
 Say you want to build a given program. You could build it on the head, but that can interfere with other people doing the same or running a program on the head. An alternative to that is submitting a Slurm request to get a node for building purposes. Run the following command to reserve a node for a bash terminal.
 
@@ -97,6 +97,10 @@ NOTE: *You only need edit .zshrc once.*
 ```
 
 Users can submit a request to add something they have built to `/apps/contrib` for other users to use as well. 
+
+---
+
+## Using Slurm
 
 ### Common Slurm commands
 #### `sinfo`
