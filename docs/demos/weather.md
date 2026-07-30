@@ -6,12 +6,12 @@
 
 ```{video} ../_static/figures/demos/temp-1.mp4
 :align: center
+:alt: Short video showcasing a quick 7 day temperature forecast using NeuralGCM.
 :nocontrols:
 :autoplay:
 :loop:
 :width: 100%
 :playsinline:
-:alt: Short video showcasing a quick 7 day temperature forecast using NeuralGCM.
 ```
 
 NeuralGCM is a project to deploy hybid ML/Physics models for weather and climate simulations. In this demo guide, we will explore running their pre-trained temperature/humitidy, precipitation, and evaporation models. To learn more about NeuralGCM, visit their documentation and take a gander at their paper below.
