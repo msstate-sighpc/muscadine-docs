@@ -6,7 +6,7 @@ created by sphinx-quickstart on Thu Oct  2 14:13:13 2025.
 # Documentation
 
 ```{code-block}
-:class: ascii-art
+:class: ascii-art-sighpc
 
     ╔═══════════╗╔═══════════╗╔═══════════╗╔═══════════╗╔═══════════╗╔═══════════╗
 ──┤├╢ ▓▓▓▓▓▓▓▓▓ ╟╢ ▓▓▓▓▓▓▓▓▓ ╟╢ ▓▓▓▓▓▓▓▓▓ ╟╢ ▓▓▓▓▓▓▓▓▓ ╟╢ ▓▓▓▓▓▓▓▓▓ ╟╢ ▓▓▓▓▓▓▓▓▓ ╟┤├──

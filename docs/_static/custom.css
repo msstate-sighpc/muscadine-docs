@@ -1008,7 +1008,7 @@ html.dark {
 }
 
 
-.ascii-art pre {
+.ascii-art-sighpc pre {
   font-size: 0.92rem;      /* shrink until it fits — try 0.45–0.6rem */
   line-height: 1.15;
   overflow-x: visible;    /* stop the scrollbar once it fits */
