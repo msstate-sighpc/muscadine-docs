@@ -8,7 +8,7 @@ Here are detailed demos supported and avaliable on Muscadine. Select your desire
 ````{grid-item-card} Weather
 :link: weather
 :link-type: doc
-```{video} ../_static/figures/demos/temp-1.mp4
+```{video} ../../_static/figures/demos/temp-1.mp4
 :align: center
 :nocontrols:
 :autoplay:
@@ -24,7 +24,7 @@ Weather simulations such as NeuralGCM.
 ````{grid-item-card} Fierro
 :link: fierro
 :link-type: doc
-```{image} ../_static/figures/demos/fierro-1.png
+```{image} ../../_static/figures/demos/fierro-1.png
 :align: center
 :alt: Image displaying internal crystaline stress of a metal cube simulated with Fierro.
 ```
