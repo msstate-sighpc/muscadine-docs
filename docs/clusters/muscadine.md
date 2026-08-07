@@ -102,8 +102,8 @@ To promote a sense of competition. Here we will host a leaderboard of the best s
 | Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
 | 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s | GPU     |
-| 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
-%%| 1st  | Drew Helgerson      | 2.392 TFlop/s | 11.81 TFlop/s | CPU     |%%
+| 2nd  | Drew Helgerson      | 2.392 TFlop/s | 11.81 TFlop/s | CPU     |
+| 3rd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
 
 See [Tuning HPL](/adv/hpl.md) to get started
 
