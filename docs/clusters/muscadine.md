@@ -99,7 +99,7 @@ To promote a sense of competition. Here we will host a leaderboard of the best s
 
 ### HPL
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
+| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
 | 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s | GPU     |
 | 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
@@ -109,14 +109,13 @@ See [Tuning HPL](/adv/hpl.md) to get started
 
 ### MxP-HPL
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
+| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
-
-Nobody has submitted scores for Mxp-HPL
+| 1st  | Oliver Higginbotham | 134.9 TFlop/s | 648.4 TFlop/s | GPU     |
 
 ### HPCg
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
+| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
 
 Nobody has submitted scores for HPCg
