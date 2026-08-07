@@ -111,7 +111,7 @@ See [Tuning HPL](/adv/hpl.md) to get started
 
 | Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
 | ---- | ------------------- | ------------- | ------------- | ------- |
-| 1st  | Oliver Higginbotham | 134.9 TFlop/s | 648.4 TFlop/s | GPU     |
+| 1st  | Oliver Higginbotham | 135.6 TFlop/s | 648.9 TFlop/s | GPU     |
 
 ### HPCg
 
