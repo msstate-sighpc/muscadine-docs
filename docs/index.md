@@ -31,6 +31,7 @@ Please read before using muscadine
 
 user-docs
 getting-help
+students/index
 clusters/index
 helpful-information
 administrative-limitations
