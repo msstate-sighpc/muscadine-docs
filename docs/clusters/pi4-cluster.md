@@ -10,7 +10,7 @@ The Pi 4 cluster is a 21-node cluster built for the [GIGADAWGS](/students/index.
 
 ## Pi 4 Cluster Specification
 
-The Pi 4 cluster consists of 21 total nodes, with 1 being a head node and the other 20 being compute nodes. 12 of those compute nodes are also storage nodes, providing distributed storage for benchmarking.
+The Pi 4 cluster consists of 21 total nodes, with 1 being a head node and the other 20 being compute nodes. 12 of those compute nodes are also storage nodes, providing distributed storage for benchmarking. All nodes, including the head and compute nodes, are Raspberry Pi 4 Model Bs with 4GB of RAM. 
 
 ### Hardware:
 
@@ -62,7 +62,12 @@ The head node has a 128GB SSD for storage, which is used to hold container image
 
 ## Hardware Analysis
 
-The Raspberry Pi 4B model uses the Broadcom BCM2711 SoC, which provides the following:
+````{sidebar}
+```{image} ../_static/clusters/pi4/bcm2711.webp
+```
+````
+
+The Raspberry Pi 4 Model B uses the Broadcom BCM2711 SoC, which provides the following:
 
 - CPU: Quad-core ARM Cortex-A72 (64-bit) at 1.5 GHz
 - GPU: Broadcom VideoCore VI (32-bit) running at 500MHz
