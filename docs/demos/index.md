@@ -43,6 +43,17 @@ Fierro is a multiphysics solver.
 Loci is a declarative C++ framework for large-scale scientific simulations.
 ````
 
+````{grid-item-card} FlowPsi
+:link: flowpsi
+:link-type: doc
+```{image} ../_static/figures/demos/flowpsi-cylinder-t0.png
+:align: center
+:alt: FlowPsi cylinder simulation at time zero.
+```
+
+FlowPsi is a computational fluid dynamics solver built on Loci.
+````
+
 `````
 
 
@@ -55,5 +66,6 @@ Loci is a declarative C++ framework for large-scale scientific simulations.
 weather.md
 fierro.md
 loci.md
+flowpsi.md
 ```
 

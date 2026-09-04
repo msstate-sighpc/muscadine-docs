@@ -93,7 +93,7 @@ plot_modulo:100
 Our heat demo will run for 10 seconds as indicated by `stop_iter`, and solution output files are created every 5 seconds as indicated by `plot_freq`.
 
 
-## Running the Demo
+## Running Loci
 
 Execute the solver directly on the grid case named test:
 
