@@ -1,6 +1,6 @@
 # Demos
 
-Here are detailed demos supported and avaliable on Muscadine. Select your desired demo to learn more.
+Here are detailed demos supported and available on Muscadine. Select your desired demo to learn more.
 
 `````{grid} 1 1 2 2
 :gutter: 4
@@ -31,6 +31,18 @@ Weather simulations such as NeuralGCM.
 
 Fierro is a multiphysics solver.
 ````
+
+````{grid-item-card} Loci
+:link: loci
+:link-type: doc
+```{image} ../_static/figures/demos/loci-heat-t10.png
+:align: center
+:alt: Loci heat simulation showing heat distribution.
+```
+
+Loci is a declarative C++ framework for large-scale scientific simulations.
+````
+
 `````
 
 
@@ -42,5 +54,6 @@ Fierro is a multiphysics solver.
 
 weather.md
 fierro.md
+loci.md
 ```
 

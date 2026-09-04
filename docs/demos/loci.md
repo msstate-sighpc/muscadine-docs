@@ -109,7 +109,7 @@ To inspect how Loci internally constructs its rule dependency schedule and paral
 
 ## Extracting Data for Visualization
 
-Loci provides the extract utility to export raw database checkpoints into formats compatible with post-processing tools like ParaView.
+Loci provides the `extract` utility to export raw database checkpoints into formats compatible with post-processing tools like ParaView.
 
 ### Syntax
 
@@ -151,9 +151,12 @@ Let's see the output from the first time step, i.e. t=0s:
 paraview test_vtk.0/Volume.vtu
 ```
 
-Once paraview launches, select 'temperature' under the Coloring section inside the Properties tab on the left-hand side, then click 'Apply'. The resulting Layout of the object should look something like this:
+Once paraview launches, click 'Apply' inside the Properties tab on the left-hand side, then select 'temperature' under the Coloring section. The resulting Layout of the object should look something like this:
 
-{Placeholder for image}
+```{image} ../_static/figures/demos/loci-heat-t0.png
+:align: center
+:alt: Loci heat simulation at time zero.
+```
 
 Now let's see the output from the last time step, i.e. t=10s:
 
@@ -161,6 +164,9 @@ Now let's see the output from the last time step, i.e. t=10s:
 paraview test_vtk.10/Volume.vtu
 ```
 
-Again, once paraview launches, select 'temperature' under the Coloring section inside the Properties tab and click 'Apply'. You should see something like this:
+Again, once paraview launches, click 'Apply' inside the Properties tab, then select 'temperature' under the Coloring section. You should see something like this:
 
-{Placeholder for image}
+```{image} ../_static/figures/demos/loci-heat-t10.png
+:align: center
+:alt: Loci heat simulation after ten seconds.
+```
