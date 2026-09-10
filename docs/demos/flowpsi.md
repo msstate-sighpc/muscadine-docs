@@ -123,7 +123,7 @@ Once this step is completed, `output` and `restart` directories are created.
 
 ## Extracting Data for Visualization
 
-Loci provides the `extract` utility to export raw database checkpoints into formats compatible with post-processing tools like ParaView.
+Loci provides the `extract` utility to export raw datapoints into formats compatible with post-processing tools like ParaView.
 
 ### Syntax
 
