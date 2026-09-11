@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'SIGHPC'
-copyright = '2025, sighpc'
+copyright = '2026, sighpc'
 author = 'sighpc'
 
 html_title = project
@@ -40,6 +40,7 @@ myst_enable_extensions = [
 html_theme = 'shibuya'
 html_theme_options = {
     "default_mode": "light",  # Force light mode on first load
+    "announcement": "These docs are work in progress. If you see an error or want to contribute, please contact your current Student Sysadmin.",
 }
 html_static_path = ['_static']
 html_favicon = "_static/favicon-msu.svg"
