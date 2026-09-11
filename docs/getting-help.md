@@ -1,11 +1,19 @@
 # Getting Help
-If you have any issues or questions regarding Muscadine, please contact Oliver Higginbotham via odh49@msstate.edu or submit questions to the #helpdesk-muscadine thread channel in our SIG-HPC Discord.
+If you have any issues or questions regarding Muscadine, please contact one of the current Student Sysadmins listed below or submit questions to the [#helpdesk-muscadine](https://discord.com/channels/1166162451767754773/1421249437388378265) thread channel in our SIG-HPC Discord.
+
+## Current Student Sysadmins
+
+| Name 			| Discord Username 	| E-Mail 		|
+| --------------------- | --------------------- | --------------------- | 
+| Oliver Higginbotham 	| higgigamer		| odh49@msstate.edu 	|
+| Talan Ferguson	| talahan25		| tsf129@msstate.edu	|
+
 
 If you have any issues with accounting or login, submit a helpdesk ticket to help@hpc.msstate.edu
 
 ---
 
-## FAQ
+# FAQ
 
 Q: What if I don't want to build a program from source?
 : A: Womp womp.

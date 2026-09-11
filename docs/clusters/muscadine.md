@@ -95,29 +95,103 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 ---
 
 ## Benchmarks Leaderboard
-To promote a sense of competition. Here we will host a leaderboard of the best scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to the current student sysadmin. 
+To promote a sense of competition. Here we will host a leaderboard of the best five scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to one of the current student sysadmins. The contacts for the student sysadmins can be found in . 
 
-### HPL
+``````{tab-set}
+:sync-group: compute-type
 
-| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
-| 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s | GPU     |
-| 2nd  | Drew Helgerson      | 2.414 TFlop/s | 11.81 TFlop/s | CPU     |
-| 3rd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
+`````{tab-item} CPU
+:sync: cpu
+````{tab-set}
+:sync-group: benchmark
 
-See [Tuning HPL](/adv/hpl.md) to get started
+```{tab-item} HPL
+:sync: hpl
 
-### MxP-HPL
+Stuff about HPL
 
-| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
-| 1st  | Oliver Higginbotham | 135.6 TFlop/s | 648.9 TFlop/s | GPU     |
-| 2nd  | Oliver Higginbotham | 10.37 TFlop/s | 48.86 TFlop/s | CPU     |
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Drew Helgerson      | 2.414 TFlop/s | 11.81 TFlop/s |
+| 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} MxP-HPL
+:sync: mxp-hpl
 
+Stuff about MxP-HPL
 
-### HPCg
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Oliver Higginbotham | 10.37 TFlop/s | 48.86 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} HPCg
+:sync: hpcg
 
-| Rank | Owner               | 1-Node        | All-Node      | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
+Stuff about HPCg
 
-Nobody has submitted scores for HPCg
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | | | |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+````
+`````
+
+`````{tab-item} GPU
+:sync: GPU
+````{tab-set}
+:sync-group: benchmark
+
+```{tab-item} HPL
+:sync: hpl
+
+Stuff about HPL
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} MxP-HPL
+:sync: mxp-hpl
+
+Stuff about MxP-HPL
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Oliver Higginbotham | 135.6 TFlop/s | 648.9 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} HPCg
+:sync: hpcg
+
+Stuff about HPCg
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | | | |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+````
+`````
+``````
+
