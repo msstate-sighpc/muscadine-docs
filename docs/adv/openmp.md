@@ -16,7 +16,7 @@ Resources:  [OpenMP Official Site](https://www.openmp.org)
 - **Scalable:** Suitable for multi-core nodes on HPC systems.
 
 ```{note}
-OpenMP does **NOT** scale across nodes. OpenMP is useful when optimizing existing code or when used in conjunction with [MPI](/sub/mpi-basics.md).
+OpenMP does **NOT** scale across nodes. OpenMP is useful when optimizing existing code or when used in conjunction with [MPI](/sup/mpi-basics.md).
 ```
 
 --- 

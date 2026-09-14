@@ -1,4 +1,14 @@
 # OpenOnDemand
+
+```{figure} /_static/figures/applications/OpenOnDemand_horiz_RGB.png
+:figclass: light-only
+:align: center
+```
+```{figure} /_static/figures/applications/OpenOnDemand_horiz_RGB_darkmode.png
+:figclass: dark-only
+:align: center
+```
+
 is a web-based interface developed by the Ohio Supercomputer Center that provides users with easy, browser-based access to high-performance computing (HPC) resources. Instead of requiring command-line interaction over SSH, Open OnDemand lets users manage jobs, transfer files, and even launch graphical applications directly through a web browser.
 
 OOD integrates with existing HPC systems — including Slurm — to provide a user-friendly layer on top of the cluster’s infrastructure. Users can:
@@ -13,9 +23,8 @@ Please don't read these until you've familiarized yourself with Muscadine and cl
 
 ```{toctree}
 :maxdepth: 1
-:caption: Contents
+:hidden:
 :glob:
 
-ood
 *
 ```

@@ -13,7 +13,7 @@ If you have any issues with accounting or login, submit a helpdesk ticket to hel
 
 ---
 
-# FAQ
+## FAQ
 
 Q: What if I don't want to build a program from source?
 : A: Womp womp.

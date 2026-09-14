@@ -1,7 +1,7 @@
 # Using Open OnDemand
 ## Connecting to OOD
 
-To use OOD, you must first be able to access Muscadine. Read "[**Connecting to the VPN**](/user-docs.md#method-two-hpc-vpn)"
+To use OOD, you must first be able to access Muscadine. Read "[**Connecting to the VPN**](/getting-started/quick-start.md#method-two-hpc-vpn)"
 
 Once Connected, open a web browser and navigate to
 https://muscadine-node-1{target="_blank"}

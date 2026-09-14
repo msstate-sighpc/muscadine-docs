@@ -1,5 +1,16 @@
 # Slurm Basics
 
+```{figure} /_static/figures/applications/Slurm_logo.light.webp
+:figclass: light-only
+:align: center
+:width: 60%
+```
+```{figure} /_static/figures/applications/Slurm_logo.dark.webp
+:figclass: dark-only
+:align: center
+:width: 60%
+```
+
 ## What is Slurm?
 
 Slurm is an open source workload manager built to efficiently manage nearly any workload and deliver proven throughput at massive scale. It uses a hierarchical structure consisting of a controller, nodes, and partitions to allocate jobs based on policies and resources, optimizing workload distribution, maximizing cluster utilization, and ensuring efficient job execution. Developed and maintained by engineers at SchedMD (now part of NVIDIA) with deep high-performance computing (HPC) and AI expertise, Slurm is the scheduler of choice for over half of the top 100 systems in the TOP500.
@@ -123,4 +134,12 @@ You can submit the SBATCH Script to Slurm via the following command:
 ```bash
 sbatch <sbatchScript>
 ```
+
+## Advanded Slurm Usage
+
+Here are some resources you may find insightful during your HPC journey with Slurm:
+
+- [Slurm Tips & Tricks](/adv/slurm.md)
+- [Slurm Documentation](https://slurm.schedmd.com/documentation.html)
+- [Slurm Resource Mapping](https://slurm.schedmd.com/mc_support.html)
 

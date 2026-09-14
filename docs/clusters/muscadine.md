@@ -97,6 +97,9 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 ## Benchmarks Leaderboard
 To promote a sense of competition. Here we will host a leaderboard of the best five scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to one of the current student sysadmins. The contacts for the student sysadmins can be found in . 
 
+Current MVP: Drew Helgerson
+
+
 ``````{tab-set}
 :sync-group: compute-type
 
