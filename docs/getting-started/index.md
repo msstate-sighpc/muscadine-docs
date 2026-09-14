@@ -11,5 +11,6 @@
 
 quick-start
 administrative-limitations
-helpful-information
+linux-basics
+slurm-basics
 ```
