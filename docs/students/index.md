@@ -25,15 +25,20 @@ Tid bit about SBCC
 ````
 `````
 
+---
+
 ## MSHPC Conference
 
+````{grid} 1 1 1 1
+```{grid-item-card}
+:link: mshpc
+:link-type: doc
+:img-top: /_static/students/MSHPC26.webp
+:img-alt: Image of MSU students at MSHPC 2026
 
-
-
-
-
-
-
+Tid bit about MSHPC
+```
+````
 
 
 
@@ -48,4 +53,5 @@ Tid bit about SBCC
 
 indyscc
 sbcc
+mshpc
 ```
