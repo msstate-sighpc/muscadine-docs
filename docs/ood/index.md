@@ -1,4 +1,4 @@
-# OpenOnDemand
+# Open OnDemand
 
 ```{figure} /_static/figures/applications/OpenOnDemand_horiz_RGB.png
 :figclass: light-only
