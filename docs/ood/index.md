@@ -21,6 +21,29 @@ Craving more knowledge about clusters?
 Here's a few topics you can peruse to take your skills to the next level.
 Please don't read these until you've familiarized yourself with Muscadine and clustering in genera.
 
+````{grid} 1 1 2 2
+:gutter: 4
+
+```{grid-item-card} Visual Studio Code
+:link: code
+:link-type: doc
+:img-top: ../_static/figures/applications/Visual_Studio_Code.webp
+:img-alt: Visual Studio Code logo
+
+Visual Studio
+```
+```{grid-item-card} Jupyter Notebooks
+:link: jupyter
+:link-type: doc
+:img-top: ../_static/figures/applications/Jupyter_Notebooks.webp
+:img-alt: Jupyter Notebooks logo
+
+Jupyter Notebooks
+```
+````
+
+
+
 ```{toctree}
 :maxdepth: 1
 :hidden:

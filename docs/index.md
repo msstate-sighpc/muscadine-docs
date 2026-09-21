@@ -35,7 +35,6 @@ getting-help
 clusters/index
 monitoring/index
 building-software
-*
 demos/index
 sup/index
 adv/index
