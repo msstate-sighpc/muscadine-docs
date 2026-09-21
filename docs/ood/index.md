@@ -26,5 +26,7 @@ Please don't read these until you've familiarized yourself with Muscadine and cl
 :hidden:
 :glob:
 
-*
+ood
+code
+jupyter
 ```
