@@ -27,18 +27,34 @@ We hope you find everything you need to know about HPC in our SIG-HPC docs. Plea
 
 ```{toctree}
 :maxdepth: 1
-:caption: Contents:
+:caption: HPC Usage:
 :glob:
 
 getting-started/index
 getting-help
-students/index
 clusters/index
 monitoring/index
 building-software
 *
 demos/index
-ood/index
 sup/index
 adv/index
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Services:
+:glob:
+
+ood/index
+owui/index
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: SIG-HPC:
+:glob:
+
+students/index
+contributing
 ```
