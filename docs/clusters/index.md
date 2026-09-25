@@ -3,7 +3,7 @@
 `````{grid} 1 1 2 2
 :gutter: 4
 
-````{grid-item-card} Musadine
+````{grid-item-card} Muscadine
 :link: muscadine
 :link-type: doc
 :img-top: ../_static/clusters/muscadine/muscadine-1.webp
