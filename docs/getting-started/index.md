@@ -13,4 +13,5 @@ quick-start
 administrative-limitations
 linux-basics
 slurm-basics
+data-transfer
 ```
