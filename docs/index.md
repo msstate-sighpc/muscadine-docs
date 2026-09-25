@@ -24,6 +24,31 @@ Welcome to Mississippi State University's SIG-HPC Club! If you are new, please g
 
 We hope you find everything you need to know about HPC in our SIG-HPC docs. Please let us know if you need any assistance or have questions by following the instructions in [Getting Help](getting-help.md)
 
+---
+
+Socials
+=======
+
+````{grid} 2 2 4 4
+:gutter: 4
+
+```{grid-item-card} Discord
+:link: https://discord.com/invite/RbQK45RMcB
+:img-top: ../_static/figures/socials/discord.webp
+:img-alt: Discord's logo
+```
+```{grid-item-card} Instagram
+:link: https://www.instagram.com
+:img-top: ../_static/figures/socials/instagram.png
+:img-alt: Instagram's logo
+```
+```{grid-item-card} Cowbell Connect
+:link: https://msstate.campuslabs.com
+:img-top: ../_static/figures/socials/cowbell-connect
+:img-alt: Cowbell logo for link to Cowbell Connect
+```
+````
+
 
 ```{toctree}
 :maxdepth: 1
