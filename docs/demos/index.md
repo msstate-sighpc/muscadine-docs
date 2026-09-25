@@ -54,18 +54,30 @@ Loci is a declarative C++ framework for large-scale scientific simulations.
 FlowPsi is a computational fluid dynamics solver built on Loci.
 ````
 
+````{grid-item-card} vLLM
+:link: vllm
+:link-type: doc
+```{image} ../_static/figures/demos/vllm.png
+:align: center
+:alt: Image of vLLM
+```
+
+vLLM is a LLM inference platform.
+````
+
 `````
 
 
 
 ```{toctree}
 :maxdepth: 1
-:caption: Operations
 :hidden:
+:glob:
 
-weather.md
-fierro.md
-loci.md
-flowpsi.md
+weather
+fierro
+loci
+flowpsi
+vllm
 ```
 
