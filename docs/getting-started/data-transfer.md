@@ -13,7 +13,9 @@ There are several ways you can transfer data to Muscadine. These methods include
 All forms of data transfer **must** be done on the head node. These methods will **not** work on any other node.
 ```
 
-Each of these methods have their own specific usecases. The way they move data will heavily determine which one you'll use for your use case. If you need help moving data, please refer to [Getting Help](getting-help.md).
+Each of these methods have their own specific usecases. The way they move data will heavily determine which one you'll use for your use case. If you need help moving data, please refer to [Getting Help](../getting-help.md).
+
+---
 
 ## Curl
 
