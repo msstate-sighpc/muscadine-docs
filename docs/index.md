@@ -26,8 +26,8 @@ We hope you find everything you need to know about HPC in our SIG-HPC docs. Plea
 
 ---
 
-Socials
-=======
+Socials:
+========
 
 ````{grid} 2 2 4 4
 :gutter: 4
