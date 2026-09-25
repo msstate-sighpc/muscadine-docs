@@ -76,7 +76,7 @@ Let's break that down.
 : Here we're saying we want spack to install HPL version 2.3
 
 `%gcc@15`
-: % tells spack this is the compiler we want. Here we want any subversion of gcc 15
+: \% tells spack this is the compiler we want. Here we want any subversion of gcc 15
 
 `^openmpi`
 : ^ means we want our package to use this package as a dependency. In this case we want any openmpi to satisfy our mpi dependency
