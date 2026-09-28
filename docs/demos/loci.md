@@ -60,6 +60,9 @@ Compile the rule definitions using the pre-configured Makefile:
 make  # Or use `make -j64` or similar to speed this up 
 ```
 
+lpp compiles the .loci rule definitions into standard C++ and links against libLoci.so to produce the ./heat binary executable.
+
+
 Let's inspect the test.vars to view more configuration details about this heat example:
 
 ```bash
