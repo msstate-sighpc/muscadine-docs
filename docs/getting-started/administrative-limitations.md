@@ -5,7 +5,7 @@ While Muscadine isn't strictly a secure computing resource, it lives in an enter
 ### SSH
 SSH TCP forwarding has been administratively prohibited for security reasons. **DO NOT** attempt to circumvent this.
 
-SSH pubkey authenticion has been administratively prohibited. University policy maintains that users must authenticate themselves with 2-factor security upon each login. If you find yourself authenticating more often then you'd like, read the page on [**Setting up SSH ControlMaster**](adv/controlmaster.md).
+SSH pubkey authenticion has been administratively prohibited. University policy maintains that users must authenticate themselves with 2-factor security upon each login. If you find yourself authenticating more often then you'd like, read the page on [**Setting up SSH ControlMaster**](/adv/controlmaster.md).
 
 ---
 
@@ -15,7 +15,7 @@ Muscadine does not have direct access to the World wide web. All attempts to acc
 ### Getting Files on Muscadine
 Since Muscadine is in a private network, the simplest way to copy a file onto muscadine is to connect to it's network using the HPC{sup}`2` VPN and `scp` files to it.
 
-First, read to "[**Connecting to the VPN**](user-docs.md#method-two-hpc-vpn)"
+First, read to "[**Connecting to the VPN**](/getting-started/quick-start.md#method-two-hpc-vpn)"
 
 Then, run
 ```bash

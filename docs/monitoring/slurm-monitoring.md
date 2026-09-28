@@ -1,4 +1,4 @@
-# Monitoring Slurm Jobs
+# Slurm JobStats
 
 ## Overview
 

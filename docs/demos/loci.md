@@ -101,7 +101,7 @@ Execute the solver directly on the grid case named test:
 ./heat test
 ```
 
-To inspect how Loci internally constructs its rule dependency schedule and parallel graph before execution, pass the --scheduleoutput flag. This is useful for debugging purposes.
+To inspect how Loci internally constructs its rule dependency before execution, pass the --scheduleoutput flag. This is also useful for debugging purposes.
 
 ```bash
 ./heat --scheduleoutput test
@@ -109,7 +109,7 @@ To inspect how Loci internally constructs its rule dependency schedule and paral
 
 ## Extracting Data for Visualization
 
-Loci provides the `extract` utility to export raw database checkpoints into formats compatible with post-processing tools like ParaView.
+Loci provides the `extract` utility to export raw datapoints into formats compatible with post-processing tools like ParaView.
 
 ### Syntax
 

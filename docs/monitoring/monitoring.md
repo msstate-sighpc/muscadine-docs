@@ -1,4 +1,4 @@
-# Monitoring Usage
+# System Monitoring
 
 `btop` is a modern resource monitor that shows CPU, memory, disk, and network usage with an interactive and colorful interface.
 

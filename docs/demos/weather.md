@@ -6,6 +6,7 @@
 
 ```{video} ../_static/figures/demos/temp-1.mp4
 :align: center
+:alt: Short video showcasing a quick 7 day temperature forecast using NeuralGCM.
 :nocontrols:
 :autoplay:
 :loop:

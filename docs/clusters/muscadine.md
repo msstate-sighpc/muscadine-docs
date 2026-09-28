@@ -1,4 +1,3 @@
-
 # Muscadine
 
 ```
@@ -45,7 +44,7 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 
 ### CPU Architecture
 ````{sidebar}
-```{image} _static/clusters/muscadine/muscadine-die.webp
+```{image} ../_static/clusters/muscadine/muscadine-die.webp
 ```
 ````
 Muscadine uses *AMD EPYC Genoa 9454P* running AMD's Zen 4 architecture. This architecture divides the CPU's cores into groups called *core complexes* (CCX) which share L3 cache. CCXs also group into dies called CCDs. CCXs act as NUMA partitions and interface with a I/O Die which handles communication between NUMA partitions and the rest of the system. There are 12 memory controllers for this generation, meaning there are 3 per CCD hardware defined. 
@@ -61,10 +60,14 @@ Talk about Zen4 pipeline
 
 ### GPU Architecture
 ````{sidebar}
-```{image} _static/clusters/muscadine/mi210-die.jpg
+```{image} ../_static/clusters/muscadine/mi210-die.jpg
 ```
 ````
-Muscadine is equipped with a AMD Mi210 48GB Accelerator in each node. 
+Muscadine is equipped with a AMD Mi210 64GB Accelerator in each node. This accelerator is based on AMD's CDNA2 architecture, equipped with 64GB of HBM2e, 6,656 stream processors and 104 compute units clocked at 1700 MHz. The AMD Mi210 is excelent at several tasks ranging from physics simulation to AI inference. The table below shows the performance of the GPU at various different precisions (in TFLOPs). 
+
+| FP64 | Matrix FP64 | FP32 | Matrix FP32 | FP16 | BF16 | INT8/INT4 |
+| ---- | ----------- | ---- | ----------- | ---- | ---- | --------- |
+| 22.6 | 45.3        | 22.6 | 45.3        | 181  | 181  | 181       |
 
 - GPU Specifications: [AMD Instinct MI210](https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html)
 
@@ -92,28 +95,106 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 ---
 
 ## Benchmarks Leaderboard
-To promote a sense of competition. Here we will host a leaderboard of the best scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to the current student sysadmin. 
+To promote a sense of competition. Here we will host a leaderboard of the best five scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to one of the current student sysadmins. The contacts for the student sysadmins can be found in . 
 
-### HPL
+Current MVP: Drew Helgerson
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
-| 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s | GPU     |
-| 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s | CPU     |
-%%| 1st  | Drew Helgerson      | 2.392 TFlop/s | 11.81 TFlop/s | CPU     |%%
 
-See [Tuning HPL](/adv/hpl.md) to get started
+``````{tab-set}
+:sync-group: compute-type
 
-### MxP-HPL
+`````{tab-item} CPU
+:sync: cpu
+````{tab-set}
+:sync-group: benchmark
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
+```{tab-item} HPL
+:sync: hpl
 
-Nobody has submitted scores for Mxp-HPL
+Stuff about HPL
 
-### HPCg
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Drew Helgerson      | 2.414 TFlop/s | 11.81 TFlop/s |
+| 2nd  | Oliver Higginbotham | 2.371 TFlop/s | 11.62 TFlop/s |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} MxP-HPL
+:sync: mxp-hpl
 
-| Rank | Owner               | 1-Node        | 5-Node        | CPU/GPU |
-| ---- | ------------------- | ------------- | ------------- | ------- |
+Stuff about MxP-HPL
 
-Nobody has submitted scores for HPCg
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Oliver Higginbotham | 10.37 TFlop/s | 48.86 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} HPCg
+:sync: hpcg
+
+Stuff about HPCg
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | | | |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+````
+`````
+
+`````{tab-item} GPU
+:sync: GPU
+````{tab-set}
+:sync-group: benchmark
+
+```{tab-item} HPL
+:sync: hpl
+
+Stuff about HPL
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Drew Helgerson      | 19.06 TFlop/s | 104.7 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} MxP-HPL
+:sync: mxp-hpl
+
+Stuff about MxP-HPL
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | Oliver Higginbotham | 135.6 TFlop/s | 648.9 TFlop/s |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+```{tab-item} HPCg
+:sync: hpcg
+
+Stuff about HPCg
+
+| Rank | Owner               | 1-Node        | All-Node      |
+| ---- | ------------------- | ------------- | ------------- |
+| 1st  | | | |
+| 2nd  | | | |
+| 3rd  | | | |
+| 4th  | | | |
+| 5th  | | | |
+```
+````
+`````
+``````
+

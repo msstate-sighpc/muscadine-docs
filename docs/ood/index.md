@@ -1,4 +1,16 @@
-# OpenOnDemand
+# Open OnDemand
+
+```{figure} /_static/figures/applications/OpenOnDemand_horiz_RGB.png
+:figclass: light-only
+:align: center
+```
+```{figure} /_static/figures/applications/OpenOnDemand_horiz_RGB_darkmode.png
+:figclass: dark-only
+:align: center
+```
+
+## OOD Introduction
+
 is a web-based interface developed by the Ohio Supercomputer Center that provides users with easy, browser-based access to high-performance computing (HPC) resources. Instead of requiring command-line interaction over SSH, Open OnDemand lets users manage jobs, transfer files, and even launch graphical applications directly through a web browser.
 
 OOD integrates with existing HPC systems — including Slurm — to provide a user-friendly layer on top of the cluster’s infrastructure. Users can:
@@ -11,11 +23,48 @@ Craving more knowledge about clusters?
 Here's a few topics you can peruse to take your skills to the next level.
 Please don't read these until you've familiarized yourself with Muscadine and clustering in genera.
 
+---
+
+## Supported Applications:
+
+````{grid} 1 1 3 3
+:gutter: 4
+
+```{grid-item-card} Visual Studio Code
+:link: code
+:link-type: doc
+:img-top: ../_static/figures/applications/Visual_Studio_Code.webp
+:img-alt: Visual Studio Code logo
+
+Visual Studio
+```
+```{grid-item-card} Jupyter Notebooks
+:link: jupyter
+:link-type: doc
+:img-top: ../_static/figures/applications/Jupyter_Notebooks.webp
+:img-alt: Jupyter Notebooks logo
+
+Jupyter Notebooks
+```
+```{grid-item-card} Paraview
+:link: paraview
+:link-type: doc
+:img-top: ../_static/figures/applications/Paraview.png
+:img-alt: Paraview logo
+
+Paraview
+```
+````
+
+
+
 ```{toctree}
 :maxdepth: 1
-:caption: Contents
+:hidden:
 :glob:
 
 ood
-*
+code
+jupyter
+paraview
 ```

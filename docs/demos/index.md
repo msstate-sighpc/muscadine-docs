@@ -10,6 +10,7 @@ Here are detailed demos supported and available on Muscadine. Select your desire
 :link-type: doc
 ```{video} ../_static/figures/demos/temp-1.mp4
 :align: center
+:alt: Short video showcasing a quick 7 day temperature forecast using NeuralGCM.
 :nocontrols:
 :autoplay:
 :loop:
@@ -25,6 +26,7 @@ Weather simulations such as NeuralGCM.
 :link-type: doc
 ```{image} ../_static/figures/demos/fierro-1.png
 :align: center
+:alt: Image displaying internal crystaline stress of a metal cube simulated with Fierro.
 ```
 
 Fierro is a multiphysics solver.
@@ -52,18 +54,30 @@ Loci is a declarative C++ framework for large-scale scientific simulations.
 FlowPsi is a computational fluid dynamics solver built on Loci.
 ````
 
+````{grid-item-card} vLLM
+:link: vllm
+:link-type: doc
+```{image} ../_static/figures/demos/vllm.png
+:align: center
+:alt: Image of vLLM
+```
+
+vLLM is a LLM inference platform.
+````
+
 `````
 
 
 
 ```{toctree}
 :maxdepth: 1
-:caption: Operations
 :hidden:
+:glob:
 
-weather.md
-fierro.md
-loci.md
-flowpsi.md
+weather
+fierro
+loci
+flowpsi
+vllm
 ```
 

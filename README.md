@@ -15,15 +15,42 @@ $$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
 
 This repo is designed to be built with Shibuya Sphinx theme. Steps are as follows
 
+
+### For HPC Workstations:
 ```bash
-# Recommended: creat a venv
+# Load Python 3
+ml python
+
+# Recommended: create a venv
 python -m venv /var/tmp/sphinx
 . /var/tmp/sphinx/bin/activate
 
-# install requirements
+# Install requirements
 pip install -r requirements.txt
 
-# build docs
+# Build docs
+make html
+
+# Change directory to build
+cd build/html/
+
+# Host local html server
+python -m http.server 8080
+
+# Open local site
+firefox http://localhost:8080
+```
+
+### For personal machines:
+```bash
+# Recommended: create a venv
+python -m venv /var/tmp/sphinx
+. /var/tmp/sphinx/bin/activate
+
+# Install requirements
+pip install -r requirements.txt
+
+# Build docs
 make html
 ```
 
