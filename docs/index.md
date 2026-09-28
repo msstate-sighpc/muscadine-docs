@@ -34,17 +34,17 @@ Socials:
 
 ```{grid-item-card} Discord
 :link: https://discord.com/invite/RbQK45RMcB
-:img-top: ../_static/figures/socials/discord.webp
+:img-top: _static/figures/socials/discord.webp
 :img-alt: Discord's logo
 ```
 ```{grid-item-card} Instagram
 :link: https://www.instagram.com
-:img-top: ../_static/figures/socials/instagram.png
+:img-top: _static/figures/socials/instagram.png
 :img-alt: Instagram's logo
 ```
 ```{grid-item-card} Cowbell Connect
 :link: https://msstate.campuslabs.com
-:img-top: ../_static/figures/socials/cowbell-connect
+:img-top: _static/figures/socials/cowbell-connect
 :img-alt: Cowbell logo for link to Cowbell Connect
 ```
 ````
