@@ -80,5 +80,5 @@ owui/index
 :glob:
 
 students/index
-contributing
+contrib/index
 ```

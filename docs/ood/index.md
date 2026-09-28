@@ -27,7 +27,7 @@ Please don't read these until you've familiarized yourself with Muscadine and cl
 
 ## Supported Applications:
 
-````{grid} 1 1 2 2
+````{grid} 1 1 3 3
 :gutter: 4
 
 ```{grid-item-card} Visual Studio Code

@@ -29,3 +29,11 @@ boxocluster      FlowPSI    matar-devel   NeuralGCM        vllm
 btop             glibc      modulefiles   paraview         xcompact3d
 chameleon-1.3.0  llama.cpp  mpifileutils  rocm-containers
 ```
+
+```{toctree}
+:maxdepth: 1
+:glob:
+:hidden:
+
+contributors
+```
