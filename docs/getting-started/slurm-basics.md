@@ -13,24 +13,24 @@
 
 ## What is Slurm?
 
-Slurm is an open source workload manager built to efficiently manage nearly any workload and deliver proven throughput at massive scale. It uses a hierarchical structure consisting of a controller, nodes, and partitions to allocate jobs based on policies and resources, optimizing workload distribution, maximizing cluster utilization, and ensuring efficient job execution. Developed and maintained by engineers at SchedMD (now part of NVIDIA) with deep high-performance computing (HPC) and AI expertise, Slurm is the scheduler of choice for over half of the top 100 systems in the TOP500.
+SLURM (Simple Linux Utility for Resource Management) is an open-source workload manager built to efficiently manage nearly any workload and deliver proven throughput at massive scale. It uses a hierarchical structure consisting of a controller, nodes, and partitions to allocate jobs based on policies and resources, optimizing workload distribution, maximizing cluster utilization, and ensuring efficient job execution. Developed and maintained by engineers at SchedMD (now part of NVIDIA) with deep high-performance computing (HPC) and AI expertise, Slurm is the scheduler of choice for over half of the top 100 systems in the TOP500.
 
 Due to its wide-spread usage along with it being the standard here at Mississippi State, we use Slurm on the student clusters. Expect to encounter Slurm going forward.
 
 ### What about Slinky?
 
-The lead developers behind Slurm, SchedMD, is also developing a manager named Slinky. Slinky integrates Slurm into Kubernetes so that a hybrid virtualization/compute cluster can exist on the same hardware. This is not implemented on the student clusters, but is being investigated for integration.
+The lead developers behind Slurm, SchedMD, are also developing an operator named Slinky. Slinky integrates SLurm Into Kubernetes so that a hybrid containerized/compute cluster can exist on the same hardware. This is not implemented on the student clusters, but is being investigated for future integration.
 
 ---
 
 ## Common Slurm commands
 
-Below you'll find several commands that will provide insightful information into the cluster's status, usage, and allocation. Please familarize yourself with these command as it will vastly improve your HPC experience.
+Below you'll find several commands that will provide insight into the cluster's status, usage, and allocation. Please familarize yourself with these command as it will vastly improve your HPC experience.
 
 ### `sinfo`
 `sinfo` and is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
 ```bash
-╭─odh49@muscadine-node-1 ~
+╭─<netid>@muscadine-node-1 ~
 ╰─$ sinfo
 PARTITION  AVAIL  TIMELIMIT  NODES  STATE NODELIST
 muscadine*    up   infinite      5   idle muscadine-node-[1-5]
@@ -39,7 +39,7 @@ muscadine*    up   infinite      5   idle muscadine-node-[1-5]
 ### `squeue`
 `squeue` is a command that allows you to see any current jobs running on the cluster. This is very useful if you want to monitor if your job is running/waiting for resources along with its Job ID. I ran it on Muscadine while I have my meta-8B.sh running.
 ```bash
-╭─odh49@muscadine-node-1 ~
+╭─<netid>@muscadine-node-1 ~
 ╰─$ squeue
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
      3449 muscadine meta-8B.    odh49  R       0:18      1 muscadine-node-2
@@ -48,14 +48,14 @@ muscadine*    up   infinite      5   idle muscadine-node-[1-5]
 ### `scancel`
 `scancel` kills a Slurm job. This is useful if you realize there was a mistake in your SBATCH file, made a change before it finished, or if it was an interactive job that froze. Here I used the Job ID from my job previously shown to kill the model running.
 ```bash
-╭─odh49@muscadine-node-1 ~
+╭─<netid>@muscadine-node-1 ~
 ╰─$ scancel 3449
 ```
 
 ### `sacct`
 `sacct` is like `squeue` except it shows all Slurm jobs that have been ran, is running, or errored out solely by you. This is very useful when looking at several jobs and seeing how its being handled. Here is the output of `sacct` with a few things running, ran, and failed.
 ```bash
-╭─odh49@muscadine-node-1 ~/Demos/helloWorld
+╭─<netid>@muscadine-node-1 ~/Demos/helloWorld
 ╰─$ sacct
 JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 ------------ ---------- ---------- ---------- ---------- ---------- --------
