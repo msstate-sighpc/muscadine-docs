@@ -12,3 +12,14 @@ pages:
   only:
   - main
   
+
+deploy-web:
+  stage: deploy
+  tags:
+    - docs
+  needs:
+    - pages
+  script:
+    - rsync -a --delete --exclude='.well-known' public/ /www/data/sig.hpc.msstate.edu/
+  only:
+    - main
