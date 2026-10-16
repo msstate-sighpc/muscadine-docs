@@ -1017,3 +1017,6 @@ html.dark {
   overflow-x: visible;    /* stop the scrollbar once it fits */
 }
 
+.hamburger > span {
+  background-color: white;
+}
