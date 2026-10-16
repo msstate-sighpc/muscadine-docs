@@ -19,7 +19,7 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 ### Compute:
 | Node Type       | Cores   | Memory     | GPUs     | Count |
 | --------------- | ------- | ---------- | -------- | ----- |
-| PowerEdge R7615 | 48 Zen4 | 192GB DDR5 | 1x Mi210 | 5     |
+| PowerEdge R7615 | 48 Zen4 | 192GB DDR5 | 1x MI210 | 5     |
 
 ### Storage:
 | Mount      | FileSystem  | Hardware                   | Total Capacity  | Quota | 
@@ -63,7 +63,7 @@ Talk about Zen4 pipeline
 ```{image} ../_static/clusters/muscadine/mi210-die.jpg
 ```
 ````
-Muscadine is equipped with a AMD Mi210 64GB Accelerator in each node. This accelerator is based on AMD's CDNA2 architecture, equipped with 64GB of HBM2e, 6,656 stream processors and 104 compute units clocked at 1700 MHz. The AMD Mi210 is excelent at several tasks ranging from physics simulation to AI inference. The table below shows the performance of the GPU at various different precisions (in TFLOPs). 
+Muscadine is equipped with an AMD MI210 64GB Accelerator in each node. This accelerator is based on AMD's CDNA2 architecture, equipped with 64GB of HBM2e, 6,656 stream processors and 104 compute units clocked at 1700 MHz. The AMD MI210 is excelent at several tasks ranging from physics simulation to AI inference. The table below shows the performance of the GPU at various different precisions (in TFLOPs). 
 
 | FP64 | Matrix FP64 | FP32 | Matrix FP32 | FP16 | BF16 | INT8/INT4 |
 | ---- | ----------- | ---- | ----------- | ---- | ---- | --------- |
