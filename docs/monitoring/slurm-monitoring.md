@@ -15,11 +15,13 @@ Muscadine provides two ways to monitor your Slurm jobs:
 
 `jobstats` pulls data from the cluster's Prometheus and Slurm's accounting records to give you a per-job resource efficiency report, including:
 
-- CPU Utilization
-- Memory Usage
-- GPU Utilization
-- VRAM Usage
+- CPU and GPU Utilization
+- Memory and VRAM Usage
+- Resources Allocated
+- Detailed GPU Stats
 - Wall Time Efficiency
+
+Normally Jobstats only can read NVIDIA GPU Metrics, but Muscadine is using a forked version of Jobstats that can allow AMD GPU Metrics to be tracked instead.
 
 ### Basic usage
 
@@ -38,43 +40,67 @@ jobstats 5555
 The output would be something like this:
 
 ```
+╭─tsf129@muscadine-node-1 ~ 
+╰─$ jobstats 7168
+
 ================================================================================
-                              Slurm Job Statistics
+                              Slurm Job Statistics                              
 ================================================================================
-         Job ID: 6035
-   User/Account: NetID/GroupID
-       Job Name: jobstats-demo
-          State: COMPLETED
+         Job ID: 7168
+   User/Account: tsf129/sighpc
+       Job Name: rocm_burn_test
+          State: RUNNING
           Nodes: 1
       CPU Cores: 4
-     CPU Memory: 4GB (1GB per CPU-core)
+     CPU Memory: 8GB (2GB per CPU-core)
            GPUs: 1
   QOS/Partition: normal/muscadine
         Cluster: muscadine
-     Start Time: Wed May 13, 2026 at 3:57 PM
-       Run Time: 00:02:42
-     Time Limit: 00:30:00
+     Start Time: Thu Oct 15, 2026 at 5:28 PM
+       Run Time: 00:01:56 (in progress)
+     Time Limit: 00:05:00
 
-                         Overall Utilization
+                           Overall Utilization                           
 ================================================================================
-  CPU utilization  [|||||||||||                                    22%]
-  CPU memory usage [||||||                                         12%]
-  GPU utilization  [||||||||||||||||||||||||||||||                 60%]
+  CPU utilization  [|||                                             7%]
+  CPU memory usage [|                                               2%]
+  GPU utilization  [||||||||||||||||||||||||||||||||||||||||||||||100%]
   GPU memory usage [                                                1%]
+  ────────────────────────────────────────────────────────────────────────────
+    GFX util. [||||||||||||||||||||||||||||||||||||||||||||||100%]
+    UMC util. [||||                                            8%]
 
-                         Detailed Utilization
+                          Detailed Utilization                           
 ================================================================================
   CPU utilization per node (CPU time used/run time)
-      muscadine-node-2: 00:02:22/00:10:48 (efficiency=22.0%)
+      muscadine-node-3: 00:01:06/00:15:32 (efficiency=7.1%)
 
   CPU memory usage per node - used/allocated
-      muscadine-node-2: 530.8MB/4.3GB (132.7MB/1.1GB per core of 4)
+      muscadine-node-3: 145.9MB/8.8GB (18.2MB/1.1GB per core of 8)
 
   GPU utilization per node
-      muscadine-node-2 (GPU 0): 60%
+      muscadine-node-3 (GPU 0): 100%
 
   GPU memory usage per node - maximum used/total
-      muscadine-node-2 (GPU 0): 716.0MB/64GB (1.1%)
+      muscadine-node-3 (GPU 0): 463.0B/64.0KB (0.7%)
+
+  Detailed GPU Metrics
+                              ---------------------------------------------
+                               GFX | UMC | XGMI RX | XGMI TX | Power | Temp
+                              -----+-----+---------+---------+-------+-----
+    muscadine-node-3 (GPU 0)  100% |  8% |   0 B/s |   0 B/s |  220W | 67°C
+                              ---------------------------------------------
+
+                              -----------------
+                              PCIe RX | PCIe TX
+                              --------+--------
+    muscadine-node-3 (GPU 0)   96 B/s |   0 B/s
+                              -----------------
+
+                                  Notes                                  
+================================================================================
+  * Have a nice day!
+
 ```
 
 ---
@@ -128,12 +154,9 @@ The dashboard opens pre-configured to your specific job ID and time range (from 
 | **Allocated CPU Memory** | The total memory allocation as specified in your `sbatch` script (`--mem`) |
 | **Allocated CPU Cores** | The number of CPU cores allocated to the job (`--ntasks` / `--cpus-per-task`) |
 | **GPU Utilization (%)** | GFX engine activity percentage across all GPUs assigned to the job over time |
-| **GPU Memory Utilization (%)** | VRAM consumption as a percentage of total VRAM across all assigned GPUs over time |
 | **GPU Memory Utilization (MB)** | Raw VRAM consumption in MB across all assigned GPUs over time |
-| **Memory Controller Utilization (%)** | UMC (Unified Memory Controller) activity (how hard the GPU memory bus is being pushed) |
 | **GPU Clockspeed (MHz)** | Active GPU core clock frequency over the job's lifetime |
 | **GPU Temperature (°C)** | Edge and junction temperatures for the assigned GPUs over the job's lifetime |
-| **GPU Power Usage (W)** | Average package power draw in watts for the assigned GPUs over time |
 
 **Additional Panels:**
 
@@ -143,10 +166,8 @@ The dashboard opens pre-configured to your specific job ID and time range (from 
 | **Node Total Memory Utilization** | Full node memory breakdown (total, used, available, free, buffered, and cached) |
 | **Local Disk R/W** | Read and write throughput (bytes/sec) per block device on the selected node |
 | **Local Disk IOPS** | Read and write I/O operations per second per block device on the selected node |
-| **NFS Stats** | NFS read/write request rate and metadata operation rate (reads and writes) over NFSv3 |
 | **Infiniband Throughput** | Bytes per second received and transmitted over the node's Infiniband port |
 | **Infiniband Packet Rate** | Multicast and unicast packet rates in both directions over Infiniband |
-| **Infiniband Errors** | Link errors, downed links, congestion indicators, and discarded packets on the Infiniband fabric |
 
 **The time range is automatically scoped to your job**, and you don't need to manually adjust it. The dashboard uses the job's start and end timestamps pulled from Slurm accounting.
 
