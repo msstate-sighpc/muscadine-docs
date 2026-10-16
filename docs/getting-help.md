@@ -3,10 +3,11 @@ If you have any issues or questions regarding Muscadine, please contact one of t
 
 ## Current Student Sysadmins
 
-| Name 			| Discord Username 	| E-Mail 		|
-| --------------------- | --------------------- | --------------------- | 
-| Oliver Higginbotham 	| higgigamer		| odh49@msstate.edu 	|
-| Talan Ferguson	| talahan25		| tsf129@msstate.edu	|
+| Name                | Discord Username | E-Mail             |
+| ------------------- | ---------------- | ------------------ | 
+| Oliver Higginbotham | higgigamer       | odh49@msstate.edu  |
+| Talan Ferguson      | talahan25        | tsf129@msstate.edu |
+| Travis Greene       | gm47             | trg244@msstate.edu |
 
 
 If you have any issues with accounting or login, submit a helpdesk ticket to help@hpc.msstate.edu
