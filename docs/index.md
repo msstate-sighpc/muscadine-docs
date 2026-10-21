@@ -55,7 +55,7 @@ Socials:
 ```
 ```{grid-item-card} Cowbell Connect
 :link: https://msstate.campuslabs.com/engage/organization/sig-hpc
-:img-top: _static/figures/socials/cowbell-connect.svg
+:img-top: _static/figures/socials/cowbell-maroon.png
 :img-alt: Cowbell logo for link to Cowbell Connect
 ```
 ````
