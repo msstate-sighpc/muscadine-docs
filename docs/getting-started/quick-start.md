@@ -1,8 +1,8 @@
 # Quick Start
 
-## Setting up your HPC2 account
+## Setting up your ARC account
 
-If this is your first time having an HPC2 account, you will need to complete a couple of actions before you are able to access HPC2 resources. Once you have completed your account request form, and you have received the confirmation email, you will have 72 hours to set your password. Note that your HPC2 account is *different* than your MSState account, therefore it is ***highly encouraged*** to use a different password between the two. Additionally, your HPC2 password must be changed each year for security purposes. You can change your password on the [Training and Password System](https://taps.hpc.msstate.edu). You will also have to enroll a second Duo account, however you can use the same Duo app on your phone for both MSState and HPC2.
+If this is your first time having an ARC account, you will need to complete a couple of actions before you are able to access ARC resources. Once you have completed your account request form, and you have received the confirmation email, you will have 72 hours to set your password. Note that your ARC account is *different* than your MSState account, therefore it is ***highly encouraged*** to use a different password between the two. Additionally, your ARC password must be changed each year for security purposes. You can change your password on the [Training and Password System](https://taps.hpc.msstate.edu). You will also have to enroll a second Duo account, however you can use the same Duo app on your phone for both MSState and ARC.
 
 After setting your password, you must also complete IT Security and Insider Threat trainings. Conveniently, these are also accessible from the Training and Password System once you have set your password.
 
@@ -20,17 +20,17 @@ First log into Titan at `titan.hpc.msstate.edu`. Use the following template if n
 ssh <NetID>@titan.hpc.msstate.edu
 ```
 
-After entering your HPC password and doing the 2FA push, you can proceed to logging into Muscadine. Muscadine only has one node facing the HPCC network which is `muscadine-node-1`, so that is the one we'll want to ssh into. Use the following template if needed:
+After entering your ARC password and doing the 2FA push, you can proceed to logging into Muscadine. Muscadine only has one node facing the ARC network which is `muscadine-node-1`, so that is the one we'll want to ssh into. Use the following template if needed:
 
 ```bash
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu
 ```
 Repeat the authentication process from logging into Titan and you'll be set.
 
-(method-two-hpc-vpn)=
-### Method Two: HPC VPN
+(method-two-arc-vpn)=
+### Method Two: ARC VPN
 
-Method Two involves logging into the HPC{sup}`2` VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your HPC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
+Method Two involves logging into the ARC VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your ARC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
 
 ```bash
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu

@@ -13,9 +13,9 @@ SSH public key authentication has been administratively prohibited. University p
 Muscadine does not have direct access to the World Wide Web. All attempts to access the outside web from Muscadine or to access Muscadine from the World Wide Web will be blocked.
 
 ### Getting Files on Muscadine
-Since Muscadine is in a private network, the simplest way to copy a file onto Muscadine is to connect to its network using the HPC{sup}`2` VPN and `scp` files to it.
+Since Muscadine is in a private network, the simplest way to copy a file onto Muscadine is to connect to its network using the ARC VPN and `scp` files to it.
 
-First, read to "[**Connecting to the VPN**](/getting-started/quick-start.md#method-two-hpc-vpn)"
+First, read to "[**Connecting to the VPN**](/getting-started/quick-start.md#method-two-arc-vpn)"
 
 Then, run
 ```bash

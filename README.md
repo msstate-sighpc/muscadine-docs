@@ -16,7 +16,7 @@ $$ | \_/ $$ \$$$$$$  $$$$$$$  \$$$$$$$\$$$$$$$ \$$$$$$$ $$ $$ |  $$ \$$$$$$$\
 This repo is designed to be built with Shibuya Sphinx theme. Steps are as follows
 
 
-### For HPC Workstations:
+### For ARC Workstations:
 ```bash
 # Load Python 3
 ml python

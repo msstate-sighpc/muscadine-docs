@@ -31,7 +31,7 @@ Fix adapted from: https://github.com/sphinx-doc/sphinx/issues/8356#issuecomment-
        Special     Interest      Group    on    High     Performance   Computing
 ```
 
-Welcome to Mississippi State University's SIG-HPC Club! If you are new, please go through the [Getting Started](getting-started/index.md) section before attempting to use HPC resources. And make sure to join our Discord server for announcements and other useful discussions. 
+Welcome to Mississippi State University's SIG-HPC Club! If you are new, please go through the [Getting Started](getting-started/index.md) section before attempting to use ARC resources. And make sure to join our Discord server for announcements and other useful discussions. 
 
 We hope you find everything you need to know about HPC in our SIG-HPC docs. Please let us know if you need any assistance or have questions by following the instructions in [Getting Help](getting-help.md)
 

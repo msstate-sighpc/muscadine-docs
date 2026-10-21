@@ -55,7 +55,7 @@ cd /work/users/$USER && git clone <insertRepositoryHTTPLinkHere>
 
 Open OnDemand, or just OOD, is a web-based interface for HPC clusters. OOD is the only supported graphical interface for transfering files to Muscadine.
 
-First navigate to [Muscadine-OOD](https://muscadine-ood.hpc.msstate.edu) and login using your HPC2 account.
+First navigate to [Muscadine-OOD](https://muscadine-ood.hpc.msstate.edu) and login using your ARC account.
 
 After you are logged in, now you'll hover over the Files tab in the navbar in the top right of the screen. Select the "Home Directory" option. You should now see an interactive page allowing you to upload to or download from your home directory on Muscadine. 
 ````
