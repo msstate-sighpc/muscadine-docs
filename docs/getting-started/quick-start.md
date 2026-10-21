@@ -1,5 +1,17 @@
 # Quick Start
 
+## Setting up your HPC2 account
+
+If this is your first time having an HPC2 account, you will need to complete a couple of actions before you are able to access HPC2 resources. Once you have completed your account request form, and you have received the confirmation email, you will have 72 hours to set your password. Note that your HPC2 account is *different* than your MSState account, therefore it is ***highly encouraged*** to use a different password between the two. Additionally, your HPC2 password must be changed each year for security purposes. You can change your password on the [Training and Password System](https://taps.hpc.msstate.edu). You will also have to enroll a second Duo account, however you can use the same Duo app on your phone for both MSState and HPC2.
+
+After setting your password, you must also complete IT Security and Insider Threat trainings. Conveniently, these are also accessible from the Training and Password System once you have set your password.
+
+```{warning}
+If you do not complete the trainings after your account is created, your account will not be active and future requests may be denied.
+```
+
+All new accounts will be active for 1 year from creation, and accounts are renewed annually. Reminders will be sent before account expiration if you want to continue using it.
+
 ## Accessing Muscadine
 ### Method One: Titan
 First log into Titan at `titan.hpc.msstate.edu`. Use the following template if needed:
