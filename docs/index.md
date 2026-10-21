@@ -3,6 +3,17 @@ muscadine documentation master file,
 created by sphinx-quickstart on Thu Oct  2 14:13:13 2025. 
 -->
 
+<!-- 
+Invisible H1 to set the page title, otherwise on mobile it shows the title as "Socials:"
+Fix adapted from: https://github.com/sphinx-doc/sphinx/issues/8356#issuecomment-1201029122
+-->
+
+<div style="display: none;">
+
+# Home Page
+
+</div>
+
 ```{code-block}
 :class: ascii-art-sighpc
 
