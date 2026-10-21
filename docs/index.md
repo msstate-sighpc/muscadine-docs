@@ -49,7 +49,7 @@ Socials:
 :img-alt: Discord's logo
 ```
 ```{grid-item-card} Instagram
-:link: https://www.instagram.com
+:link: https://www.instagram.com/msstate_sighpc
 :img-top: _static/figures/socials/instagram.png
 :img-alt: Instagram's logo
 ```
