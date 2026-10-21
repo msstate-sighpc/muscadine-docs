@@ -6,6 +6,7 @@ If this is your first time having an ARC account, you will need to complete a co
 
 After setting your password, you must also complete IT Security and Insider Threat trainings. Conveniently, these are also accessible from the Training and Password System once you have set your password.
 
+(do-your-training)=
 ```{warning}
 If you do not complete the trainings after your account is created, your account will not be active and future requests may be denied.
 ```
