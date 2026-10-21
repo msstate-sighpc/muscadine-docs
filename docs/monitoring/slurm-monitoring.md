@@ -39,15 +39,16 @@ jobstats 5555
 
 The output would be something like this:
 
-```
-╭─tsf129@muscadine-node-1 ~ 
+```{code-block}
+:caption: Terminal
+╭─<netid>@muscadine-node-1 ~ 
 ╰─$ jobstats 7168
 
 ================================================================================
                               Slurm Job Statistics                              
 ================================================================================
          Job ID: 7168
-   User/Account: tsf129/sighpc
+   User/Account: <netid>/sighpc
        Job Name: rocm_burn_test
           State: RUNNING
           Nodes: 1

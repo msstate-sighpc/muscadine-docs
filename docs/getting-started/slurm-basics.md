@@ -29,7 +29,8 @@ Below you'll find several commands that will provide insight into the cluster's 
 
 ### `sinfo`
 `sinfo` and is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
-```bash
+```{code-block}
+:caption: Terminal
 ╭─<netid>@muscadine-node-1 ~
 ╰─$ sinfo
 PARTITION  AVAIL  TIMELIMIT  NODES  STATE NODELIST
@@ -38,7 +39,8 @@ muscadine*    up   infinite      5   idle muscadine-node-[1-5]
 
 ### `squeue`
 `squeue` is a command that allows you to see any current jobs running on the cluster. This is very useful if you want to monitor if your job is running/waiting for resources along with its Job ID. I ran it on Muscadine while I have my meta-8B.sh running.
-```bash
+```{code-block}
+:caption: Terminal
 ╭─<netid>@muscadine-node-1 ~
 ╰─$ squeue
     JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -47,14 +49,16 @@ muscadine*    up   infinite      5   idle muscadine-node-[1-5]
 
 ### `scancel`
 `scancel` kills a Slurm job. This is useful if you realize there was a mistake in your SBATCH file, made a change before it finished, or if it was an interactive job that froze. Here I used the Job ID from my job previously shown to kill the model running.
-```bash
+```{code-block}
+:caption: Terminal
 ╭─<netid>@muscadine-node-1 ~
 ╰─$ scancel 3449
 ```
 
 ### `sacct`
 `sacct` is like `squeue` except it shows all Slurm jobs that have been ran, is running, or errored out solely by you. This is very useful when looking at several jobs and seeing how its being handled. Here is the output of `sacct` with a few things running, ran, and failed.
-```bash
+```{code-block}
+:caption: Terminal
 ╭─<netid>@muscadine-node-1 ~/Demos/helloWorld
 ╰─$ sacct
 JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
