@@ -30,3 +30,7 @@ In order to facilitate basic functionally of a modern system, an HTTP proxy is a
 - `curl`/`wget`
 - `pip install` (in a venv only)
 - `apptainer pull`
+
+```{note}
+The HTTP proxy for Muscadine is only functional on the head node (muscadine-node-1). Trying to use any of the commands above on any of the other nodes will not work.
+```
