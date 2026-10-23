@@ -17,7 +17,7 @@ Muscadine is a 5 node, 100 TFLOP cluster gifted by Dell for MSU students' HPC de
 :img-top: ../_static/clusters/boc/logo-1.png
 :img-alt: Image of Box-O-Cluster terminal output.
 
-Box-O-Cluster is a project to deploy a virtual cluster on MSU HPC systems. This enables students to practice HPC deployments without effecting production systems.
+Box-O-Cluster is a project to deploy a virtual cluster on MSU ARC systems. This enables students to practice HPC deployments without effecting production systems.
 ````
 ````{grid-item-card} Pi4 Cluster
 :link: pi4-cluster

@@ -10,7 +10,7 @@ Fierro is a software made by Los Alamos National Laboratory and is a multiphysic
 
 The first thing you need is Paraview installed on your local device. You will not be using it to run the scripts, but you will be using it to connect to Muscadine and view your simulations. The version on Muscadine is `Paraview-6.0.1`, so you will need this exact version to be able to connect to it.
 
-Before running Fierro or viewing output in ParaView, you need to be connected to the **HPC² VPN**. Without it you cannot reach Muscadine in addition to not being able to view your files on Muscadine. For more information on the VPN you can view the {ref}`VPN setup steps <method-two-hpc-vpn>` for instructions.
+Before running Fierro or viewing output in ParaView, you need to be connected to the **ARC VPN**. Without it you cannot reach Muscadine in addition to not being able to view your files on Muscadine. For more information on the VPN you can view the {ref}`VPN setup steps <method-two-arc-vpn>` for instructions.
 
 ```{tip}
 If running Paraview on your local device is not a viable option, you can also just run the Paraview GUI directly on Muscadine by just typing `paraview` after running `ml contrib paraview`. However, it may be choppy or delayed while running these simulations so running Paraview locally is still the recommended method.

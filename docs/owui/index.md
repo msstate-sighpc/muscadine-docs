@@ -4,10 +4,10 @@ Open WebUI is a tool that allows you to interact with AI models through a web in
 
 ## Accessing
 
-All members with Muscadine access will also have access to Open WebUI by default. To access Open WebUI, you can go to https://muscadine-llm.hpc.msstate.edu and use the "Continue with OIDC" button to authenticate with your HPC2 account.
+All members with Muscadine access will also have access to Open WebUI by default. To access Open WebUI, you can go to https://muscadine-llm.hpc.msstate.edu and use the "Continue with OIDC" button to authenticate with your ARC account.
 
 ```{note}
-To visit the Open WebUI page, you must be connected to the MSU HPC VPN. For more information, look here: {ref}`VPN setup steps <method-two-hpc-vpn>`
+To visit the Open WebUI page, you must be connected to the MSU ARC VPN. For more information, look here: {ref}`VPN setup steps <method-two-arc-vpn>`
 ```
 
 ## Using

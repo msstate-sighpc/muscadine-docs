@@ -17,7 +17,7 @@ If you have any issues with accounting or login, submit a helpdesk ticket to hel
 ## FAQ
 
 Q: How do I request Muscadine access?
-: A: Follow this [**link**](/getting-started/requesting-access.md) to request Musacdine access. This will result in an HPC2 account to be made with your MsState NetID.
+: A: Follow this [**link**](/getting-started/requesting-access.md) to request Muscadine access. This will result in an ARC account to be made with your MSState NetID.
 
 Q: What if I don't want to build a program from source?
 : A: Womp womp.

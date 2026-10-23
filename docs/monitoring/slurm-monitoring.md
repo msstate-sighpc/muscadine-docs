@@ -39,15 +39,16 @@ jobstats 5555
 
 The output would be something like this:
 
-```
-╭─tsf129@muscadine-node-1 ~ 
+```{code-block}
+:caption: Terminal
+╭─<netid>@muscadine-node-1 ~ 
 ╰─$ jobstats 7168
 
 ================================================================================
                               Slurm Job Statistics                              
 ================================================================================
          Job ID: 7168
-   User/Account: tsf129/sighpc
+   User/Account: <netid>/sighpc
        Job Name: rocm_burn_test
           State: RUNNING
           Nodes: 1
@@ -111,10 +112,10 @@ For a full time-series view and graphs that show exactly how CPU, memory, and GP
 
 ### Step 1: Log into the OOD portal
 
-Navigate to the Muscadine Open OnDemand portal at https://muscadine-ood.hpc.msstate.edu, and log in with your MSU HPC NetID credentials.
+Navigate to the Muscadine Open OnDemand portal at https://muscadine-ood.hpc.msstate.edu, and log in with your ARC credentials.
 
 ```{note}
-To visit the Muscadine OOD portal, you must be connected to the MSU HPC VPN. For more information, look here: {ref}`VPN setup steps <method-two-hpc-vpn>`
+To visit the Muscadine OOD portal, you must be connected to the MSU ARC VPN. For more information, look here: {ref}`VPN setup steps <method-two-arc-vpn>`
 ```
 
 ---
