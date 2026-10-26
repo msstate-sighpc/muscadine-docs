@@ -1,9 +1,9 @@
 # RKE2
 
 ### Table of Contents:
-- Head Node
-- Compute Node
-- Usage
+- [Head Node](#head-node)
+- [Compute Node](#compute-node)
+- [Usage](#usage)
 
 ---
 
@@ -12,7 +12,7 @@
 Run the following installation script in order to install rke2 and rke2-server
 
 ```bash
-curl -sfL https://get.rke2.io | sh -
+curl -sfL https://get.rke2.io | INSTALL_RKE2_METHOD=tar sh -
 ```
 
 ### Configuration
@@ -27,6 +27,15 @@ We have the current configuration here:
 write-kubeconfig-mode: "0644"
 ```
 
+We also need to set the HTTP/HTTPS proxy so that rke2 can pull the images from *da web*.
+```bash
+vim /usr/local/lib/systemd/system/rke2-server.service
+```
+
+```/usr/local/lib/systemd/system/rke2-server.service
+Environment='http_proxy=http://dprox.hpc.msstate.edu:3128'
+Environment='https_proxy=http://dprox.hpc.msstate.edu:3128'
+```
 
 ### Starting RKE2
 Enable the service by running the following:
@@ -39,6 +48,7 @@ Lastly, export the utilities for each shell entry. Add the following to the end 
 
 ```bash
 export PATH=$PATH:/var/lib/rancher/rke2/bin/
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 ```
 
 When rke2 runs for the first time, it creates a token at `/var/lib/rancher/rke2/server/node-token`. Read that token and save it somewhere, you'll need it.

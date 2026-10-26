@@ -23,10 +23,10 @@ echo "use /opt/admin/bin/syncaccounts/syncacctmgt to modify associations"
 To add new users to Muscadine, you first need enter the `syncacctusers` shell by running the following **as your user**:
 
 ```bash
-/opt/admin/bin/syncaccounts/syncacctusers 
+/opt/admin/bin/syncaccounts/syncacctmgt 
 ``` 
 
-Now that you are within the `syncacctusers` shell, run the following to add the new user. Make sure that you change the parameters within `< >` to their correct values.
+Now that you are within the `syncacctmgt` shell, run the following to add the new user. Make sure that you change the parameters within `< >` to their correct values.
 
 ```bash 
 user add <username> <account> <cluster>
@@ -38,10 +38,10 @@ In the case of Muscadine, account is "sighpc" and cluster is "muscadine"
 Similar to adding users, the first step is to enter the `syncacctusers` shell by running the following **as your user**:
 
 ```bash
-/opt/admin/bin/syncaccounts/syncacctusers
+/opt/admin/bin/syncaccounts/syncacctmgt
 ```
 
-Now that you are within the `syncacctusers` shell, run the following to remove the user. Make sure that you change the parameters within `< >` to their corre
+Now that you are within the `syncacctmgt` shell, run the following to remove the user. Make sure that you change the parameters within `< >` to their corre
 ct values.
 
 ```bash 
