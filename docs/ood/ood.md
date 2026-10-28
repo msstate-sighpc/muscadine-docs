@@ -4,7 +4,7 @@
 To use OOD, you must first be able to access Muscadine. Read "{ref}`Connecting to the VPN <method-two-arc-vpn>`"
 
 Once Connected, open a web browser and navigate to
-https://muscadine-ood.hpc.msstate.edu{target="_blank"}
+[https://muscadine-ood.hpc.msstate.edu](https://muscadine-ood.hpc.msstate.edu){target="_blank"}
 
 ## Launching an Interactive App
 
