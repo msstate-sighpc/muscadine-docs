@@ -53,12 +53,12 @@ For multi-file projects, a Makefile simplifies the build process and keeps every
 FC = gfortran
 FLAGS = -O3 -fopenmp -Wall
 SRC = main.f90 module.f90 solver.f90
-OBJ = $(SRC:.f90.o)
+OBJ = $(SRC:.f90=.o)
 TARGET = myprogram
 
 all: $(TARGET)
 
-$(TARGET): $(OBF)
+$(TARGET): $(OBJ)
 	$(FC) $(FLAGS) $(OBJ) -o $(TARGET)
 	
 %.o: %.f90
