@@ -45,7 +45,7 @@ html_theme_options = {
 html_static_path = ['_static']
 html_favicon = "_static/favicon-msu.svg"
 html_theme_options = {
-    "github_url": "https://github.com/Mississippi-State-University-SIG-HPC/muscadine-docs",
+    "github_url": "https://github.com/msstate-sighpc/muscadine-docs",
     "discord_url": "https://discord.gg/RbQK45RMcB",
     "accent_color": "gray",
     "light_logo": "_static/pngs/logo_h_white.png",
