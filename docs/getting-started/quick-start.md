@@ -1,5 +1,22 @@
 # Quick Start
 
+(requesting-access)=
+## Requesting access
+
+To request access to use Muscadine, you will need to fill out [the request form](https://forms.cloud.microsoft/r/8yE6Gk4yFd). You will need to sign in with your MSState account to access the form.
+
+There are some important things to note about requesting access to and using Muscadine:
+
+- **Muscadine is for Students to learn with.**
+- Muscadine is not for funded research. If you need compute resources for a funded research project, please speak with your department head regarding Ptolemy access.
+- Muscadine is also not for classes. Students may use it to complement their classwork, but official classes will need to request an allocation on Ptolemy.
+- Muscadine access is granted until the start of the next year *going forward*. This means you'll have the entire year and through the summer/winter break.
+- Muscadine is not guaranteed to be available, but best efforts will be made to make sure it is available.
+- To access Muscadine, you must be active within the SIG-HPC community. This means *either* participating in person or through our Discord.
+- By using Muscadine, you agree to HPC2/ARC's [Acceptable Use Policy](/_static/external/HPC2-AcceptableUsePolicy.pdf).
+
+Once you have filled out this form, you will receive an email in the next few days with another form to fill out your account details, such as address, date of birth, etc. After this, wait another few days for another email (we love emails) confirming that your account is created. Once it is, proceed to the next section on setting up your account.
+
 ## Setting up your ARC account
 
 If this is your first time having an ARC account, you will need to complete a couple of actions before you are able to access ARC resources. Once you have completed your account request form, and you have received the confirmation email, you will have 72 hours to set your password. Note that your ARC account is *different* than your MSState account, therefore it is ***highly encouraged*** to use a different password between the two. Additionally, your ARC password must be changed each year for security purposes. You can change your password on the [Training and Password System](https://taps.hpc.msstate.edu). You will also have to enroll a second Duo account, however you can use the same Duo app on your phone for both MSState and ARC.
