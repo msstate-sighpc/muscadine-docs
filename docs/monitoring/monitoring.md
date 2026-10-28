@@ -24,10 +24,10 @@ Find yourself using btop often? you can add `ml btop` to your .zshrc
 |---|---|
 |{kbd}`↑` / {kbd}`↓`|Move between sections|
 |{kbd}`←` / {kbd}`→`|Change active graphs|
-|{kbd}`m`|Toggle between memory views|
-|{kbd}`t`|Change CPU graph style|
+|{kbd}`m` / {kbd}`Esc`|Open or cycle the menus|
+|{kbd}`o` / {kbd}`F2`|Open the options menu|
 |{kbd}`f`|Open process filter|
-|{kbd}`Esc` / {kbd}`q`|Exit `btop`|
+|{kbd}`q`|Exit `btop`|
 
 ```{note}
 it's possible to enable vim keybinds from the options menu
@@ -43,7 +43,7 @@ To customize appearance and behavior, edit the config file:
 vim ~/.config/btop/btop.conf
 ```
 
-You can also press {kbd}`M` (capital M) inside `btop` to open the options menu.
+You can also press {kbd}`o` (or {kbd}`F2`) inside `btop` to open the options menu.
 
 ---
 
