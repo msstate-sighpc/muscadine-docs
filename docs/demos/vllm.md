@@ -85,7 +85,7 @@ SIF_PATH=/apps/contrib/vllm/vllm-openai-rocm_latest.sif ; echo $SIF_PATH
 SIF_PATH=("/scratch/$(id -gn)/$(id -un)/"vllm-rocm-*.sif([-1])) ; echo $SIF_PATH
 
 # run the model
-srun apptainer exec --rocm --add-caps CAP_SYS_PTRACE $SIF_PATH --env TRANSFORMERS_OFFLINE=1 \
+srun apptainer exec --rocm --add-caps CAP_SYS_PTRACE --env TRANSFORMERS_OFFLINE=1 $SIF_PATH \
     vllm serve Qwen/Qwen3.5-2B \
     --trust-remote-code \
     --tensor-parallel-size 1 \
