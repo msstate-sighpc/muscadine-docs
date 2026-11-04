@@ -114,7 +114,7 @@ Loci provides the `extract` utility to export raw datapoints into formats compat
 ### Syntax
 
 ```bash
-extract <tool> <caseName> <timeStep> [variable]
+extract -<tool> <caseName> <timeStep> [variable]
 ```
 
 For more information on `extract`, simply type the following into your terminal:
@@ -142,7 +142,7 @@ Now that we have generated a few output files, let's visualize them using Paravi
 Ensure Paraview is loaded first:
 
 ```bash
-ml load paraview 
+ml contrib paraview
 ```
 
 Let's see the output from the first time step, i.e. t=0s:
