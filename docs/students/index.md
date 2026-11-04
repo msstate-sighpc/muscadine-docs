@@ -13,7 +13,7 @@ The GIGADAWGS are Mississippi State University's High Performance Computing comp
 :img-top: ../_static/competition/indyscc/2024-team-photo-1.webp
 :img-alt: Image of the latest IndySCC competition team.
 
-Tid bit about IndySCC
+The Student Cluster Competition (SCC), held at the annual Supercomputing (SC) conference, challenges university teams to build, configure, and benchmark their own cluster against other schools.
 ````
 ````{grid-item-card} SBCC
 :link: sbcc
@@ -21,7 +21,7 @@ Tid bit about IndySCC
 :img-top: ../_static/competition/sbcc/2026-team-photo-1.webp
 :img-alt: Image of the latest SBCC competition team.
 
-Tid bit about SBCC
+The Single Board Cluster Competition, hosted by UC San Diego, has teams design, build, configure, and benchmark a cluster made of single-board computers under strict price and power limits.
 ````
 `````
 
@@ -36,7 +36,7 @@ Tid bit about SBCC
 :img-top: /_static/students/MSHPC26.webp
 :img-alt: Image of MSU students at MSHPC 2026
 
-Tid bit about MSHPC
+The annual Mississippi High Performance Computing (MSHPC) Conference brings together HPC professionals, researchers, and students from across the state, and MSU students travel together to represent the club.
 ```
 ````
 
