@@ -84,7 +84,7 @@ ssh muscadine-ww
 Enter the shell of the latest warewulf image while giving it access to the rke2 files:
 ```bash
 wwctl container list
-wwctl copy <original-image-name> <new-image-name>
+wwctl container copy <original-image-name> <new-image-name>
 wwctl container exec --bind /var/tmp/rke2-artifacts:/var/tmp/ <new-image-name> /bin/bash
 ```
 

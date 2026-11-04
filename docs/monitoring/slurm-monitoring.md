@@ -83,7 +83,7 @@ The output would be something like this:
       muscadine-node-3 (GPU 0): 100%
 
   GPU memory usage per node - maximum used/total
-      muscadine-node-3 (GPU 0): 463.0B/64.0KB (0.7%)
+      muscadine-node-3 (GPU 0): 463.0M/64.0G (0.7%)
 
   Detailed GPU Metrics
                               ---------------------------------------------

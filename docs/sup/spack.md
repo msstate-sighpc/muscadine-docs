@@ -62,7 +62,7 @@ You can view all the possible spec options for a package by issuing
 spack info <package>
 ```
 
-This will show all the info provided about a package recipe including possible verions, build systems, configuration options, etc.
+This will show all the info provided about a package recipe including possible versions, build systems, configuration options, etc.
 
 #### The spec line
 A normal spec line looks like this
@@ -85,7 +85,7 @@ Let's break that down.
 : Another dependency; use 'amdblis' to satisfy our blas dependency.
 
 ### Adding the spec
-We can supply the spec in one of two ways, either by running the `spack add` command, or by adding it to the module config.
+We can supply the spec in one of two ways, either by running the `spack add` command, or by adding it to the environment config.
 
 #### `spack add`
 ```bash

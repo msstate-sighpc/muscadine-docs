@@ -12,7 +12,7 @@ module load apptainer
 ```
 
 ### (Optional) Pull the latest container
-Provided on Muscadine is a moderately recent version of the vLLM containe located in `/apps/contrib/vllm`. If you wish to run a more recent version of vLLM, you can pull it yourself.
+Provided on Muscadine is a moderately recent version of the vLLM container located in `/apps/contrib/vllm`. If you wish to run a more recent version of vLLM, you can pull it yourself.
 
 ```text
 VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r '.tag_name') ; echo $VERSION
@@ -22,7 +22,7 @@ apptainer pull $SIF_PATH docker://vllm/vllm-openai-rocm:$VERSION
 
 ## Choosing a model
 
-Due to Muscadine's hardware, careful consideration must be taken in choosing a model to run. If you are unfamiliar with Muscadine's hardare, read over its [Specifications](../clusters/muscadine.md). The key constraints are as follows:
+Due to Muscadine's hardware, careful consideration must be taken in choosing a model to run. If you are unfamiliar with Muscadine's hardware, read over its [Specifications](../clusters/muscadine.md). The key constraints are as follows:
 
 - `gfx90a` compute architecture: Datatypes are limited to fp64,fp32,fp16,bf16,int64,int32,int8,int4; notably, these GPUs do *not* support any datatypes starting in 'nv' (e.g. nvfp8,nvfp4) nor does it support *some* fp8 models.
 - VRAM: Each MI210 contains 64GB of HBM2e memory. While it offers very high bandwidth and low latency, capacity is relatively limited compared to modern offerings.
@@ -95,7 +95,7 @@ srun apptainer exec --rocm --add-caps CAP_SYS_PTRACE --env TRANSFORMERS_OFFLINE=
 ```
 
 ```{important}
-The `apptainer exec ...` line is requried to use the container, it must not be changed.
+The `apptainer exec ...` line is required to use the container, it must not be changed.
 The `vllm serve ...` and following lines should be modified to suit the intended model.
 ```
 
@@ -105,8 +105,8 @@ vLLM can take quite a while to launch, just be patient. It may also fail to laun
 
 ## Using the model
 
-If you've gotten this far, **Congradulations!**. Now that your model is running, you'll want to inference with it.
+If you've gotten this far, **Congratulations!**. Now that your model is running, you'll want to inference with it.
 
-vLLM does not provide any interface by itself, you must point a client interface at it's OpenAI or Anthropic compatible API endpoint. Doing so is simple, enter the model configuration for your chosen interface/ui/agent, choose either 'OpenAI compatible endpoint' or 'Anthropic compatible endpoint' and set it to `http://muscadine-node-<X>:8000/v1` where <X> is the node number you were allocated earlier.
+vLLM does not provide any interface by itself, you must point a client interface at its OpenAI- or Anthropic-compatible API endpoint. Doing so is simple, enter the model configuration for your chosen interface/ui/agent, choose either 'OpenAI compatible endpoint' or 'Anthropic compatible endpoint' and set it to `http://muscadine-node-<X>:8000/v1` where <X> is the node number you were allocated earlier.
 
 While vLLM does not provide an interface, if you wish to graphically interact directly with your model, placeholders have been added to https://muscadine-llm.hpc.msstate.edu for each of the four compute nodes. If your vLLM instance is listening on port 8000 from a compute node, it should automatically be picked up and presented in the UI.

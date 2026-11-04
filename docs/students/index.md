@@ -2,7 +2,7 @@
 
 ## The GIGADAWGS
 
-The GIGADAWGS is the Mississippi State University's High Performance Computing competition team. Through their years, they have participated in two individual HPC competititon, the IndySCC and the SBCC. 
+The GIGADAWGS are Mississippi State University's High Performance Computing competition team. Through their years, they have participated in two individual HPC competitions, the IndySCC and the SBCC. 
 
 `````{grid} 1 1 2 2
 :gutter: 4

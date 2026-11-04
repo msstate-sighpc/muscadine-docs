@@ -25,7 +25,7 @@ flowpsi -v
 
 In this demo, we will load the 'cylinder' example module that comes with FlowPsi, inspect the files, and then view the output after running.
 
-Set up a demo folder in your local `/scratch` directory:
+Set up a demo folder in your `/scratch` directory:
 
 ```bash
 mkdir -p /scratch/hpc2/$USER/flowpsi_demo

@@ -1,8 +1,8 @@
 # Linux Basics
 
-Even if you're new to being on a cluster or even new to Linux as a whole, we still have you covered. We can't teach 
-you every Linux command, as there are an infinite number of commands available, but we can show 
-you the most common Linux commands and which ones you'll use the most while on the cluster.    
+Even if you're new to being on a cluster or even new to Linux as a whole, we still have you covered. We can't teach
+you every Linux command, as there are an infinite number of commands available, but we can show
+you the most common Linux commands and which ones you'll use the most while on the cluster.
 
 ---
 
@@ -49,7 +49,7 @@ If you've never used vim before, use {kbd}`I` to enter insert mode, {kbd}`Esc` t
 
 ## Helpful Keybinds
 
-- {kbd}`Tab`: While typing a file or foldername, click tab and linux finish the name for you.
+- {kbd}`Tab`: While typing a file or foldername, press Tab and Linux will complete the name for you.
 - {kbd}`↑` / {kbd}`↓` : Cycles through your previous commands with the up-and-down arrows.
 - {kbd}`Ctrl` + {kbd}`R` : Enters a reverse history search, helpful when a previous command would require pressing  {kbd}`↑` many times.
 - {kbd}`Ctrl` + {kbd}`C` : Will kill the current command (Useful if you have a frozen terminal).

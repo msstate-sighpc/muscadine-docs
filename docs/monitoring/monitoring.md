@@ -30,7 +30,7 @@ Find yourself using btop often? you can add `ml btop` to your .zshrc
 |{kbd}`q`|Exit `btop`|
 
 ```{note}
-it's possible to enable vim keybinds from the options menu
+It's possible to enable vim keybinds from the options menu
 ```
 
 ---

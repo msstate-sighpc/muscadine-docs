@@ -22,8 +22,8 @@ Q: How do I request Muscadine access?
 Q: What if I don't want to build a program from source?
 : A: Womp womp.
 
-Q: **HELP!!!** I Accidentally delete a file. what can I do?
-: A: If it was on `/scratch`: Womp Womp. If it was on `/home` or `/work` and was greater than a day old, you may find it in it's corresponding path in `/home/.snapshots` or `/work/.snapshots` respectively
+Q: **HELP!!!** I accidentally deleted a file. What can I do?
+: A: If it was on `/scratch`: Womp Womp. If it was on `/home` or `/work` and was greater than a day old, you may find it in its corresponding path in `/home/.snapshots` or `/work/.snapshots` respectively
 
 Q: How do I run across the whole cluster?
 : A: Generally, students are permitted to run across all 4 compute nodes by using the windfall QoS. Note that the windfall qos is preemptible, meaning jobs running against the normal qos take priority and will cause windfall jobs to suspend should they need to.
@@ -33,5 +33,5 @@ Q: Why can't I download files w/ curl or wget?
 : A: Only the head node allows downloads from the internet, you're probably trying to download something on a compute node.
 
 ```{warning}
-Do not wait to retrieve deleted files. snapshots are automatiaclly purged after 30 days
+Do not wait to retrieve deleted files. Snapshots are automatically purged after 30 days
 ```

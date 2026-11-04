@@ -45,7 +45,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # Run a multi-threaded program (e.g., OpenMP or Python using threads)
 ./my_multithreaded_program
-````
+```
 
 - `--ntasks=1` indicates a single process.
 - `--cpus-per-task` specifies the number of threads.
@@ -67,7 +67,7 @@ Multiprocessing uses multiple processes, each with its own memory space. This is
 #SBATCH --time=00:10:00
 
 # Run an MPI program
-mpirun -np $SLURM_NTASKS ./my_mpi_program
+srun -n $SLURM_NTASKS ./my_mpi_program
 ```
 
 - `--ntasks=16` launches 16 separate processes.

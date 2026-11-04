@@ -49,7 +49,7 @@ Compiler optimization flags may not always increase performance and can sometime
 
 ### Example Makefile for Larger Projects
 For multi-file projects, a Makefile simplifies the build process and keeps everything organized. Here's a minimal example: 
-```bash
+```makefile
 FC = gfortran
 FLAGS = -O3 -fopenmp -Wall
 SRC = main.f90 module.f90 solver.f90

@@ -75,7 +75,7 @@ Muscadine is equipped with an AMD MI210 64GB Accelerator in each node. This acce
 
 You are provided a decently fast and shared home directory. This is the location you start after connecting into Muscadine. You are welcome to keep stuff in your home directory, but there are also `/scratch` and `/work` that you can use.
 
-`/scratch` is build off of the BeeGFS and is the most performant storage solution for Muscadine. The downside is that there is limited storage, thus there will be wipes of old files every now and then whenever it gets near capacity.
+`/scratch` is built on BeeGFS and is the most performant storage solution for Muscadine. The downside is that there is limited storage, thus there will be wipes of old files every now and then whenever it gets near capacity.
 
 `/work` and `/home` are based on the same storage solution so they have the same speed. The difference is that `/work` is intended for project data such as datasets, AI models, output files, etc. If your program intakes data or outputs data, that data should be stored in `/work`.
 
@@ -95,7 +95,7 @@ Do not put anything you want to keep for longer than a day in `/scratch` as all 
 ---
 
 ## Benchmarks Leaderboard
-To promote a sense of competition. Here we will host a leaderboard of the best five scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to one of the current student sysadmins. The contacts for the student sysadmins can be found in . 
+To promote a sense of competition, here we will host a leaderboard of the best five scores of various HPC benchmarks. In order to get your score verified, email your entire config and output file to one of the current student sysadmins. The contacts for the student sysadmins can be found in [Getting Help](/getting-help.md). 
 
 Current MVP: Drew Helgerson
 

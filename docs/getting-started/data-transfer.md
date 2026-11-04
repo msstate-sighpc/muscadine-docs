@@ -53,7 +53,7 @@ cd /work/users/$USER && git clone <insertRepositoryHTTPLinkHere>
 <br>
 <h1>Open OnDemand</h1>
 
-Open OnDemand, or just OOD, is a web-based interface for HPC clusters. OOD is the only supported graphical interface for transfering files to Muscadine.
+Open OnDemand, or just OOD, is a web-based interface for HPC clusters. OOD is the only supported graphical interface for transferring files to Muscadine.
 
 First navigate to [Muscadine-OOD](https://muscadine-ood.hpc.msstate.edu) and login using your ARC account.
 

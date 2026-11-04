@@ -14,17 +14,18 @@
 :playsinline:
 ```
 
-NeuralGCM is a project to deploy hybid ML/Physics models for weather and climate simulations. In this demo guide, we will explore running their pre-trained temperature/humitidy, precipitation, and evaporation models. To learn more about NeuralGCM, visit their documentation and take a gander at their paper below.
+NeuralGCM is a project to deploy hybrid ML/Physics models for weather and climate simulations. In this demo guide, we will explore running their pre-trained temperature/humidity, precipitation, and evaporation models. To learn more about NeuralGCM, visit their documentation and take a gander at their paper below.
 
 - NeuralGCM Documentation: [LINK](https://neuralgcm.readthedocs.io/en/latest/index.html)
-- NeuralGCM Paper: [LINK](https://arxiv.org/pdf/2412.11973)
+- NeuralGCM Paper: [LINK](https://arxiv.org/pdf/2311.07222)
+- Precipitation-Optimized NeuralGCM Paper: [LINK](https://arxiv.org/pdf/2412.11973)
 
 
 ### Installing NeuralGCM and Dependencies
 
 This guide follows the install process of AMD's ROCm AI Ecosystem environment. This can be found at the following link: [LINK](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/index.html). Specifically, NeuralGCM uses JAX.
 
-First `cd` into the directory of your choosing. We recommend doing this in either `/work` or `/scratch`. Module load pyhton3.14 and make a python virtual environment in your desired environment.
+First `cd` into the directory of your choosing. We recommend doing this in either `/work` or `/scratch`. Module load python3.14 and make a python virtual environment in your desired environment.
 
 ```bash
 ml load python/3.14
@@ -60,7 +61,7 @@ python -m pip install \
     neuralgcm
 ```
 
-To ensure JAX was properly install, run the following test script, you should see `[RocmDevice(id=0)]`.
+To ensure JAX was properly installed, run the following test script, you should see `[RocmDevice(id=0)]`.
 
 ```bash
 python -c "import jax; print(jax.devices())"
@@ -69,7 +70,7 @@ python -c "import jax; print(jax.devices())"
 
 ### Choosing a Model
 
-Since there are so few pre-trained models and they are small in size, we provide all of NeuralGCM's pre-trained models in `/work/models/NeuralGCM`. You'll notice that most of the models are 2.8 degree and 1.4 degree with one being 0.7 degree. These numbers represent the resolution of the outputs. The larger the degree size, the courser the output will appear, but there are side effects of choosing a higher resolution model. Both the 1.4 and 0.7 models will not produce accurate long-term results. The general rule of thumb for simulation time is included in the table below along.
+Since there are so few pre-trained models and they are small in size, we provide all of NeuralGCM's pre-trained models in `/work/models/NeuralGCM`. You'll notice that most of the models are 2.8 degree and 1.4 degree with one being 0.7 degree. These numbers represent the resolution of the outputs. The larger the degree size, the coarser the output will appear, but there are side effects of choosing a higher resolution model. Both the 1.4 and 0.7 models will not produce accurate long-term results. The general rule of thumb for simulation time is included in the table below along.
 
 | Model                                        | Results       | Resolution    | Max Simulation Time | Min Timestep |
 | -------------------------------------------- | ------------- | ------------- | ------------------- | ------------ |
@@ -92,7 +93,7 @@ Muscadine will have several locally stored ERA5 datasets to use for weather demo
 
 ### Basic Inference Script
 
-Since NeuralGCM is a python library and takes advantage of a Python ML library called JAX, our script will be in Python. Below you'll find the bare minimum to load the model and dataset, inference, and process a small mp4 of the results.
+Since NeuralGCM is a python library and takes advantage of a Python ML library called JAX, our script will be in Python. Below you'll find the bare minimum to load the model and dataset, inference, and save a static PNG plot of the results.
 ```python
 import jax
 import numpy as np
@@ -196,7 +197,7 @@ ml load neuralgcm
 This will load the scripts you'll need to run a weather simulation. With the neuralgcm module loaded, run the following to submit a slurm job in your directory.
 
 ```{attention}
-You would of needed to complete the steps found in "Installing NeuralGCM and Dependencies" and to be in said directory for the script to function properly. Also note that the script will store slurm logs in `$PWD/logs` and figures in `$PWD/plots`.
+You would have needed to complete the steps found in "Installing NeuralGCM and Dependencies" and to be in said directory for the script to function properly. Also note that the script will store slurm logs in `$PWD/logs` and figures in `$PWD/plots`.
 ```
 
 ```bash

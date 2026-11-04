@@ -1,5 +1,5 @@
 # Managing Spack
-Notes on creating/managing a spack envrionment at HPC{sup}`2`
+Notes on creating/managing a spack environment at HPC{sup}`2`
 Initially Conceived June 27, 2024, First Drafted July 8, 2024
 Last updated July 8, 2024, by Huston Rogers (jhrogers)
 
@@ -179,7 +179,7 @@ Include the compiler hash so that it's always the correct one, generic vs optimi
 ```
 config:
   install_tree:
-    root:/apps/spack-managed-x86_64_v3-v1.0
+    root: /apps/spack-managed-x86_64_v3-v1.0
     projections:
       all: "{compiler.name}-{compiler.version}/{name}-{version}-{hash}"
 ```
@@ -275,7 +275,7 @@ and repeat for each arch target
 spack install
 ```
 
-## 4.7 Try and keep up with the packages that are added
+### 4.7 Try and keep up with the packages that are added
 ```
 intel-oneapi-runtime-2023.2.4-aosy4vtg6snij6ileqlcuqlc3u4pwf5i
 cmake-3.29.6-suvclhyrpbpelwpfnazbsiyvvu3td53z
