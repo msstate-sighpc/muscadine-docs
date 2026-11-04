@@ -1,6 +1,6 @@
 # User Management
 
-### Table of Contents:
+## Table of Contents:
 - Checking for User Changes
 - Looking Up User Details
 - Adding Users

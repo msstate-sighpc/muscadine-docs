@@ -56,7 +56,7 @@ python -m pip install \
     xarray \
     matplotlib \
     dinosaur \
-    cartopy \ 
+    cartopy \
     neuralgcm
 ```
 
@@ -113,7 +113,7 @@ inner_steps = 24 # in hours
 
 with open(f"/work/models/NeuralGCM/{model_name}", "rb") as f:
         ckpt = pickle.load(f)
-model = neuralgcm.PreasureLevelModel.from_checkpoint(ckpt)
+model = neuralgcm.PressureLevelModel.from_checkpoint(ckpt)
 
 data_inner_steps = 24
 full_era5 = xarray.open_zarr(era5_path, chunks={"time": 24})

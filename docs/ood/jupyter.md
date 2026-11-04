@@ -17,7 +17,7 @@ The site-wide python installation is quite bare-bones by design. In most cases, 
 	```
 3. Activate your venv
 	```bash
-	/path/to/venv/bin/activate
+	source /path/to/venv/bin/activate
 	```
 4. Install desired packages
 	```bash

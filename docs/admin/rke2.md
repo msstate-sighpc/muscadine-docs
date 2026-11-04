@@ -1,6 +1,6 @@
 # RKE2
 
-### Table of Contents:
+## Table of Contents:
 - [Head Node](#head-node)
 - [Compute Node](#compute-node)
 - [Usage](#usage)
@@ -23,7 +23,8 @@ vim /etc/rancher/rke2/config.yaml
 ```
 
 We have the current configuration here:
-```/etc/rancher/rke2/config.yaml
+```{code-block} yaml
+:caption: /etc/rancher/rke2/config.yaml
 write-kubeconfig-mode: "0644"
 ```
 
@@ -32,7 +33,8 @@ We also need to set the HTTP/HTTPS proxy so that rke2 can pull the images from *
 vim /usr/local/lib/systemd/system/rke2-server.service
 ```
 
-```/usr/local/lib/systemd/system/rke2-server.service
+```{code-block} ini
+:caption: /usr/local/lib/systemd/system/rke2-server.service
 Environment='http_proxy=http://dprox.hpc.msstate.edu:3128'
 Environment='https_proxy=http://dprox.hpc.msstate.edu:3128'
 ```
@@ -100,7 +102,8 @@ mkdir -p /etc/rancher/rke2
 vim /etc/rancher/rke2/config.yaml
 ```
 
-```/etc/rancher/rke2/config.yaml
+```{code-block} yaml
+:caption: /etc/rancher/rke2/config.yaml
 server: https://muscadine-node-1.hpc.msstate.edu:9345
 token: <token from server node>
 ```

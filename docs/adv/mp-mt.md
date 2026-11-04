@@ -40,7 +40,6 @@ Multi-threading uses multiple threads within a single process. Threads share the
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --time=00:10:00
-#SBATCH --partition=short
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -66,7 +65,6 @@ Multiprocessing uses multiple processes, each with its own memory space. This is
 #SBATCH --output=mpi_output.txt
 #SBATCH --ntasks=16
 #SBATCH --time=00:10:00
-#SBATCH --partition=short
 
 # Run an MPI program
 mpirun -np $SLURM_NTASKS ./my_mpi_program
@@ -90,7 +88,6 @@ Some HPC applications use **hybrid parallelism**, combining multiple processes w
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=8
 #SBATCH --time=00:10:00
-#SBATCH --partition=short
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 

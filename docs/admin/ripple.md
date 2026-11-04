@@ -1,6 +1,6 @@
 # Ripple: An Muscadine Agent
 
-### Architecture
+## Architecture
 - vLLM Service
 - Gateway
 - Hermes

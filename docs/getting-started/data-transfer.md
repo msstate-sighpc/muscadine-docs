@@ -3,11 +3,11 @@
 One influential part of HPC is data, Big Data. Large datasets and tons of calculations against those datasets was one of the major reasons HPC was born. This is even more prevalent in a world full of sensors and datapoints. 
 
 There are several ways you can transfer data to Muscadine. These methods include:
-- [Curl](data-transfer.html?data-transfer=curl){.external target="\_self"}
-- [Git](data-transfer.html?data-transfer=git){.external target="\_self"}
-- [Open OnDemand](data-transfer.html?data-transfer=ood){.external target="\_self"}
-- [scp](data-transfer.html?data-transfer=scp){.external target="\_self"}
-- [rsync](data-transfer.html?data-transfer=rsync){.external target="\_self"}
+- [Curl](data-transfer.html?data-transfer=curl){.external target="_self"}
+- [Git](data-transfer.html?data-transfer=git){.external target="_self"}
+- [Open OnDemand](data-transfer.html?data-transfer=ood){.external target="_self"}
+- [scp](data-transfer.html?data-transfer=scp){.external target="_self"}
+- [rsync](data-transfer.html?data-transfer=rsync){.external target="_self"}
 
 ```{note}
 All forms of data transfer **must** be done on the head node. These methods will **not** work on any other node.

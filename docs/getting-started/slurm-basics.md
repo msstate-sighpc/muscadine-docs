@@ -77,32 +77,32 @@ JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 ```
 
 ### `srun`
-`srun` is the command you'll use to run a parallel program via Slurm. For the most part, you'll use this within an SBATCH script described in Section 5.3. But if you want an interactive session (eg. `srun -c2 --pty bash`). Using `srun` is also useful when testing code on a small scale before fully implementing the SBATCH for it. Check out https://slurm.schedmd.com/srun.html for a full list of arguments to use with `srun`.
+`srun` is the command you'll use to run a parallel program via Slurm. For the most part, you'll use this within an SBATCH script described in [Building a SBATCH script](#building-a-sbatch-script). But if you want an interactive session (eg. `srun -c2 --pty bash`). Using `srun` is also useful when testing code on a small scale before fully implementing the SBATCH for it. Check out https://slurm.schedmd.com/srun.html for a full list of arguments to use with `srun`.
 
 
 ## Building a SBATCH script
 SBATCH Scripts are what are used by Slurm to better allocate/distribute your program. Below is a template you can use for nearly any Slurm job.
 
 ```SBATCH
-!/bin/bash
+#!/bin/bash
 
- Slurm Specific
+# Slurm Specific
 
-SBATCH --job-name="my_name"            #job name
-SBATCH --nodes=1                       #number of nodes
-SBATCH --ntasks-per-node=16            #number of tasks per node
-SBATCH --cpus-per-task=1               #number of physical cores per task
-SBATCH --mem=4G                        #max memory allocated 
-SBATCH --time=0-1:00:00                #max runtime (D-hh:mm:ss)
-SBATCH --output=my_run.log             #output name
+#SBATCH --job-name="my_name"            #job name
+#SBATCH --nodes=1                       #number of nodes
+#SBATCH --ntasks-per-node=16            #number of tasks per node
+#SBATCH --cpus-per-task=1               #number of physical cores per task
+#SBATCH --mem=4G                        #max memory allocated 
+#SBATCH --time=0-1:00:00                #max runtime (D-hh:mm:ss)
+#SBATCH --output=my_run.log             #output name
 
 
- Muscadine Specific
+# Muscadine Specific
 
 ml load <neededModules>
 
 
- Your Application
+# Your Application
 
 srun <application>
 ```
