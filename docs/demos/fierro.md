@@ -379,7 +379,7 @@ mesh_options:
 
 output_options:
   timer_output_level: thorough
-  output_file_format: ensight
+  output_file_format: vtk
   graphics_time_step: 0.05
 
 solver_options:
@@ -505,7 +505,7 @@ The recommended way to run Fierro is using a SBATCH script. The following SBATCH
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --gres=gpu
+#SBATCH --gres=gpu:1
 #SBATCH --chdir=<path/to/dir>
 #SBATCH --time=0-0:30:00
 #SBATCH --output=-%j.out

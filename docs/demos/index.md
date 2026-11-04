@@ -26,7 +26,7 @@ Weather simulations such as NeuralGCM.
 :link-type: doc
 ```{image} ../_static/figures/demos/fierro-1.png
 :align: center
-:alt: Image displaying internal crystaline stress of a metal cube simulated with Fierro.
+:alt: Image displaying internal crystalline stress of a metal cube simulated with Fierro.
 ```
 
 Fierro is a multiphysics solver.

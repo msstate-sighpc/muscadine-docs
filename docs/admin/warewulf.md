@@ -4,7 +4,7 @@ Warewulf is where the majority of configuration will take place on muscadine. wa
 
 ## Building 
 
-Building warewulf is fairly straightforward, and can be performed by losely following CIQ's docs
+Building warewulf is fairly straightforward, and can be performed by loosely following CIQ's docs
 the following should be performed in the WW vm discussed on the [main](index.md) page.
 
 ### Install Dependencies:
@@ -40,7 +40,7 @@ git -C /opt/warewulf/src checkout v4.6.x
 
 ### Patching
 
-there are a few things we need to change before we build, to suite our environment
+there are a few things we need to change before we build, to suit our environment
 
 first, locate the file `configs/ww/HPC2-dhcpd-ww.patch` in this repo, replace <patch> with the path to that file in the following command
 
@@ -50,7 +50,7 @@ git apply <patch>
 
 ### Building
 
-*NOTE:* Building requries an http connection. Ask senior admins for the best way to do this
+*NOTE:* Building requires an http connection. Ask senior admins for the best way to do this
 
 ```bash
 cd /opt/warewulf/src

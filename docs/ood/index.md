@@ -19,9 +19,6 @@ OOD integrates with existing HPC systems — including Slurm — to provide a us
 - Upload, download, and edit files using a built-in file manager.
 - Open interactive sessions for remote desktops, Jupyter notebooks, RStudio, and other GUI tools.
 - View cluster usage and job queue information in real time.
-Craving more knowledge about clusters?
-Here's a few topics you can peruse to take your skills to the next level.
-Please don't read these until you've familiarized yourself with Muscadine and clustering in genera.
 
 ---
 
@@ -36,7 +33,7 @@ Please don't read these until you've familiarized yourself with Muscadine and cl
 :img-top: ../_static/figures/applications/Visual_Studio_Code.webp
 :img-alt: Visual Studio Code logo
 
-Visual Studio
+Visual Studio Code
 ```
 ```{grid-item-card} Jupyter Notebooks
 :link: jupyter

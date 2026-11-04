@@ -25,10 +25,10 @@ The lead developers behind Slurm, SchedMD, are also developing an operator named
 
 ## Common Slurm commands
 
-Below you'll find several commands that will provide insight into the cluster's status, usage, and allocation. Please familarize yourself with these command as it will vastly improve your HPC experience.
+Below you'll find several commands that will provide insight into the cluster's status, usage, and allocation. Please familiarize yourself with these commands as it will vastly improve your HPC experience.
 
 ### `sinfo`
-`sinfo` and is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
+`sinfo` is a command that lets you see the cluster status. I have ran `sinfo` on Muscadine during a low usage time so all the nodes are idle. It is *highly* recommended to check this before submitting jobs, specifically greater than half a node in size.
 ```{code-block}
 :caption: Terminal
 ╭─<netid>@muscadine-node-1 ~
@@ -77,7 +77,7 @@ JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 ```
 
 ### `srun`
-`srun` is the command you'll use to run a parallel program via Slurm. For the most part, you'll use this within an SBATCH script described in [Building a SBATCH script](#building-a-sbatch-script). But if you want an interactive session (eg. `srun -c2 --pty bash`). Using `srun` is also useful when testing code on a small scale before fully implementing the SBATCH for it. Check out https://slurm.schedmd.com/srun.html for a full list of arguments to use with `srun`.
+`srun` is the command you'll use to run a parallel program via Slurm. For the most part, you'll use this within an SBATCH script described in [Building a SBATCH script](#building-a-sbatch-script). But if you want an interactive session (eg. `srun -c2 --pty bash`), run it directly from the shell. Using `srun` is also useful when testing code on a small scale before fully implementing the SBATCH for it. Check out https://slurm.schedmd.com/srun.html for a full list of arguments to use with `srun`.
 
 
 ## Building a SBATCH script
@@ -139,7 +139,7 @@ You can submit the SBATCH Script to Slurm via the following command:
 sbatch <sbatchScript>
 ```
 
-## Advanded Slurm Usage
+## Advanced Slurm Usage
 
 Here are some resources you may find insightful during your HPC journey with Slurm:
 

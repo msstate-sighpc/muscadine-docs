@@ -1,5 +1,5 @@
 
-# Jupyter Lab
+# JupyterLab
 JupyterLab is a powerful, web-based interactive development environment for notebooks, code, and data. This instance runs in your browser for portability and ease of use.
 
 This guide explains how to launch and use the **JupyterLab** app through Open OnDemand (OOD).

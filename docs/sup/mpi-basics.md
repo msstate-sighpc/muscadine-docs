@@ -2,8 +2,7 @@
 
 This guide walks through writing, building, and running a simple **MPI ping** program using **SLURM**.
 
-This program is designed to show you the bare minimum to get starting writing with OpenMPI. MPI is a large rabbit hole you can go down in order to eek out more performance of your cluster. Things like unbuffered send and receive, broadcasting, reducing, etc. are all possible with MPI. 
-Later on, we'll look at calculating digits of Pi using MPI.
+This program is designed to show you the bare minimum to get started writing with OpenMPI. MPI is a large rabbit hole you can go down in order to seek out more performance of your cluster. Things like unbuffered send and receive, broadcasting, reducing, etc. are all possible with MPI.
 
 ---
 
@@ -77,11 +76,11 @@ Create a batch script `ping.sh`:
 # if it takes longer than a minute to run this simple application, we've got a bigger problem
 #SBATCH --time=00:01:00
 
-# finally launch the executible accross our allocation
+# finally launch the executable across our allocation
 srun ./ping
 ```
 ```{note}
-it's important to include the `./` before our executable since ping exists in our path, but is not written for MPI
+It's important to include the `./` before our executable: the current directory isn't on your `PATH`, and the name `ping` also collides with the system's `/bin/ping`, so `./` is required to run the one you just built.
 ```
 
 

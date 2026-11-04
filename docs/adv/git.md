@@ -4,6 +4,12 @@ Git is a diff-based versioning tool. it has become the gold standard of versioni
 ---
 
 ## Initial Setup
+Before your first commit, tell git who you are; without this, `git commit` will fail:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
 Let's say we want to version a directory on a POSIX machine that contains the following files:
 - `main.c`
 - `main.h`
@@ -33,7 +39,7 @@ git add .
 ---
 
 ## Ignoring Unwanted Files
-It's very common to want git to ignore files from the repository that may exist on the filesystem. Build artifacts, dependency installations, pycaches are all common examples. To do this, simple create a file called `.gitignore` anywhere in the repo containing the names of files you'd like to ignore; globs may be used. The file will apply to all child directories
+It's very common to want git to ignore files from the repository that may exist on the filesystem. Build artifacts, dependency installations, pycaches are all common examples. To do this, simply create a file called `.gitignore` anywhere in the repo containing the names of files you'd like to ignore; globs may be used. The file will apply to all child directories
 
 Here's an example `.gitignore`:
 ```bash
@@ -118,7 +124,7 @@ git pull --ff
 ---
 
 ## Pushing to a remote
-After you're committed changes locally, you'll need to *'push'* them to your remote in order for it to contain those changes. This does not have to be done for every commit; all local commits will be pushed in one exchange. to push local changes, run:
+After you've committed changes locally, you'll need to *'push'* them to your remote in order for it to contain those changes. This does not have to be done for every commit; all local commits will be pushed in one exchange. to push local changes, run:
 ```bash
 git push
 ```

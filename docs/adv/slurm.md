@@ -1,5 +1,5 @@
 # Slurm Tips & Tricks
-Here are a few advanced Slurm usage tricks to the experienced user
+Here are a few advanced Slurm usage tricks for the experienced user
  
  ---
 
@@ -28,7 +28,9 @@ Inside `myscript.sh`, you can use the array ID to differentiate tasks. For examp
 
 # $SLURM_ARRAY_TASK_ID is the task ID 
 echo "Running task $SLURM_ARRAY_TASK_ID"  
-# Example: process different input files INPUT_FILE="input_$SLURM_ARRAY_TASK_ID.txt" cat $INPUT_FILE`
+# Example: process different input files
+INPUT_FILE="input_$SLURM_ARRAY_TASK_ID.txt"
+cat "$INPUT_FILE"
 ```
 
 - `%A` → master job ID

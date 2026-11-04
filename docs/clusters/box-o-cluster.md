@@ -1,3 +1,3 @@
 # Box-O-Cluster
 
-*work in progess*
+*work in progress*

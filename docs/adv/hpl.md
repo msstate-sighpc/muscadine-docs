@@ -139,9 +139,11 @@ cd hpl-2.3
 
 ### Configuration
 
-Since version 2.3 (the latest as of writing), HPL can either use static Makefiles or GNU Autotools. Since autotools is alot simple and somewhat more consistent, we'll be using that.
+Since version 2.3 (the latest as of writing), HPL can either use static Makefiles or GNU Autotools. Since autotools is a lot simpler and somewhat more consistent, we'll be using that.
 
 ```bash
+ml openmpi openblas
+
 ./configure --prefix=$PWD/hpl-demo \
   CC=mpicc \
   LDFLAGS="-L$OPENBLAS_ROOT/lib -L$OPENMPI_ROOT/lib" \
@@ -209,7 +211,7 @@ The keen-eyed who know their way around Muscadine might have noticed that {math}
 
 ### Problem Size (N)
 
-Problem size is the parameter you'll mess with the most. HPL is a very Memory Bandwidth-intensive application. the more memory you use, the more the LU algorithm with stripe across it, increasing bandwidth. Use to little, and you won't saturate your memory bandwidth, use too much, and you'll start swapping. A perfect *HERO* run balances the two.
+Problem size is the parameter you'll mess with the most. HPL is a very Memory Bandwidth-intensive application. the more memory you use, the more the LU algorithm with stripe across it, increasing bandwidth. Use too little, and you won't saturate your memory bandwidth, use too much, and you'll start swapping. A perfect *HERO* run balances the two.
 
 Rule of thumb:
 
@@ -217,7 +219,7 @@ Rule of thumb:
 N ≈ sqrt(0.8 × total_memory_bytes / 8)
 ```
 
-Example: 192 GB total RAM
+Example: 192 GB total RAM per node
 
 ```
 N ≈ sqrt(0.8 × 192e9 / 8) ≈ 130k

@@ -23,7 +23,7 @@ OpenMP does **NOT** scale across nodes. OpenMP is useful when optimizing existin
 
 ## Setting Up Your Environment
 
-Before writing OpenMP programs, ensure your a compatible compiler is loaded:
+Before writing OpenMP programs, ensure a compatible compiler is loaded:
 
 ```bash
 module load gcc

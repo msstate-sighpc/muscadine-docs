@@ -48,7 +48,7 @@ Repeat the authentication process from logging into Titan and you'll be set.
 (method-two-arc-vpn)=
 ### Method Two: ARC VPN
 
-Method Two involves logging into the ARC VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your ARC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to recieve a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
+Method Two involves logging into the ARC VPN. Go to [https://servicedesk.its.msstate.edu](https://servicedesk.its.msstate.edu/TDClient/45/Portal/KB/?CategoryID=80) and download the Cisco AnyConnect VPN by following ITS's guide. Once that is completed, launch the VPN and connect to `vpn.hpc.msstate.edu`. It will then ask for your Group (HPC2), Username (your NetID), Password (your ARC Password), and Duo 2FA Passcode (get from duo app or enter 'push' to receive a push challenge notification). Once you are connected, you can ssh directly into muscadine's head node `muscadine-node-1`. Use the following template if needed:
 
 ```bash
 ssh <NetID>@muscadine-node-1.hpc.msstate.edu
@@ -65,8 +65,8 @@ You are provided a decently fast and shared home directory. This is the location
 
 | Mount      | Total Capacity | Speed      | Quota | Description                                                                                                                                                  |
 | ---------- | -------------- | ---------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `/scratch` | 2.2TB          | ***FAST*** | None  | Scratch is to be used for active data or programs that are not vital. ***SCRATCH WILL BE PERIODILY WIPED***                                                  |
-| `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other user's personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
+| `/scratch` | 2.2TB          | ***FAST*** | None  | Scratch is to be used for active data or programs that are not vital. ***SCRATCH WILL BE PERIODICALLY WIPED***                                                  |
+| `/home`    | 20TB           | *quick*    | 10GB  | Home is where your and other users' personal directories live. Only put binaries, scripts, or small things in here. Capacity shared with `/work` and `/apps` |
 | `/work`    | 20TB           | *quick*    | 500GB | Work is where datasets and large quantities of input/output data is to be stored. Capacity shared with `/home` and `/apps`.                                  |
 
 ```{note}
@@ -87,7 +87,7 @@ srun -c16 --pty bash
 ```
 
 ### Available modules
-Modules are software stacks such as GCC, Python, OpenBLAS, or ROCM that we provide that are optimized for the cluster its on. A list of all available modules can be seen by running `ml avail`. Here is a table of all the modules provided by default. A few more modules can be made available after loading a compiler like `aocc` or `gcc`. 
+Modules are software stacks such as GCC, Python, OpenBLAS, or ROCM that we provide that are optimized for the cluster it is on. A list of all available modules can be seen by running `ml avail`. Here is a table of all the modules provided by default. A few more modules can be made available after loading a compiler like `aocc` or `gcc`. 
 
 ```
 -------------------- /apps/spack-zen4-v1.0/modulefiles/Core -----------------
@@ -98,7 +98,7 @@ Modules are software stacks such as GCC, Python, OpenBLAS, or ROCM that we provi
    gcc/14.2.0        python/3.11.9      rocsolver/6.2.4
 ```
 ```{note}
-This may not be an accurate list of currently avaliable modules, run `ml avail` to get the system specific module list.
+This may not be an accurate list of currently available modules, run `ml avail` to get the system specific module list.
 ```
 
 In order to load a module, you can run `ml load <moduleName>`. Tab complete does work with ml and we encourage you use tab complete as it can also list several different versions we provide for each module, most will only have one though.

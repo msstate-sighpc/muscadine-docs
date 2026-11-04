@@ -12,7 +12,7 @@ First we need to install prerequisite software. The following are must-haves, an
 
 Specific to Muscadine:
 - TODO: numa (Epyc 9454P have a numa node per ccx (4))
-- amdgpu (hwloc requries opencl in order to use it)
+- amdgpu (hwloc requires opencl in order to use it)
 
 ### Installing HWLOC:
 
@@ -346,7 +346,7 @@ pdsh -w $nodelist -R ssh cp /opt/slurm/etc/slurmd.service /etc/systemd/system/
 ```-->
 - **Link the new installation and copy service files**
 ```
-cd opt && ln -s slurm-* slurm && cd -"
+cd opt && ln -s slurm-* slurm && cd -
 cp opt/slurm/etc/slurmd.service /etc/systemd/system/
 ```
 
@@ -381,7 +381,7 @@ rsync -vaxtHA /opt/slurm/etc $ood:/opt/slurm/
 ```-->
 
 ## Setting up the Initial Slurm Accounts/QOSs/Users<!--[edit]-->
-- **This step assumes we're setting up a fresh slurm database for a new cluster. This step isn't needing if we're just upgrading slurm.:**
+- **This step assumes we're setting up a fresh slurm database for a new cluster. This step isn't needed if we're just upgrading slurm.:**
 
 - **Create the admin account**
 ```

@@ -52,4 +52,4 @@ Details on administering it are found here: [Purity//FB](flashblade.md).
 - Spack is covered in its own section here: [Spack](spack.md)
 
 ## GPUs
-- GPU configuration is convered in its own section here: [GPUs](gpu.md)
+- GPU configuration is covered in its own section here: [GPUs](gpu.md)

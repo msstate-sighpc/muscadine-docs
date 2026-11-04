@@ -21,7 +21,7 @@ The Pi 4 cluster consists of 21 total nodes, with 1 being a head node and the ot
 | 2.5GbE USB NIC                             | 21     | Interconnect         |
 | 10GbE SFP+ DAC                             | 2      | Cabling              |
 | 128GB M.2 SSD                              | 1      | Head Node Storage    |
-| SATA Cable USB cable                       | 12     | Cabling              |
+| SATA-to-USB cables                         | 12     | Cabling              |
 | 480GB SATA SSD                             | 12     | Compute Node Storage |
 | 1ft Cat6 patch cables                      | 21     | Cabling              |
 | USB-A -> USB-C cables                      | 21     | Cabling              |
@@ -38,7 +38,7 @@ The Pi 4 cluster consists of 21 total nodes, with 1 being a head node and the ot
 | Job Scheduler       | Slurm                         |
 | MPI Implementation  | OpenMPI, mpi4py               |
 | BLAS Implementation | OpenBLAS                      |
-| Package Managment   | RPM, Spack                    |
+| Package Management  | RPM, Spack                    |
 | Booting System      | Warewulf                      |
 
 ### Storage:

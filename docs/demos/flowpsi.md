@@ -25,7 +25,7 @@ flowpsi -v
 
 In this demo, we will load the 'cylinder' example module that comes with FlowPsi, inspect the files, and then view the output after running.
 
-Set up a demo folder in your local `/scratch` directory:
+Set up a demo folder in your `/scratch` directory:
 
 ```bash
 mkdir -p /scratch/hpc2/$USER/flowpsi_demo
@@ -128,7 +128,7 @@ Loci provides the `extract` utility to export raw datapoints into formats compat
 ### Syntax
 
 ```bash
-extract <tool> <caseName> <timeStep> [variable]
+extract -<tool> <caseName> <timeStep> [variable]
 ```
 
 For more information on `extract`, simply type the following into your terminal:
@@ -152,7 +152,7 @@ Now that we extracted some data, let's visualize them using Paraview.
 Ensure Paraview is loaded first:
 
 ```bash
-ml load paraview 
+ml contrib paraview
 ```
 
 Let's see the output from the first time step, i.e. t=0s:

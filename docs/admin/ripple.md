@@ -1,4 +1,4 @@
-# Ripple: An Muscadine Agent
+# Ripple: A Muscadine Agent
 
 ## Architecture
 - vLLM Service

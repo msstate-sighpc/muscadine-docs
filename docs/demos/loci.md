@@ -31,7 +31,7 @@ lpp -v
 
 For this demo, we will be running the 'heat' example module that comes with Loci. We will explore how to load this directory onto your workspace, configure and run it, and finally view the results using Paraview. 
 
-Set up a demo folder under your local /scratch directory:
+Set up a demo folder under your /scratch directory:
 
 ```bash
 mkdir /scratch/hpc2/$USER/loci_demo
@@ -90,7 +90,7 @@ plot_modulo:100
 }
 ```
 
-Our heat demo will run for 10 seconds as indicated by `stop_iter`, and solution output files are created every 5 seconds as indicated by `plot_freq`.
+Our heat demo will run for 10 iterations as indicated by `stop_iter`, and solution output files are created every 5 iterations as indicated by `plot_freq`.
 
 
 ## Running Loci
@@ -114,7 +114,7 @@ Loci provides the `extract` utility to export raw datapoints into formats compat
 ### Syntax
 
 ```bash
-extract <tool> <caseName> <timeStep> [variable]
+extract -<tool> <caseName> <timeStep> [variable]
 ```
 
 For more information on `extract`, simply type the following into your terminal:
@@ -142,7 +142,7 @@ Now that we have generated a few output files, let's visualize them using Paravi
 Ensure Paraview is loaded first:
 
 ```bash
-ml load paraview 
+ml contrib paraview
 ```
 
 Let's see the output from the first time step, i.e. t=0s:

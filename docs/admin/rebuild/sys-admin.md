@@ -34,7 +34,7 @@ This will not work until you have deployed [BeeGFS](#beegfs)
 ```
 
 ###  Other NFS via PureStorage
-Other than `/home`, the PureStorage system will also provide several other NFS directories such as `/work` and `/apps`. This step very similar to Section 1.1.1, but differs by intended purpose and quota size. 
+Other than `/home`, the PureStorage system will also provide several other NFS directories such as `/work` and `/apps`. This step is very similar to Section 1.1.1, but differs by intended purpose and quota size. 
 
 `/apps` is used for supporting software, modules, and libraries such as compilers, software stacks, etc. Users cannot write to but can read from this directory.
 
@@ -89,7 +89,7 @@ cd /opt/warewulf/src
 ```
 #### Patching Warewulf
 
-There are a few things we need to change before we build, to suite our environment
+There are a few things we need to change before we build, to suit our environment
 
 First, locate the file `configs/ww/HPC2-dhcpd-ww.patch` in this repo, replace with the path to that file in the following command:
 
@@ -219,12 +219,12 @@ wwctl node set --discoverable muscadine-node-<enterNodeNum>
 ```
 
 ##  Slurm
-Comming soon
+Coming soon
 
 ---
 
 ##  BeeGFS
-Comming soon
+Coming soon
 
 ---
 
@@ -236,4 +236,4 @@ See [Using Spack](../spack.md)
 ---
 
 # Automation and Metrics
-Comming soon
+Coming soon
