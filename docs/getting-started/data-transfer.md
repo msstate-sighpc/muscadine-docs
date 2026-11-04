@@ -65,7 +65,23 @@ After you are logged in, now you'll hover over the Files tab in the navbar in th
 <br>
 <h1>SCP</h1>
 
-SCP is pretty cool
+SCP (secure copy) moves files between two machines over SSH. It is the simplest way to push a file from your own computer onto Muscadine, or pull one back down.
+
+As noted above, the Muscadine side of any transfer is always the head node (`muscadine-node-1`). These commands run on your **local machine's** terminal, and from off campus you'll need to be connected to the {ref}`ARC VPN <method-two-arc-vpn>` first. Each transfer will prompt for the usual password + Duo authentication.
+
+Upload a file to Muscadine:
+```{code-block}
+:caption: Terminal
+scp localfile <netid>@muscadine-node-1:/path/on/muscadine
+```
+
+Download a file from Muscadine:
+```{code-block}
+:caption: Terminal
+scp <netid>@muscadine-node-1:/path/on/muscadine ./localcopy
+```
+
+Add the `-r` flag to copy whole directories instead of single files.
 ````
 
 ````{tab-item} Rsync
@@ -73,6 +89,19 @@ SCP is pretty cool
 <br>
 <h1>Rsync</h1>
 
-Drew really likes rsync...
+Drew really likes rsync... and for good reason. `rsync` works like `scp` but only transfers the parts of files that are missing or changed, so it is much better for large files and whole directory trees. If a transfer dies halfway (a VPN hiccup, for example), simply run the same command again and rsync will pick up where it left off instead of starting over.
+
+Use it from your **local machine's** terminal, with the VPN connected if you are off campus, just like [scp](data-transfer.html?data-transfer=scp){.external target="_self"} above:
+
+```{code-block}
+:caption: Terminal
+rsync -avP localdir/ <netid>@muscadine-node-1:/work/users/<netid>/localdir/
+```
+
+- `-a` archive mode: copies recursively and preserves permissions and timestamps
+- `-v` verbose: shows what is being transferred
+- `-P` keeps partial files and shows progress, which is what makes resuming possible
+
+Swap the two paths to pull a directory from Muscadine down to your local machine instead.
 ````
 `````
