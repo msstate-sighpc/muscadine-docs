@@ -111,7 +111,7 @@ Current MVP: Drew Helgerson
 ```{tab-item} HPL
 :sync: hpl
 
-Stuff about HPL
+HPL (High Performance Linpack) solves a dense system of linear equations through an LU factorization. It measures how close a system can get to its theoretical peak FLOPS and is the benchmark used to rank the TOP500.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
@@ -124,7 +124,7 @@ Stuff about HPL
 ```{tab-item} MxP-HPL
 :sync: mxp-hpl
 
-Stuff about MxP-HPL
+MxP-HPL is a mixed-precision variant of HPL that runs its compute kernels in lower-precision arithmetic, trading raw numerical precision for higher effective throughput. It shows how much performance lower-precision matrix units can recover for HPL-style workloads.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
@@ -134,10 +134,10 @@ Stuff about MxP-HPL
 | 4th  | | | |
 | 5th  | | | |
 ```
-```{tab-item} HPCg
+```{tab-item} HPCG
 :sync: hpcg
 
-Stuff about HPCg
+HPCG (High Performance Conjugate Gradients) runs a sparse conjugate-gradient search kernel modeled after multigrid methods. Unlike HPL, it stresses memory bandwidth and latency rather than peak FLOPS.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
@@ -158,7 +158,7 @@ Stuff about HPCg
 ```{tab-item} HPL
 :sync: hpl
 
-Stuff about HPL
+HPL (High Performance Linpack) solves a dense system of linear equations through an LU factorization. It measures how close a system can get to its theoretical peak FLOPS and is the benchmark used to rank the TOP500.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
@@ -171,7 +171,7 @@ Stuff about HPL
 ```{tab-item} MxP-HPL
 :sync: mxp-hpl
 
-Stuff about MxP-HPL
+MxP-HPL is a mixed-precision variant of HPL that runs its compute kernels in lower-precision arithmetic, trading raw numerical precision for higher effective throughput. It shows how much performance lower-precision matrix units can recover for HPL-style workloads.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
@@ -181,10 +181,10 @@ Stuff about MxP-HPL
 | 4th  | | | |
 | 5th  | | | |
 ```
-```{tab-item} HPCg
+```{tab-item} HPCG
 :sync: hpcg
 
-Stuff about HPCg
+HPCG (High Performance Conjugate Gradients) runs a sparse conjugate-gradient search kernel modeled after multigrid methods. Unlike HPL, it stresses memory bandwidth and latency rather than peak FLOPS.
 
 | Rank | Owner               | 1-Node        | All-Node      |
 | ---- | ------------------- | ------------- | ------------- |
