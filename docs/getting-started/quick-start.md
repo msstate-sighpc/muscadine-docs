@@ -109,7 +109,7 @@ The simple answer is to build it from their source repository. The complex answe
 1. After building your binary, create a `.bin` in your home directory by running `mkdir ~/.bin`.
 2. Now move that binary into the `.bin` directory.
 3. Lastly, you'll need to add the path of that directory to your environment.
-4. Edit `~/.zshrc` adding `export PATH="$PATH:$(HOME)/.bin` to the end.
+4. Edit `~/.zshrc` adding `export PATH="$PATH:$(HOME)/.bin"` to the end.
 ```{note}
 NOTE: *You only need edit .zshrc once.* 
 ```

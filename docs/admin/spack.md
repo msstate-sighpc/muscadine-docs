@@ -7,7 +7,7 @@ Last updated July 8, 2024, by Huston Rogers (jhrogers)
 - v0: July 8, 2024, initial document
 - v1: September 5, 2024, updated to include new paths, new config information in section 1
 
-### Table of Contents
+## Table of Contents
 1. Installation and Global Configs 
 2. Sourcing spack
 3. Creating an Environment

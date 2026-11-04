@@ -22,7 +22,7 @@ apptainer pull $SIF_PATH docker://vllm/vllm-openai-rocm:$VERSION
 
 ## Choosing a model
 
-Due to Muscadine's hardware, careful consideration must be taken in choosing a model to run. If you are unfamiliar with Muscadine's hardare, read over its [Specifications](../clusters/muscadine.html). The key constraints are as follows:
+Due to Muscadine's hardware, careful consideration must be taken in choosing a model to run. If you are unfamiliar with Muscadine's hardare, read over its [Specifications](../clusters/muscadine.md). The key constraints are as follows:
 
 - `gfx90a` compute architecture: Datatypes are limited to fp64,fp32,fp16,bf16,int64,int32,int8,int4; notably, these GPUs do *not* support any datatypes starting in 'nv' (e.g. nvfp8,nvfp4) nor does it support *some* fp8 models.
 - VRAM: Each MI210 contains 64GB of HBM2e memory. While it offers very high bandwidth and low latency, capacity is relatively limited compared to modern offerings.
