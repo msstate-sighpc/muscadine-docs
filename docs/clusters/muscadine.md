@@ -47,9 +47,9 @@ Muscadine is MSU Special Interest Group in High Performance Computing (SIG-HPC)'
 ```{image} ../_static/clusters/muscadine/muscadine-die.webp
 ```
 ````
-Muscadine uses *AMD EPYC Genoa 9454P* running AMD's Zen 4 architecture. This architecture divides the CPU's cores into groups called *core complexes* (CCX) which share L3 cache. CCXs also group into dies called CCDs. CCXs act as NUMA partitions and interface with a I/O Die which handles communication between NUMA partitions and the rest of the system. There are 12 memory controllers for this generation, meaning there are 3 per CCD hardware defined. 
+Muscadine uses *AMD EPYC Genoa 9454P* running AMD's Zen 4 architecture. This architecture divides the CPU's cores into groups called *core complexes* (CCX) which share L3 cache. On Zen 4, each CCX lives on its own chiplet called a *core complex die* (CCD). CCXs act as NUMA partitions and interface with an I/O die which handles communication between NUMA partitions and the rest of the system. All 12 of this generation's DDR5 memory controllers sit on the I/O die rather than on the CCDs. 
 
-Specifically for Muscadine, there are 6 cores per CCX, 2 CCX per CCD, and 4 CCD per node. Additionally, each memory controller has its own 16GB memory DIMM, so most programs should optimize to the closest memory. Slurm is designed to be NUMA aware and our provided compilers are optimized for our architecture. More information on using architecture aware Slurm submissions, refer to **Advanced Topics → Slurm Tips & Tricks**.
+Specifically for Muscadine, the 9454P has 8 CCDs per node, each with 6 of its 8 cores enabled, giving 8 CCXs of 6 cores and 256MB of L3 cache (8 × 32MB). Additionally, each memory controller drives its own 16GB memory DIMM (12 × 16GB = 192GB), so most programs should optimize to the closest memory. Slurm is designed to be NUMA aware and our provided compilers are optimized for our architecture. More information on using architecture aware Slurm submissions, refer to [Advanced Topics → Slurm Tips & Tricks](/adv/slurm.md).
 
 Talk about Zen4 pipeline
 
@@ -63,11 +63,11 @@ Talk about Zen4 pipeline
 ```{image} ../_static/clusters/muscadine/mi210-die.jpg
 ```
 ````
-Muscadine is equipped with an AMD MI210 64GB Accelerator in each node. This accelerator is based on AMD's CDNA2 architecture, equipped with 64GB of HBM2e, 6,656 stream processors and 104 compute units clocked at 1700 MHz. The AMD MI210 is excelent at several tasks ranging from physics simulation to AI inference. The table below shows the performance of the GPU at various different precisions (in TFLOPs). 
+Muscadine is equipped with an AMD MI210 64GB Accelerator in each node. This accelerator is based on AMD's CDNA2 architecture, equipped with 64GB of HBM2e, 6,656 stream processors and 104 compute units clocked at 1700 MHz. The AMD MI210 is excellent at several tasks ranging from physics simulation to AI inference. The table below shows the performance of the GPU at various different precisions (in TFLOPs, except INT8 which is in TOPS). CDNA2 has no advertised INT4 rate.
 
-| FP64 | Matrix FP64 | FP32 | Matrix FP32 | FP16 | BF16 | INT8/INT4 |
-| ---- | ----------- | ---- | ----------- | ---- | ---- | --------- |
-| 22.6 | 45.3        | 22.6 | 45.3        | 181  | 181  | 181       |
+| FP64 | Matrix FP64 | FP32 | Matrix FP32 | FP16 | BF16 | INT8 |
+| ---- | ----------- | ---- | ----------- | ---- | ---- | ---- |
+| 22.6 | 45.3        | 22.6 | 45.3        | 181  | 181  | 362  |
 
 - GPU Specifications: [AMD Instinct MI210](https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html)
 
