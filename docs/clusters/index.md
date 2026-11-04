@@ -33,7 +33,7 @@ The Pi4 Cluster is a 21 node, 175 GFLOP cluster designed to teach HPC basics to 
 :img-top: ../_static/clusters/pi4/pi4-cluster-2.webp
 :img-alt: Image of the Student's Raspberry Pi5 cluster.
 
-The Pi5 Cluster is a __ node, __ TFLOP cluster designed to teach HPC basics to MSU students.
+The Pi5 Cluster is a Raspberry Pi 5 based cluster designed to teach HPC basics to MSU students.
 ````
 `````
 
