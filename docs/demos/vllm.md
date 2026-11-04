@@ -4,7 +4,7 @@ vLLM is a Large Language Model (LLM) runtime designed for high performance and s
 
 ## Setup
 
-Muscadine uses AMD Instinct MI210 GPUs. vLLM does not provide pre-built wheels for ROCM, but they do provide containers. We'll be using [Apptainer](/path/to/apptainer.md) to run the container
+Muscadine uses AMD Instinct MI210 GPUs. vLLM does not provide pre-built wheels for ROCM, but they do provide containers. We'll be using [Apptainer](https://apptainer.org/docs/) to run the container
 
 ### Load the `apptainer` LMOD module
 ```text
