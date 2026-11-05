@@ -70,6 +70,7 @@ getting-started/index
 getting-help
 clusters/index
 monitoring/index
+available-modules
 building-software
 demos/index
 sup/index
