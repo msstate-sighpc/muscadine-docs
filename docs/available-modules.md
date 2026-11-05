@@ -74,7 +74,7 @@ Newer Python releases often lack prebuilt wheels. If `pip install` fails on 3.14
 
 ## AMD GPU Stack (ROCm)
 
-Everything GPU-related lives here. The `rocm` module loads the full stack:
+Everything GPU-related lives here. The `rocm` module loads the full stack (**Bold is the Default Version**):
 
 ```bash
 module load rocm/v7.2.3
@@ -102,14 +102,8 @@ module list               # check which component versions came in
 | `rocprofiler-sdk` | 7.2.3, **10.0.0** | Profiling and tracing for GPU applications |
 | `rocm-py` | v1.0 | Containerized ROCm tools run through Apptainer. Loads `apptainer` automatically |
 
-Bold is the default version.
-
 ```{warning}
-`rocm` is v7.2.3, but most components default to **10.0.0**. Loading components without a version can mix the two stacks. Pin versions explicitly:
-
-```bash
-module load rocm/v7.2.3 hip/7.2.3 rocrand/7.2.3 rocprim/7.2.3
-```
+`rocm` is v7.2.3, but most components default to **10.0.0**. Loading components without a version can mix the two stacks. Pin versions explicitly with `module load rocm/v7.2.3 hip/7.2.3 rocrand/7.2.3 rocprim/7.2.3`.
 
 `hipblaslt`, `hipfft`, and `hiprand` only exist as 10.0.0. `hipsparse` only exists as 7.2.3.
 ```
