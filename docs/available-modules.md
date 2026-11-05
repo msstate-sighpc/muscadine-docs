@@ -1,4 +1,4 @@
-# Available Software
+# Available Modules
 
 This page lists the software installed on Muscadine and how to load it. Software is managed with [Lmod](https://lmod.readthedocs.io) environment modules, so you never have to guess a path or set variables by hand.
 
