@@ -140,9 +140,6 @@ vLLM runs on the compute node you allocated, so OpenCode must be started somewhe
 
 ## Troubleshooting
 
-**`opencode: command not found`**
-: The module is not loaded. Run `module load opencode`.
-
 **The agent ignores Muscadine conventions**
 : Make sure you started it through the module, not from your own copy of the binary. Check with `echo $OPENCODE_SYSTEM_PROMPT`; it should print a path.
 
