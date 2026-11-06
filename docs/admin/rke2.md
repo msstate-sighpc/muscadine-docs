@@ -3,6 +3,7 @@
 ## Table of Contents:
 - [Head Node](#head-node)
 - [Compute Node](#compute-node)
+- [MetalLB](#metallb)
 - [Usage](#usage)
 
 ---
@@ -26,7 +27,10 @@ We have the current configuration here:
 ```{code-block} yaml
 :caption: /etc/rancher/rke2/config.yaml
 write-kubeconfig-mode: "0644"
+enable-servicelb: false
 ```
+
+`enable-servicelb` is set to false because RKE2's built-in ServiceLB conflicts with MetalLB, which we run instead (see [MetalLB](#metallb)).
 
 We also need to set the HTTP/HTTPS proxy so that rke2 can pull the images from *da web*.
 ```bash
@@ -116,7 +120,125 @@ Now that rke2 is installed, enabled, and configured, you can exit and build the 
 
 ## Usage
 
-### Proxy/HA
+### MetalLB
+
+MetalLB gives the cluster a `type: LoadBalancer` implementation: it hands out virtual
+IPs from our private IP range and answers ARP for them (layer 2 mode). On Muscadine the pool
+is a small section (`192.168.34.192/26`) at the top of our overall range (`192.168.34.0/24`)
+
+#### Disable ServiceLB first
+
+RKE2 ships klipper-based ServiceLB, and running it next to MetalLB causes IP conflicts.
+Set `enable-servicelb: false` in `/etc/rancher/rke2/config.yaml` on the head node (as
+shown in [Configuration](#configuration)) and restart:
+
+```bash
+systemctl restart rke2-server.service
+```
+
+The restart bounces the control-plane and kube-proxy. Verify no `svclb-*` pods:
+
+```bash
+kubectl get pods -n kube-system | grep svclb
+```
+
+#### Install
+
+MetalLB's speaker pods need elevated network permissions, so the namespace must be
+labelled for the privileged pod-security profile before install:
+
+```bash
+helm repo add metallb https://metallb.github.io/metallb
+helm repo update
+kubectl create namespace metallb-system
+kubectl label namespace metallb-system \
+  pod-security.kubernetes.io/enforce=privileged \
+  pod-security.kubernetes.io/audit=privileged \
+  pod-security.kubernetes.io/warn=privileged \
+  --overwrite
+helm install metallb metallb/metallb --namespace metallb-system --wait
+```
+
+Helm may print `Warning: unrecognized format "cidr"`; it does not affect the install -
+the chart deploys fine and pools are configured below, not via values.
+
+#### Address pool and advertisement
+
+Pools and advertisements are configured through MetalLB's CRDs. The manifest lives
+in `/apps/other/rke2-images` next to the others:
+
+```{code-block} yaml
+:caption: /apps/other/rke2-images/metallb/metallb-config.yaml
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: rke2-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.34.192/26
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: rke2-l2-advert
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - rke2-pool
+```
+
+```bash
+kubectl apply -f metallb-config.yaml
+```
+
+```{note}
+MetalLB will allocate the first address of the range (`192.168.34.192`, which is
+the network address of the /26). To avoid handing that out, replace the CIDR with an
+explicit range such as `192.168.34.193-192.168.34.254`. In our case this is fine,
+because the network isn't a /26.
+```
+
+#### Exposing a service
+
+Give the service a pool annotation and set its type to `LoadBalancer`:
+
+```{code-block} yaml
+:caption: example service (muscadine-llm)
+apiVersion: v1
+kind: Service
+metadata:
+  name: muscadine-llm
+  namespace: default
+  annotations:
+    metallb.io/address-pool: rke2-pool
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http-muscadine-llm
+      port: 80
+      protocol: TCP
+      targetPort: 6767
+  selector:
+    app: muscadine-llm
+```
+
+`kubectl get svc` should then show an `EXTERNAL-IP` from the pool.
+
+#### Verifying
+
+```{warning}
+The head node's shell has the HTTP proxy (`dprox.hpc.msstate.edu`) in its environment,
+so a plain `curl http://<external-ip>/` gets sent to the proxy, which returns an
+`ERR_CONNECT_FAIL` error page. Bypass it with `--noproxy`:
+```
+
+```bash
+curl --noproxy '*' http://<external-ip>/
+```
+
+In the case of vLLM, you'll get a 404 and `{"detail":"Not Found"}`. As long as the
+connection made it to the pod and a response came back, MetalLB is working.
 
 ### Slinky
 
