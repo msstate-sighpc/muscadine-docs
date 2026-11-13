@@ -508,7 +508,7 @@ The recommended way to run Fierro is using a SBATCH script. The following SBATCH
 #SBATCH --gres=gpu:1
 #SBATCH --chdir=<path/to/dir>
 #SBATCH --time=0-0:30:00
-#SBATCH --output=-%j.out
+#SBATCH --output=%j.out
 
 module load fierro
 
