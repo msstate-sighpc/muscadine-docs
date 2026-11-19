@@ -434,7 +434,7 @@ spec:
    - `inst.sshd`: this enables an SSH server during installation, if you want to
      use it instead of VNC for watching the status of the installation (use the
      `tmux a` command to attach to the install log)
-   - `SYSTYPE=3  ISSERVER=1  ISVMGUEST=1`: these are passed to the kickstart
+   - `SYSTYPE=1  ISSERVER=1  ISVMGUEST=1`: these are passed to the kickstart
      script and change what settings are applied, configs are copied, etc.
 4. Once the install is complete, stop the VM, change the VM's `yaml` file to
    remove the ISO mount, then start the VM. Once it's up, you should be able to
