@@ -26,7 +26,7 @@ vim /etc/rancher/rke2/config.yaml
 We have the current configuration here:
 ```{code-block} yaml
 :caption: /etc/rancher/rke2/config.yaml
-write-kubeconfig-mode: "0644"
+write-kubeconfig-mode: "0600"
 enable-servicelb: false
 ```
 
@@ -55,6 +55,10 @@ Lastly, export the utilities for each shell entry. Add the following to the end 
 ```bash
 export PATH=$PATH:/var/lib/rancher/rke2/bin/
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+```
+
+```{important}
+The kubeconfig file must be `0600` for security, since anyone with access to the file can create, modify, or delete any resource in Kubernetes, including pods, storage, secrets, etc. If you want to access kubectl commands without becoming root, copy the file to your `~/.kube/config` and keep it `0600` so only you can read it, then change your `KUBECONFIG` variable to point to your copy.
 ```
 
 When rke2 runs for the first time, it creates a token at `/var/lib/rancher/rke2/server/node-token`. Read that token and save it somewhere, you'll need it.
