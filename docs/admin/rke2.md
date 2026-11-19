@@ -386,6 +386,22 @@ spec:
     requests:
       storage: 50Gi
 ---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: muscadine-ethbridge-nad
+  namespace: default
+spec:
+  config: '{
+      "cniVersion": "0.3.1",
+      "type": "bridge",
+      "bridge": "br0",
+      "isGateway": false,
+      "ipMasq": false,
+      "hairpinMode": true,
+      "ipam": {}
+    }'
+---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
@@ -416,10 +432,12 @@ spec:
                 bus: sata
           interfaces:
             - name: default
-              masquerade: {}
+              bridge: {}
+              macAddress: "<CHANGE-ME>" # the ARC has a format for VM-guest MAC addresses which you should follow when possible
       networks:
         - name: default
-          pod: {}
+          multus:
+            networkName: muscadine-ethbridge-nad
       volumes:
         - name: rootdisk
           persistentVolumeClaim:
