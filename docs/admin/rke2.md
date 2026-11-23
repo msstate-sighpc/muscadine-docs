@@ -447,7 +447,7 @@ spec:
             claimName: rocky-iso
       terminationGracePeriodSeconds: 180
 ```
-3. In the console, press <kbd>Tab</kbd> to change the kernel command-line options
+3. In the console, press {kbd}`Tab` to change the kernel command-line options
    for the installer
    - `inst.ks=nfs:192.168.13.43:/patches/os-install/rocky/9.7/rocky.ks`: this
      tells the installer to use the kickstart script from the ARC patches server,
